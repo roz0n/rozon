@@ -2,6 +2,7 @@ import { IndexPageProps, Post } from "..";
 import styles from "../styles/Home.module.css";
 import Ghost from "../ghost";
 import Link from "next/link";
+import text from "../text/Index.text";
 import Layout from "../components/Layout";
 import Header from "../components/Header";
 import Lede from "../components/Lede";
@@ -68,7 +69,8 @@ const Home: React.FC<{ creations: Post[]; thoughts: Post[] }> = (props) => {
       <main className={styles.container}>
         <Header />
         <Lede />
-        <FeatureSection title={"Creations"}>
+
+        <FeatureSection title={text.primary["en"]}>
           {creations.map((post, i) => (
             <div key={post.slug}>
               <Link href={"/posts/[slug]"} as={`/posts/${post.slug}`}>
@@ -81,7 +83,7 @@ const Home: React.FC<{ creations: Post[]; thoughts: Post[] }> = (props) => {
           ))}
         </FeatureSection>
 
-        <FeatureSection title={"Thoughts"}>
+        <FeatureSection title={text.secondary["en"]}>
           {thoughts.map((post, i) => (
             <div key={post.slug}>
               <Link href={"/posts/[slug]"} as={`/posts/${post.slug}`}>
@@ -95,7 +97,6 @@ const Home: React.FC<{ creations: Post[]; thoughts: Post[] }> = (props) => {
         </FeatureSection>
 
         <ContactForm />
-
         <Footer />
       </main>
     </Layout>
