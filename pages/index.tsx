@@ -1,36 +1,50 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.scss";
+import Link from "next/link";
 
-const CONTENT_API_KEY = "4355061798b55c1f2932c6caea";
-const BLOG_URL = "https://rozon.herokuapp.com/";
+const { CONTENT_API_KEY, BLOG_URL } = process.env;
 
 export const getStaticProps = async ({ params }) => {
-  const postTitles = await getPostTitles();
+  const posts = await getPosts();
+
   return {
-    props: { postTitles },
+    props: { posts },
   };
 };
 
-type Post = {};
+type Post = {
+  id: string;
+  title: string;
+  slug: string;
+  custom_excerpt: string;
+  reading_time: string;
+  published_at: string;
+};
 
-async function getPostTitles() {
-  // https://demo.ghost.io/ghost/api/v3/content/posts/?key=22444f78447824223cefc48062
-  const res = await fetch(
-    `${BLOG_URL}/ghost/api/v3/content/posts/?key=${CONTENT_API_KEY}&fields=id,title,excerpt,reading_time,created_at,updatedAt,published_at`
+async function getPosts() {
+  const req = await fetch(
+    `${BLOG_URL}/ghost/api/v3/content/posts/?key=${CONTENT_API_KEY}&fields=id,title,slug,custom_excerpt,reading_time,published_at`
   ).then((res) => res.json());
-  const titles = res.posts.map((post) => post.title);
 
-  console.log("Post titles:", titles);
-  return titles;
+  console.log("Posts:", req);
+  return req.posts;
 }
 
-const Home: React.FC<{ postTitles: string[] }> = (props) => {
-  const { postTitles } = props;
+const Home: React.FC<{ posts: Post[] }> = (props) => {
+  const { posts } = props;
 
   return (
     <div>
-      {postTitles.map((title) => (
-        <h1>{title}</h1>
+      {posts.map((post, i) => (
+        <div key={post.slug}>
+          <Link href={"/posts/[slug]"} as={`/posts/${post.slug}`}>
+            <a>
+              <h1>{post.title}</h1>
+            </a>
+          </Link>
+
+          <p>{post.custom_excerpt}</p>
+        </div>
       ))}
     </div>
   );
