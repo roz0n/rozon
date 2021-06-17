@@ -1,43 +1,63 @@
+import { IndexPageProps, Post } from "..";
 import styles from "../styles/Home.module.css";
 import Ghost from "../ghost";
-import { Post } from "..";
 import Link from "next/link";
 import Layout from "../components/Layout";
 import Header from "../components/Header";
 import Lede from "../components/Lede";
+import FeatureSection from "../components/FeatureSection";
+import ContactForm from "../components/ContactForm";
+import Footer from "../components/Footer";
 
 // Data
 
 async function getCreations() {
-  const posts = await Ghost.posts.browse({
-    include: ["tags", "authors"],
-    filter: "tag:creations",
-  });
+  try {
+    const posts = await Ghost.posts.browse({
+      include: ["tags", "authors"],
+      filter: "tag:creations",
+    });
 
-  console.log("Creations:", posts);
-  return posts;
+    console.log("Creations:", posts);
+    return posts;
+  } catch (error) {
+    throw new Error("Unable to fetch Creations");
+  }
 }
 
 async function getThoughts() {
-  const posts = await Ghost.posts.browse({
-    include: ["tags", "authors"],
-    filter: "tag:thoughts",
-  });
+  try {
+    const posts = await Ghost.posts.browse({
+      include: ["tags", "authors"],
+      filter: "tag:thoughts",
+    });
 
-  console.log("Thoughts:", posts);
-  return posts;
+    console.log("Thoughts:", posts);
+    return posts;
+  } catch (error) {
+    throw new Error("Unable to fetch Thoughts");
+  }
 }
 
 // Props
 
 export const getStaticProps = async ({ params }) => {
-  const creations = await getCreations();
-  const thoughts = await getThoughts();
+  let props: IndexPageProps = {};
 
-  return {
-    props: { creations, thoughts },
-    revalidate: 30,
-  };
+  try {
+    const creations = await getCreations();
+    const thoughts = await getThoughts();
+
+    props.creations = creations;
+    props.thoughts = thoughts;
+  } catch (error) {
+    props.error = true;
+  } finally {
+    return {
+      props,
+      revalidate: 30,
+    };
+  }
 };
 
 const Home: React.FC<{ creations: Post[]; thoughts: Post[] }> = (props) => {
@@ -48,9 +68,7 @@ const Home: React.FC<{ creations: Post[]; thoughts: Post[] }> = (props) => {
       <main className={styles.container}>
         <Header />
         <Lede />
-
-        <section>
-          <h2>Creations</h2>
+        <FeatureSection title={"Creations"}>
           {creations.map((post, i) => (
             <div key={post.slug}>
               <Link href={"/posts/[slug]"} as={`/posts/${post.slug}`}>
@@ -61,10 +79,9 @@ const Home: React.FC<{ creations: Post[]; thoughts: Post[] }> = (props) => {
               <p>{post.custom_excerpt}</p>
             </div>
           ))}
-        </section>
+        </FeatureSection>
 
-        <section>
-          <h2>Thoughts</h2>
+        <FeatureSection title={"Thoughts"}>
           {thoughts.map((post, i) => (
             <div key={post.slug}>
               <Link href={"/posts/[slug]"} as={`/posts/${post.slug}`}>
@@ -75,8 +92,11 @@ const Home: React.FC<{ creations: Post[]; thoughts: Post[] }> = (props) => {
               <p>{post.custom_excerpt}</p>
             </div>
           ))}
-        </section>
-        
+        </FeatureSection>
+
+        <ContactForm />
+
+        <Footer />
       </main>
     </Layout>
   );
