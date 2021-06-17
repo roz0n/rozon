@@ -1,8 +1,8 @@
 import { IndexPageProps, Post } from "..";
 import styles from "../styles/Home.module.css";
+import text from "../text/Index.text";
 import Ghost from "../ghost";
 import Link from "next/link";
-import text from "../text/Index.text";
 import Layout from "../components/Layout";
 import Header from "../components/Header";
 import Lede from "../components/Lede";
