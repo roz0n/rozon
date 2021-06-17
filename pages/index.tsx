@@ -70,7 +70,7 @@ const Home: React.FC<{ creations: Post[]; thoughts: Post[] }> = (props) => {
         <Header />
         <Lede />
 
-        <FeatureSection title={text.primary["en"]}>
+        <FeatureSection title={text.primaryFeatureSectionHeader["en"]}>
           {creations.map((post, i) => (
             <div key={post.slug}>
               <Link href={"/posts/[slug]"} as={`/posts/${post.slug}`}>
@@ -83,7 +83,7 @@ const Home: React.FC<{ creations: Post[]; thoughts: Post[] }> = (props) => {
           ))}
         </FeatureSection>
 
-        <FeatureSection title={text.secondary["en"]}>
+        <FeatureSection title={text.secondaryFeatureSectionHeader["en"]}>
           {thoughts.map((post, i) => (
             <div key={post.slug}>
               <Link href={"/posts/[slug]"} as={`/posts/${post.slug}`}>
