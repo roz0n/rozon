@@ -1,4 +1,4 @@
-import styles from "../styles/Lede.module.scss";
+import styles from "../styles/Lede.module.css";
 import text from "../text/Lede.text";
 
 const Lede: React.FC = (props) => {

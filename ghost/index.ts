@@ -1,7 +1,7 @@
 import GhostContentAPI from "@tryghost/content-api";
 
 const Ghost = new GhostContentAPI({
-  host: process.env.GHOST_SITE_URL,
+  url: process.env.GHOST_SITE_URL,
   key: process.env.CONTENT_API_KEY,
   version: "v3",
 });

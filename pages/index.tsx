@@ -1,4 +1,4 @@
-import styles from "../styles/Home.module.scss";
+import styles from "../styles/Home.module.css";
 import Ghost from "../ghost";
 import { Post } from "..";
 import Link from "next/link";
@@ -47,12 +47,10 @@ const Home: React.FC<{ creations: Post[]; thoughts: Post[] }> = (props) => {
     <Layout>
       <main className={styles.container}>
         <Header />
-
         <Lede />
 
         <section>
           <h2>Creations</h2>
-
           {creations.map((post, i) => (
             <div key={post.slug}>
               <Link href={"/posts/[slug]"} as={`/posts/${post.slug}`}>
@@ -67,7 +65,6 @@ const Home: React.FC<{ creations: Post[]; thoughts: Post[] }> = (props) => {
 
         <section>
           <h2>Thoughts</h2>
-
           {thoughts.map((post, i) => (
             <div key={post.slug}>
               <Link href={"/posts/[slug]"} as={`/posts/${post.slug}`}>
@@ -79,6 +76,7 @@ const Home: React.FC<{ creations: Post[]; thoughts: Post[] }> = (props) => {
             </div>
           ))}
         </section>
+        
       </main>
     </Layout>
   );
