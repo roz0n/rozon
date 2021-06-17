@@ -1,53 +1,86 @@
-import Head from "next/head";
 import styles from "../styles/Home.module.scss";
+import Ghost from "../ghost";
+import { Post } from "..";
 import Link from "next/link";
+import Layout from "../components/Layout";
+import Header from "../components/Header";
+import Lede from "../components/Lede";
 
-const { CONTENT_API_KEY, BLOG_URL } = process.env;
+// Data
+
+async function getCreations() {
+  const posts = await Ghost.posts.browse({
+    include: ["tags", "authors"],
+    filter: "tag:creations",
+  });
+
+  console.log("Creations:", posts);
+  return posts;
+}
+
+async function getThoughts() {
+  const posts = await Ghost.posts.browse({
+    include: ["tags", "authors"],
+    filter: "tag:thoughts",
+  });
+
+  console.log("Thoughts:", posts);
+  return posts;
+}
+
+// Props
 
 export const getStaticProps = async ({ params }) => {
-  const posts = await getPosts();
+  const creations = await getCreations();
+  const thoughts = await getThoughts();
 
   return {
-    props: { posts },
-    revalidate: 30
+    props: { creations, thoughts },
+    revalidate: 30,
   };
 };
 
-type Post = {
-  id: string;
-  title: string;
-  slug: string;
-  custom_excerpt: string;
-  reading_time: string;
-  published_at: string;
-};
-
-async function getPosts() {
-  const req = await fetch(
-    `${BLOG_URL}/ghost/api/v3/content/posts/?key=${CONTENT_API_KEY}&fields=id,title,slug,custom_excerpt,reading_time,published_at`
-  ).then((res) => res.json());
-
-  console.log("Posts:", req);
-  return req.posts;
-}
-
-const Home: React.FC<{ posts: Post[] }> = (props) => {
-  const { posts } = props;
+const Home: React.FC<{ creations: Post[]; thoughts: Post[] }> = (props) => {
+  const { creations, thoughts } = props;
 
   return (
-    <div>
-      {posts.map((post, i) => (
-        <div key={post.slug}>
-          <Link href={"/posts/[slug]"} as={`/posts/${post.slug}`}>
-            <a>
-              <h1>{post.title}</h1>
-            </a>
-          </Link>
+    <Layout>
+      <main className={styles.container}>
+        <Header />
 
-          <p>{post.custom_excerpt}</p>
-        </div>
-      ))}
-    </div>
+        <Lede />
+
+        <section>
+          <h2>Creations</h2>
+
+          {creations.map((post, i) => (
+            <div key={post.slug}>
+              <Link href={"/posts/[slug]"} as={`/posts/${post.slug}`}>
+                <a>
+                  <h1>{post.title}</h1>
+                </a>
+              </Link>
+              <p>{post.custom_excerpt}</p>
+            </div>
+          ))}
+        </section>
+
+        <section>
+          <h2>Thoughts</h2>
+
+          {thoughts.map((post, i) => (
+            <div key={post.slug}>
+              <Link href={"/posts/[slug]"} as={`/posts/${post.slug}`}>
+                <a>
+                  <h1>{post.title}</h1>
+                </a>
+              </Link>
+              <p>{post.custom_excerpt}</p>
+            </div>
+          ))}
+        </section>
+      </main>
+    </Layout>
   );
 };
 

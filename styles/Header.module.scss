@@ -1,0 +1,17 @@
+.container {
+    width: 100%;
+}
+
+.header {
+    display: flex;
+    align-items: flex-start;
+    height: 8.125rem;
+    background-color: red;
+}
+
+.navigation {
+    display: flex;
+    align-items: flex-start;
+    height: 4.5rem;
+    background-color: blue;
+}
