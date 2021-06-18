@@ -2,7 +2,7 @@ import { IndexPageProps, Post } from "..";
 import styles from "../styles/Home.module.css";
 import text from "../text/Index.text";
 import Ghost from "../ghost";
-import Link from "next/link";
+import Head from "next/head";
 import Layout from "../components/Layout";
 import Header from "../components/Header";
 import Lede from "../components/Lede";
@@ -68,6 +68,11 @@ const Home: React.FC<{ creations: Post[]; thoughts: Post[] }> = (props) => {
 
   return (
     <Layout>
+      <Head>
+        <title>Arnold Rozon &middot; Engineering &amp; Design</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
+
       <main className={styles.container}>
         <Header />
         <Lede />
