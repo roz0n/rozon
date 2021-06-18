@@ -4,7 +4,8 @@
 
 .header {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
+  justify-content: space-between;
   height: 8.125rem;
   /* background-color: red; */
   border-bottom: 1px solid #21262d;
@@ -14,8 +15,8 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding-top: .5rem;
-  padding-bottom: .5rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
   /* background-color: blue; */
   border-bottom: 1px solid #21262d;
 }

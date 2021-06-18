@@ -6,13 +6,11 @@ const HeaderButton: React.FC<HeaderButtonProps> = (props) => {
   let { icon, alt, url } = props;
 
   return (
-    <button className={styles.container}>
-      <a href={url} target="_blank" rel="noopener noreferrer">
-        <article className={styles.icon}>
-          <Image src={icon} alt={alt} />
-        </article>
-      </a>
-    </button>
+    <a href={url} target="_blank" rel="noopener noreferrer">
+      <button className={styles.container}>
+        <Image src={icon} alt={alt} />
+      </button>
+    </a>
   );
 };
 
