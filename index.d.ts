@@ -47,6 +47,15 @@ export type FeatureSectionBlogPostProps = {
   excerpt: string;
 };
 
+export type WeatherDataObject = {
+  temp: string;
+  city_name: string;
+  state_code: string;
+  weather: {
+    code: number;
+  };
+};
+
 /**
  * Page specific
  */

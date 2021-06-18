@@ -1,4 +1,5 @@
 import styles from "../styles/Footer.module.css";
+import { WeatherDataObject } from "..";
 import { useEffect, useState } from "react";
 import convertWeatherbitIcon from "../utils/convertWeatherbitIcon";
 import Image from "next/image";
@@ -6,20 +7,11 @@ import SpotifyLogo from "../public/images/index/spotify-logo.svg";
 
 async function getWeatherData() {
   try {
-    return await fetch("/api/weather").then((res) => res.json());;
+    return await fetch("/api/weather").then((res) => res.json());
   } catch (error) {
     console.log("Error fetching weather data");
   }
 }
-
-export type WeatherDataObject = {
-  temp: string;
-  city_name: string;
-  state_code: string;
-  weather: {
-    code: number
-  }
-};
 
 const Footer: React.FC = (props) => {
   const [weatherData, setWeatherData] = useState<WeatherDataObject[]>(null);
@@ -29,7 +21,7 @@ const Footer: React.FC = (props) => {
     async function fetchWeather() {
       return await getWeatherData();
     }
-    fetchWeather().then((data) => setWeatherData(data.data));
+    fetchWeather().then((res) => setWeatherData(res.data));
   }, []);
 
   return (
@@ -49,8 +41,12 @@ const Footer: React.FC = (props) => {
       <article className={styles.weatherContainer}>
         {weatherData && weatherData.length > 0 && (
           <>
-            <i className={`wi ${convertWeatherbitIcon(weatherData[0].weather.code)}`} />
-            <span>&nbsp;{weatherData[0].temp}&deg; &nbsp;</span>
+            <i
+              className={`wi ${convertWeatherbitIcon(
+                weatherData[0].weather.code
+              )}`}
+            />
+            <span>&nbsp;{Math.round(+weatherData[0].temp)}&deg; &nbsp;</span>
             <span>in&nbsp;</span>
             <span>
               {weatherData[0].city_name}, {weatherData[0].state_code}
