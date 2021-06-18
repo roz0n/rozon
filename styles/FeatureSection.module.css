@@ -1,3 +1,17 @@
 .container {
-    background-color: lightgreen;
+  /* background-color: lightgreen; */
+}
+
+.titleContainer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  border-top: 1px solid #21262d;
+  border-bottom: 1px solid #21262d;
+  font-family: "Panchang-Bold";
+  text-transform: uppercase;
+  font-size: 0.75rem;
+}
+
+.title {
 }

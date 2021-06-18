@@ -8,7 +8,7 @@ const text = {
     es: `xxx`,
   },
   ledeHeader: {
-    en: `I’m a Software Engineer and Multidisciplinary Designer building native mobile applications and the backend services that power them. I’m committed to sound architectural principles, intuitive user-experiences, rigorous testing, and a firm belief in digital craftsmanship.`,
+    en: `I’m a Software Engineer and Multidisciplinary Designer building native mobile applications and the backend services that power them. I’m committed to sound architectural principles, intuitive experiences, rigorous testing, and a firm belief in digital craftsmanship.`,
     es: `xxx`,
   },
   ledeSubheader: {
