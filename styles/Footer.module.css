@@ -1,15 +1,17 @@
 .container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-column-gap: 0;
+  grid-row-gap: 0;
+  grid-template-rows: 1;
   height: 6.5rem;
   border-top: 1px solid #21262d;
-  padding: 4rem 0;
 }
 
 .musicContainer {
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 
 .musicTrackContainer {
@@ -21,11 +23,26 @@
   font-weight: 300;
   font-size: 0.75rem;
   margin: 0;
-  margin-bottom: 0.25rem;
 }
 
 .musicTrackTitle {
   font-weight: 500;
   font-size: 0.85rem;
   margin-left: 0.5rem;
+}
+
+.copyrightContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+}
+
+.weatherContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  font-size: 0.85rem;
 }

@@ -16,12 +16,20 @@ const Footer: React.FC = (props) => {
         </span>
       </article>
 
-      <article>
+      <article className={styles.copyrightContainer}>
         <span>&copy; 2021</span>
       </article>
 
-      <article>
-        <span>xxx</span>
+      <article className={styles.weatherContainer}>
+        <span>
+          43° &nbsp;
+        </span>
+        <span>
+          in&nbsp;
+        </span>
+        <span>
+          Chicago, IL
+        </span>
       </article>
     </footer>
   );
