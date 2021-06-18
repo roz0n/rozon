@@ -28,6 +28,12 @@ export type HeaderButtonProps = {
 
 export type HeaderNavigationItem = HeaderButtonProps;
 
+export type ContactFormButtonProps = {
+  label: string;
+};
+
+export type ContactFormButtonItem = ContactFormButtonProps;
+
 /**
  * Page specific
  */

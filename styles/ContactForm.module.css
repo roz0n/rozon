@@ -1,3 +1,67 @@
 .container {
-    background-color: lightsalmon;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 7.5rem;
+  border-top: 1px solid #21262d;
+  font-family: Inter;
+  font-size: 1.5rem;
+}
+
+.formContainer {
+  width: 80%;
+  margin: 2.5rem;
+  border: 1px solid #21262d;
+  border-radius: 1.75rem;
+}
+
+.form {
+  display: grid;
+}
+
+.emailField {
+  background-color: transparent;
+  border: none;
+  height: 4.5rem;
+  padding: 1.5rem;
+  font-size: 1rem;
+  outline: none;
+  color: #efefef;
+  border-bottom: 1px solid #21262d;
+}
+
+.inquiryField {
+  background-color: transparent;
+  border: none;
+  height: 6rem;
+  padding: 1.5rem;
+  font-size: 1rem;
+  outline: none;
+  color: #efefef;
+  resize: none;
+  font-family: "Inter";
+}
+
+.toolbar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+.submitButton {
+  background-color: #21262d;
+  border: 0;
+  padding: 1rem 1.5rem;
+  border-radius: 0.875rem;
+  color: #efefef;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.wordcount {
+  font-size: 1rem;
+  padding: 0 1rem;
+  font-family: monospace;
 }

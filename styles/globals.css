@@ -2,9 +2,9 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: Inter;
-  background-color: #1E1E1E;
-  color: #EFEFEF;
+  font-family: "Inter", sans-serif;
+  background-color: #101215;
+  color: #efefef;
   margin: 0 auto;
   height: 100%;
 }
@@ -21,4 +21,10 @@ a {
 
 img {
   height: auto;
+}
+
+@supports (font-variation-settings: normal) {
+  html {
+    font-family: "Inter var", sans-serif;
+  }
 }
