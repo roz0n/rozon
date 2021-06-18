@@ -1,11 +1,14 @@
 .container {
-  background-color: aqua;
+  padding: 2.5rem 0;
+  padding-right: 12.25rem;
+  font-size: 1.5rem;
+  line-height: 2.25rem;
 }
 
 .header {
-  background-color: cadetblue;
+  color: #efefef;
 }
 
 .subheader {
-  background-color: coral;
+  color: #98a3b3;
 }

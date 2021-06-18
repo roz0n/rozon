@@ -35,6 +35,7 @@ const Header: React.FC = (props) => {
       <header className={styles.header}>
         <h1 className={styles.logotype}>Arnold Rozon</h1>
       </header>
+      
       <nav className={styles.navigation}>
         {navigationItems.map((item) => {
           return (
