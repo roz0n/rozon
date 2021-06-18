@@ -34,13 +34,11 @@ const ContactForm: React.FC = (props) => {
         width={100}
       />
       <h3>{text.contactFormHeader["en"]}</h3>
-
       <article>
         {contactFormButtons.map((button) => (
           <ContactFormButton key={button.label} label={button.label} />
         ))}
       </article>
-
       <article className={styles.formContainer}>
         <form className={styles.form}>
           <input className={styles.emailField} placeholder="Your email" />
@@ -48,12 +46,10 @@ const ContactForm: React.FC = (props) => {
             className={styles.inquiryField}
             placeholder="Enter a brief inquiry..."
           />
-
           <div className={styles.toolbar}>
             <button className={styles.submitButton}>
               {text.contactFormButton["en"]}
             </button>
-
             <article>
               <p className={styles.wordcount}>0/180</p>
             </article>

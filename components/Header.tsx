@@ -5,7 +5,7 @@ import GithubIcon from "../public/images/icons/github-icon.svg";
 import DribbbleIcon from "../public/images/icons/dribbble-icon.svg";
 import LinkedInIcon from "../public/images/icons/linkedin-icon.svg";
 import TwitterIcon from "../public/images/icons/twitter-icon.svg";
-import DarkModeToggleIcon from "../public/images/icons/dark-mode-toggle-icon.svg"
+import DarkModeToggleIcon from "../public/images/icons/dark-mode-toggle-icon.svg";
 
 let navigationItems: HeaderNavigationItem[] = [
   {
@@ -45,7 +45,6 @@ const Header: React.FC = (props) => {
           alt={displayModeToggleItem.alt}
         />
       </header>
-
       <nav className={styles.navigation}>
         {navigationItems.map((item) => {
           return (

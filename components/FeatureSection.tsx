@@ -9,7 +9,6 @@ const FeatureSection: React.FC<FeatureSectionProps> = (props) => {
       <article className={styles.titleContainer}>
         <h2 className={styles.title}>{title}</h2>
       </article>
-      
       <article className={styles.contentContainer}>
         {props.children}
       </article>

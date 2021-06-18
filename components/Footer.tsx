@@ -7,7 +7,6 @@ const Footer: React.FC = (props) => {
     <footer className={styles.container}>
       <article className={styles.musicContainer}>
         <p className={styles.musicHeader}>Recent vibes</p>
-
         <span className={styles.musicTrackContainer}>
           <Image src={SpotifyLogo} alt="The Spotify logo" />
           <p className={styles.musicTrackTitle}>
@@ -15,21 +14,13 @@ const Footer: React.FC = (props) => {
           </p>
         </span>
       </article>
-
       <article className={styles.copyrightContainer}>
         <span>&copy; 2021</span>
       </article>
-
       <article className={styles.weatherContainer}>
-        <span>
-          43° &nbsp;
-        </span>
-        <span>
-          in&nbsp;
-        </span>
-        <span>
-          Chicago, IL
-        </span>
+        <span>43° &nbsp;</span>
+        <span>in&nbsp;</span>
+        <span>Chicago, IL</span>
       </article>
     </footer>
   );

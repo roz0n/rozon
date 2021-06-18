@@ -72,11 +72,9 @@ const Home: React.FC<{ creations: Post[]; thoughts: Post[] }> = (props) => {
         <title>Arnold Rozon &middot; Engineering &amp; Design</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-
       <main className={styles.container}>
         <Header />
         <Lede />
-
         <FeatureSection title={text.primaryFeatureSectionHeader["en"]}>
           {creations.map((post) => (
             <FeatureSectionProjectPost
@@ -87,7 +85,6 @@ const Home: React.FC<{ creations: Post[]; thoughts: Post[] }> = (props) => {
             />
           ))}
         </FeatureSection>
-
         <FeatureSection title={text.secondaryFeatureSectionHeader["en"]}>
           {thoughts.map((post) => (
             <FeatureSectionBlogPost
@@ -98,7 +95,6 @@ const Home: React.FC<{ creations: Post[]; thoughts: Post[] }> = (props) => {
             />
           ))}
         </FeatureSection>
-
         <ContactForm />
         <Footer />
       </main>
