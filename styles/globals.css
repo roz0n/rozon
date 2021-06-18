@@ -23,6 +23,11 @@ img {
   height: auto;
 }
 
+::selection {
+  background-color: #7000FF;
+  color: #EFEFEF;
+}
+
 @supports (font-variation-settings: normal) {
   html {
     font-family: "Inter var", sans-serif;
