@@ -4,4 +4,28 @@
   justify-content: space-between;
   height: 6.5rem;
   border-top: 1px solid #21262d;
+  padding: 4rem 0;
+}
+
+.musicContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.musicTrackContainer {
+  display: flex;
+  flex-direction: row;
+}
+
+.musicHeader {
+  font-weight: 300;
+  font-size: 0.75rem;
+  margin: 0;
+  margin-bottom: 0.25rem;
+}
+
+.musicTrackTitle {
+  font-weight: 500;
+  font-size: 0.85rem;
+  margin-left: 0.5rem;
 }
