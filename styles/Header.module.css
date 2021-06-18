@@ -1,17 +1,28 @@
 .container {
-    width: 100%;
+  width: 100%;
 }
 
 .header {
-    display: flex;
-    align-items: flex-start;
-    height: 8.125rem;
-    background-color: red;
+  display: flex;
+  align-items: flex-start;
+  height: 8.125rem;
+  /* background-color: red; */
+  border-bottom: 1px solid #21262d;
 }
 
 .navigation {
-    display: flex;
-    align-items: flex-start;
-    height: 4.5rem;
-    background-color: blue;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-top: .5rem;
+  padding-bottom: .5rem;
+  /* background-color: blue; */
+  border-bottom: 1px solid #21262d;
+}
+
+.logotype {
+  font-family: "Panchang-Variable";
+  text-transform: uppercase;
+  font-size: 3rem;
+  line-height: 2.5rem;
 }

@@ -1,3 +1,4 @@
+import { HeaderButtonProps } from '..';
 import { PostsOrPages } from "@tryghost/content-api";
 
 // Global
@@ -17,7 +18,15 @@ export type Post = {
 
 export type FeatureSectionProps = {
   title: string;
-}
+};
+
+export type HeaderButtonProps = {
+  icon: any;
+  alt: string;
+  url?: string;
+};
+
+export type HeaderNavigationItem = HeaderButtonProps;
 
 /**
  * Page specific

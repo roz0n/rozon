@@ -1,0 +1,20 @@
+.container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: transparent;
+  width: 2.875rem;
+  height: 2.875rem;
+  margin-right: 1rem;
+  border: 0;
+  border-radius: 0.875rem;
+}
+
+.container:hover {
+  background-color: #21262d;
+  cursor: pointer;
+}
+
+.icon img {
+  width: 1.35rem;
+}
