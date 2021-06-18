@@ -1,4 +1,5 @@
-import { HeaderButtonProps } from '..';
+import { FeatureSectionProps } from "..";
+import { HeaderButtonProps } from "..";
 import { PostsOrPages } from "@tryghost/content-api";
 
 // Global
@@ -33,6 +34,18 @@ export type ContactFormButtonProps = {
 };
 
 export type ContactFormButtonItem = ContactFormButtonProps;
+
+export type FeatureSectionProjectPostProps = {
+  slug: string;
+  title: string;
+  excerpt: string;
+};
+
+export type FeatureSectionBlogPostProps = {
+  slug: string;
+  title: string;
+  excerpt: string;
+};
 
 /**
  * Page specific

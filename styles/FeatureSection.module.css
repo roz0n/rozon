@@ -1,7 +1,3 @@
-.container {
-  /* background-color: lightgreen; */
-}
-
 .titleContainer {
   display: flex;
   align-items: center;
@@ -13,5 +9,6 @@
   font-size: 0.75rem;
 }
 
-.title {
+.contentContainer {
+  padding: .5rem 0;
 }

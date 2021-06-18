@@ -1,0 +1,15 @@
+.container {
+  margin-bottom: 2rem;
+  padding-right: 12.25rem;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.excerpt {
+  font-size: 1rem;
+  line-height: 1.55rem;
+  color: #98a3b3;
+}

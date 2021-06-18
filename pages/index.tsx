@@ -9,6 +9,8 @@ import Lede from "../components/Lede";
 import FeatureSection from "../components/FeatureSection";
 import ContactForm from "../components/ContactForm";
 import Footer from "../components/Footer";
+import FeatureSectionProjectPost from "../components/FeatureSectionProjectPost";
+import FeatureSectionBlogPost from "../components/FeatureSectionBlogPost";
 
 // Data
 
@@ -71,28 +73,24 @@ const Home: React.FC<{ creations: Post[]; thoughts: Post[] }> = (props) => {
         <Lede />
 
         <FeatureSection title={text.primaryFeatureSectionHeader["en"]}>
-          {creations.map((post, i) => (
-            <div key={post.slug}>
-              <Link href={"/posts/[slug]"} as={`/posts/${post.slug}`}>
-                <a>
-                  <h1>{post.title}</h1>
-                </a>
-              </Link>
-              <p>{post.custom_excerpt}</p>
-            </div>
+          {creations.map((post) => (
+            <FeatureSectionProjectPost
+              key={post.slug}
+              slug={post.slug}
+              title={post.title}
+              excerpt={post.custom_excerpt}
+            />
           ))}
         </FeatureSection>
 
         <FeatureSection title={text.secondaryFeatureSectionHeader["en"]}>
-          {thoughts.map((post, i) => (
-            <div key={post.slug}>
-              <Link href={"/posts/[slug]"} as={`/posts/${post.slug}`}>
-                <a>
-                  <h1>{post.title}</h1>
-                </a>
-              </Link>
-              <p>{post.custom_excerpt}</p>
-            </div>
+          {thoughts.map((post) => (
+            <FeatureSectionBlogPost
+              key={post.slug}
+              slug={post.slug}
+              title={post.title}
+              excerpt={post.custom_excerpt}
+            />
           ))}
         </FeatureSection>
 
