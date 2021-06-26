@@ -1,7 +1,9 @@
+import "highlight.js/styles/atom-one-dark.css";
 import "../styles/globals.css";
 import "../public/fonts/panchang/css/panchang.css";
 import "../public/fonts/inter/css/inter.css";
 import "../public/fonts/weathericons/weather-icons.min.css";
+import "../public/fonts/ibm-plex-mono/css/ibm-plex-mono.css";
 import Head from "next/head";
 import MainLayout from "../components/MainLayout";
 import Header from "../components/Header";

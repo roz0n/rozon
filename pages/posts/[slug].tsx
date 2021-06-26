@@ -1,10 +1,15 @@
 import styles from "../../styles/Pages/Post/Post.module.css";
+import { useEffect } from "react";
+import hljs from "highlight.js/lib/core";
+import swift from "highlight.js/lib/languages/swift";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import Image from "next/image";
 import ArrowBackIcon from "../../public/images/icons/arrow-back-icon.svg";
 import CommentsIcon from "../../public/images/icons/comments-icon.svg";
 import ShareIcon from "../../public/images/icons/share-icon.svg";
+
+hljs.registerLanguage("swift", swift);
 
 const { GHOST_API_KEY, GHOST_SITE_URL } = process.env;
 
@@ -51,6 +56,11 @@ const Post: React.FC<{ post: Post }> = (props) => {
 
   if (router.isFallback) {
     return <h1>Now loading...</h1>;
+  } else {
+    useEffect(() => {
+      hljs.initHighlighting();
+      console.log("Called me");
+    }, []);
   }
 
   return (
