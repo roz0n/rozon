@@ -2,11 +2,9 @@ import { IndexPageProps, Post } from "..";
 import styles from "../styles/Pages/Home/Home.module.css";
 import text from "../text/Index.text";
 import Ghost from "../ghost";
-import Layout from "../components/Layout";
 import HomeLede from "../components/HomeLede";
 import FeatureSection from "../components/FeatureSection";
 import ContactForm from "../components/ContactForm";
-import Footer from "../components/Footer";
 import FeatureSectionProjectPost from "../components/FeatureSectionProjectPost";
 import FeatureSectionBlogPost from "../components/FeatureSectionBlogPost";
 
@@ -88,7 +86,6 @@ const Home: React.FC<{ creations: Post[]; thoughts: Post[] }> = (props) => {
         ))}
       </FeatureSection>
       <ContactForm />
-      <Footer />
     </main>
   );
 };
