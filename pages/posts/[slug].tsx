@@ -1,5 +1,10 @@
-import Link from "next/link";
+import styles from "../../styles/Pages/Post/Post.module.css";
 import { useRouter } from "next/router";
+import Link from "next/link";
+import Image from "next/image";
+import ArrowBackIcon from "../../public/images/icons/arrow-back-icon.svg";
+import CommentsIcon from "../../public/images/icons/comments-icon.svg";
+import ShareIcon from "../../public/images/icons/share-icon.svg";
 
 const { GHOST_API_KEY, GHOST_SITE_URL } = process.env;
 
@@ -28,7 +33,7 @@ export const getStaticProps = async ({ params }) => {
   return {
     props: {
       post: post[0] ?? null,
-      revalidate: 30
+      revalidate: 30,
     },
   };
 };
@@ -50,10 +55,54 @@ const Post: React.FC<{ post: Post }> = (props) => {
 
   return (
     <div>
-      <Link href="/">
-        <a>Back</a>
-      </Link>
-      <h1>{post.title}</h1>
+      <header className={styles.header}>
+        <Image src={ArrowBackIcon} alt="An icon of an backward facing arrow" />
+        <Link href="/">
+          <a>All posts</a>
+        </Link>
+      </header>
+
+      <div className={styles.categoryContainer}>
+        <p>Development</p>
+      </div>
+
+      <article className={styles.titleContainer}>
+        <h1 className={styles.title}>
+          Classifying Experimental Graphic Design Trends with Vision, CoreML,
+          AVKit, and JSDOM
+        </h1>
+
+        <section className={styles.postInfoContainer}>
+          <div className={styles.byLineContainer}>
+            <p className={styles.byLine}>By Arnold Rozon</p>
+            <p className={styles.byLine}>July 26, 1993</p>
+          </div>
+
+          <div className={styles.postControlsContainer}>
+            <span className={styles.commentsCountContainer}>
+              <Image
+                src={CommentsIcon}
+                alt="A speech bubble icon to indicate comments"
+              />
+              <small className={styles.commentsCountLabel}>6</small>
+            </span>
+
+            <span className={styles.shareButtonContainer}>
+              <Image src={ShareIcon} alt="A typical share icon" />
+            </span>
+          </div>
+        </section>
+
+        <section>
+          <h2 className={styles.subtitle}>
+            Aliquam hendrerit maximus congue. Quisque convallis, felis ac
+            iaculis porta, ante ligula euismod sapien, et molestie arcu eros at
+            lacus. Nunc eget orci convallis felis fringilla gravida, consequat
+            pretium mi. Quisque convallis, felis ac iaculis porta, ante ligula.
+          </h2>
+        </section>
+      </article>
+
       <div dangerouslySetInnerHTML={{ __html: post.html }}></div>
     </div>
   );

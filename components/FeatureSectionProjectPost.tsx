@@ -1,4 +1,4 @@
-import styles from "../styles/FeatureSectionProjectPost.module.css";
+import styles from "../styles/FeatureSection/FeatureSectionProjectPost.module.css";
 import Link from "next/link";
 import { FeatureSectionProjectPostProps } from "..";
 

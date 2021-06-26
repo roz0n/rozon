@@ -24,8 +24,8 @@ img {
 }
 
 ::selection {
-  background-color: #7000FF;
-  color: #EFEFEF;
+  background-color: #7000ff;
+  color: #efefef;
 }
 
 @supports (font-variation-settings: normal) {

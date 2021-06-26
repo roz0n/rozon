@@ -1,0 +1,73 @@
+.header {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  border-bottom: 1px solid #21262d;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.categoryContainer {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-top: 1.75rem;
+  margin-bottom: 1.75rem;
+}
+
+.titleContainer {
+}
+
+.title {
+  font-size: 2.625rem;
+  font-weight: 600;
+}
+
+.postInfoContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+}
+
+.byLineContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  line-height: 1.35rem;
+  margin-right: 1rem;
+}
+
+.byLine {
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+.postControlsContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.commentsCountContainer {
+  display: flex;
+  flex-direction: row;
+}
+
+.postControlsContainer img {
+  height: 1.25rem;
+  width: 1.25rem;
+}
+
+.commentsCountLabel {
+  padding: 0 0.35rem;
+}
+
+.shareButtonContainer {
+  margin-left: 0.35rem;
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 1.75rem;
+  color: #98a3b3;
+}

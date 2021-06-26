@@ -1,5 +1,5 @@
 import { FeatureSectionProps } from "..";
-import styles from "../styles/FeatureSection.module.css";
+import styles from "../styles/FeatureSection/FeatureSection.module.css";
 
 const FeatureSection: React.FC<FeatureSectionProps> = (props) => {
   let { title } = props;
@@ -9,9 +9,7 @@ const FeatureSection: React.FC<FeatureSectionProps> = (props) => {
       <article className={styles.titleContainer}>
         <h2 className={styles.title}>{title}</h2>
       </article>
-      <article className={styles.contentContainer}>
-        {props.children}
-      </article>
+      <article className={styles.contentContainer}>{props.children}</article>
     </section>
   );
 };

@@ -1,4 +1,4 @@
-import styles from "../styles/Header.module.css";
+import styles from "../styles/Header/Header.module.css";
 import { HeaderNavigationItem } from "..";
 import HeaderButton from "./HeaderButton";
 import GithubIcon from "../public/images/icons/github-icon.svg";

@@ -1,4 +1,4 @@
-import styles from "../styles/ContactForm.module.css";
+import styles from "../styles/ContactForm/ContactForm.module.css";
 import text from "../text/Index.text";
 import { ContactFormButtonItem } from "..";
 import Image from "next/image";

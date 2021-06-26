@@ -1,4 +1,4 @@
-import styles from "../styles/ContactFormButton.module.css";
+import styles from "../styles/ContactForm/ContactFormButton.module.css";
 import { ContactFormButtonProps } from "..";
 
 const ContactFormButton: React.FC<ContactFormButtonProps> = (props) => {

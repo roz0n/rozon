@@ -1,11 +1,9 @@
 import { IndexPageProps, Post } from "..";
-import styles from "../styles/Home.module.css";
+import styles from "../styles/Pages/Home/Home.module.css";
 import text from "../text/Index.text";
 import Ghost from "../ghost";
-import Head from "next/head";
 import Layout from "../components/Layout";
-import Header from "../components/Header";
-import Lede from "../components/Lede";
+import HomeLede from "../components/HomeLede";
 import FeatureSection from "../components/FeatureSection";
 import ContactForm from "../components/ContactForm";
 import Footer from "../components/Footer";
@@ -67,38 +65,31 @@ const Home: React.FC<{ creations: Post[]; thoughts: Post[] }> = (props) => {
   const { creations, thoughts } = props;
 
   return (
-    <Layout>
-      <Head>
-        <title>Arnold Rozon &middot; Engineering &amp; Design</title>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-      </Head>
-      <main className={styles.container}>
-        <Header />
-        <Lede />
-        <FeatureSection title={text.primaryFeatureSectionHeader["en"]}>
-          {creations.map((post) => (
-            <FeatureSectionProjectPost
-              key={post.slug}
-              slug={post.slug}
-              title={post.title}
-              excerpt={post.custom_excerpt}
-            />
-          ))}
-        </FeatureSection>
-        <FeatureSection title={text.secondaryFeatureSectionHeader["en"]}>
-          {thoughts.map((post) => (
-            <FeatureSectionBlogPost
-              key={post.slug}
-              slug={post.slug}
-              title={post.title}
-              excerpt={post.custom_excerpt}
-            />
-          ))}
-        </FeatureSection>
-        <ContactForm />
-        <Footer />
-      </main>
-    </Layout>
+    <main className={styles.container}>
+      <HomeLede />
+      <FeatureSection title={text.primaryFeatureSectionHeader["en"]}>
+        {creations.map((post) => (
+          <FeatureSectionProjectPost
+            key={post.slug}
+            slug={post.slug}
+            title={post.title}
+            excerpt={post.custom_excerpt}
+          />
+        ))}
+      </FeatureSection>
+      <FeatureSection title={text.secondaryFeatureSectionHeader["en"]}>
+        {thoughts.map((post) => (
+          <FeatureSectionBlogPost
+            key={post.slug}
+            slug={post.slug}
+            title={post.title}
+            excerpt={post.custom_excerpt}
+          />
+        ))}
+      </FeatureSection>
+      <ContactForm />
+      <Footer />
+    </main>
   );
 };
 

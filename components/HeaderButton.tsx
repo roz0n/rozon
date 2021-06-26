@@ -1,4 +1,4 @@
-import styles from "../styles/HeaderButton.module.css";
+import styles from "../styles/Header/HeaderButton.module.css";
 import { HeaderButtonProps } from "..";
 import Image from "next/image";
 
