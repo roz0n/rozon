@@ -9,9 +9,8 @@ import ArrowBackIcon from "../../public/images/icons/arrow-back-icon.svg";
 import CommentsIcon from "../../public/images/icons/comments-icon.svg";
 import ShareIcon from "../../public/images/icons/share-icon.svg";
 
-hljs.registerLanguage("swift", swift);
-
 const { GHOST_API_KEY, GHOST_SITE_URL } = process.env;
+hljs.registerLanguage("swift", swift);
 
 type Post = {
   id: string;
