@@ -39,7 +39,15 @@ const Header: React.FC = (props) => {
   return (
     <article className={styles.container}>
       <header className={styles.header}>
-        <h1 className={styles.logotype}>Arnold Rozon</h1>
+        <div className={styles.logotypeContainer}>
+          <article
+            className={styles.logotypeImage}
+            aria-label="Arnold Rozon logotype"
+          >
+            &nbsp;
+          </article>
+        </div>
+
         <HeaderButton
           icon={displayModeToggleItem.icon}
           alt={displayModeToggleItem.alt}

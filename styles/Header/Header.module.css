@@ -27,3 +27,44 @@
   font-size: 3rem;
   line-height: 2.5rem;
 }
+
+.logotypeContainer {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.logotypeImage {
+  height: 2.5rem;
+  width: 100%;
+  border: 0;
+  animation: gradientAnimation 30s ease infinite;
+  background: linear-gradient(
+    124deg,
+    #612df6,
+    #2be78a,
+    #3ea9ff,
+    #37d3ff,
+    #00e1f6,
+    #09efb5,
+    #06f99f,
+    #1442b8,
+    #19ee84
+  );
+  background-size: 500% 500%;
+  mask: url("/images/index/logotype.svg") 0 0 / contain no-repeat;
+  user-select: none;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 82%;
+  }
+  50% {
+    background-position: 100% 19%;
+  }
+  100% {
+    background-position: 0% 82%;
+  }
+}
