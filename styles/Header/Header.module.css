@@ -44,15 +44,15 @@
     124deg,
     #612df6,
     #2be78a,
-    #3ea9ff,
-    #37d3ff,
+    #1442b8,
+    #19ee84,
     #00e1f6,
-    #09efb5,
+    #7000ff,
     #06f99f,
     #1442b8,
     #19ee84
   );
-  background-size: 500% 500%;
+  background-size: 600% 600%;
   mask: url("/images/index/logotype.svg") 0 0 / contain no-repeat;
   user-select: none;
 }
