@@ -32,7 +32,7 @@ const ContactForm: React.FC = (props) => {
 
   const maxCharCount = 180;
   const isButtonSelected = (label: string) => label === selectedButton;
-  const atMaxCharCount = (count: number) => count + 1 === maxCharCount;
+  const atMaxCharCount = (count: number) => count + 1 === maxCharCount + 2;
   const isButtonDisabled = () => {
     if (inquiryTextCount <= 0) {
       return true;
