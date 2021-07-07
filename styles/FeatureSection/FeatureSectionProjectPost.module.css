@@ -47,8 +47,7 @@
   margin: 0;
   margin-right: 0.75rem;
   list-style-type: none;
-  border: 1px solid;
-  border-color: #ffffff24;
+  background-color: #21262d;
   padding: 0.25rem 0.65rem;
   border-radius: 6.25rem;
   font-family: "Inter";
