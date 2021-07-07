@@ -70,7 +70,7 @@ const ContactForm: React.FC = (props) => {
             placeholder="Enter a brief inquiry..."
           />
           <div className={styles.toolbar}>
-            <button className={styles.submitButton}>
+            <button className={styles.submitButtonInactive}>
               {text.contactFormButton["en"]}
             </button>
             <article>

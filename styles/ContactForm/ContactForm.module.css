@@ -55,7 +55,19 @@
   padding: 1rem;
 }
 
-.submitButton {
+.submitButtonInactive {
+  background-color: transparent;
+  border: 1px solid #21262d;
+  padding: 1rem 1.5rem;
+  border-radius: 0.875rem;
+  color: #21262d;
+  font-weight: 500;
+  font-size: 1rem;
+  cursor: not-allowed;
+  user-select: none;
+}
+
+.submitButtonActive {
   background-color: #21262d;
   border: 0;
   padding: 1rem 1.5rem;
