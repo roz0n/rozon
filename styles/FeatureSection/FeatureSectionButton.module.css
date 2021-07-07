@@ -1,0 +1,22 @@
+.button {
+  border: 0;
+  padding: 0;
+  margin-bottom: 2rem;
+  background-color: transparent;
+  color: #efefef;
+  font-family: "Inter";
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  /* opacity: 0.85; */
+  cursor: pointer;
+  border-radius: 0.65rem;
+  /* border: 1px solid #98a3b328;
+  padding: 0.5rem 0.85rem; */
+}
+
+.button:hover {
+  opacity: 1;
+  /* background-color: #98a3b328; */
+  border-color: transparent;
+}

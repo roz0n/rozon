@@ -49,6 +49,10 @@ export type FeatureSectionBlogPostProps = {
   excerpt: string;
 };
 
+type FeatureSectionButtonProps = {
+  label?: string;
+};
+
 export type WeatherDataObject = {
   temp: string;
   city_name: string;

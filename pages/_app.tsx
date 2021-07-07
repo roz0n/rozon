@@ -16,6 +16,8 @@ import Footer from "../components/Footer";
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
 
+  NProgress.configure({ showSpinner: false });
+
   useEffect(() => {
     const routeChangeStart = () => NProgress.start();
     const routeChangeComplete = () => NProgress.done();

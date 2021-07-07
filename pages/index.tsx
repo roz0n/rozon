@@ -7,6 +7,7 @@ import FeatureSection from "../components/FeatureSection";
 import ContactForm from "../components/ContactForm";
 import FeatureSectionProjectPost from "../components/FeatureSectionProjectPost";
 import FeatureSectionBlogPost from "../components/FeatureSectionBlogPost";
+import FeatureSectionButton from "../components/FeatureSectionButton";
 
 // Data
 
@@ -74,6 +75,7 @@ const Home: React.FC<{ creations: Post[]; thoughts: Post[] }> = (props) => {
             excerpt={post.custom_excerpt}
           />
         ))}
+        <FeatureSectionButton />
       </FeatureSection>
       <FeatureSection title={text.secondaryFeatureSectionHeader["en"]}>
         {thoughts.map((post) => (
@@ -84,6 +86,7 @@ const Home: React.FC<{ creations: Post[]; thoughts: Post[] }> = (props) => {
             excerpt={post.custom_excerpt}
           />
         ))}
+        <FeatureSectionButton />
       </FeatureSection>
       <ContactForm />
     </main>
