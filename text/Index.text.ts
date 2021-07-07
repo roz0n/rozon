@@ -16,7 +16,7 @@ const text = {
     es: ``,
   },
   contactFormHeader: {
-    en: `What's the word?`,
+    en: `¿Qué lo que?`,
     es: `Que lo que?`,
   },
   contactFormButton: {
