@@ -26,7 +26,13 @@ let contactFormButtons: ContactFormButtonItem[] = [
 
 const ContactForm: React.FC = (props) => {
   const [selectedButton, setSelectedButton] = useState(null);
-  const isSelected = (label: string) => label === selectedButton;
+  const [formTextCount, setFormTextCount] = useState(0);
+  const [formText, setFormText] = useState(String());
+
+  const maxCharCount = 180;
+  const isButtonSelected = (label: string) => label === selectedButton;
+  const atMaxCharCount = (count: number) => count + 1 === maxCharCount;
+  const isFieldDisabled = () => formTextCount === 0;
 
   function handleSelectButton(label: string) {
     if (!contactFormButtons.map((button) => button.label).includes(label)) {
@@ -36,9 +42,16 @@ const ContactForm: React.FC = (props) => {
     setSelectedButton(label);
   }
 
-  useEffect(() => {
-    console.log("Selected:", selectedButton);
-  });
+  function handleFormInput(text: string, count: number, maxCount: number) {
+    if (!atMaxCharCount(count)) {
+      console.log(maxCount, count);
+      console.log("Hitting");
+      setFormText(text);
+      setFormTextCount(count);
+    } else {
+      return;
+    }
+  }
 
   return (
     <section className={styles.container}>
@@ -57,7 +70,7 @@ const ContactForm: React.FC = (props) => {
             key={button.label}
             label={button.label}
             onClick={handleSelectButton}
-            isSelected={isSelected}
+            isSelected={isButtonSelected}
           />
         ))}
       </article>
@@ -68,13 +81,31 @@ const ContactForm: React.FC = (props) => {
           <textarea
             className={styles.inquiryField}
             placeholder="Enter a brief inquiry..."
+            value={formText}
+            maxLength={maxCharCount}
+            onChange={(e) =>
+              handleFormInput(
+                e.target.value,
+                e.target.value.length,
+                maxCharCount
+              )
+            }
           />
           <div className={styles.toolbar}>
-            <button className={styles.submitButtonInactive}>
+            <button
+              className={`${
+                isFieldDisabled()
+                  ? styles.submitButtonInactive
+                  : styles.submitButtonActive
+              }`}
+              disabled={isFieldDisabled()}
+            >
               {text.contactFormButton["en"]}
             </button>
             <article>
-              <p className={styles.wordcount}>0/180</p>
+              <p
+                className={styles.wordcount}
+              >{`${formTextCount}/${maxCharCount}`}</p>
             </article>
           </div>
         </form>
