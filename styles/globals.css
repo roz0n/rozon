@@ -56,3 +56,7 @@ img {
 #nprogress .spinner {
   background: #612df6 !important;
 }
+
+#nprogress .peg {
+  box-shadow: 0 0 10px #bc89ff57, 0 0 5px #bc89ff57;
+}
