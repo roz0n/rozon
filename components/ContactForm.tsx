@@ -1,6 +1,6 @@
 import styles from "../styles/ContactForm/ContactForm.module.css";
 import text from "../text/Index.text";
-import { useState, useEffect } from "react";
+import { useState, useEffect, SyntheticEvent } from "react";
 import { ContactFormButtonItem } from "..";
 import Image from "next/image";
 import Memoji from "../public/images/index/memoji-2021.svg";
@@ -81,6 +81,16 @@ const ContactForm: React.FC = (props) => {
     }
   }
 
+  function handleSubmit(e: SyntheticEvent) {
+    e.preventDefault();
+
+    window.alert(`
+      ${selectedButton} \n
+      ${emailText} \n
+      ${inquiryText} \n
+    `);
+  }
+
   useEffect(() => {
     console.log("FORM TEXT COUNT", inquiryTextCount);
     console.log("SELECTED BUTTON", selectedButton);
@@ -110,11 +120,12 @@ const ContactForm: React.FC = (props) => {
       </article>
 
       <article className={styles.formContainer}>
-        <form className={styles.form}>
+        <form className={styles.form} onSubmit={(e) => handleSubmit(e)}>
           <input
             className={styles.emailField}
             placeholder="Your email"
             value={emailText}
+            type="email"
             onChange={(e) => {
               handleEmailText(e.target.value);
             }}
