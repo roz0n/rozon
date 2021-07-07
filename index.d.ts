@@ -31,6 +31,8 @@ export type HeaderNavigationItem = HeaderButtonProps;
 
 export type ContactFormButtonProps = {
   label: string;
+  onClick?: (label: string) => void;
+  isSelected?: (label: string) => boolean;
 };
 
 export type ContactFormButtonItem = ContactFormButtonProps;

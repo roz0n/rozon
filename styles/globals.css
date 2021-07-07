@@ -14,9 +14,25 @@ a {
   text-decoration: none;
 }
 
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
 * {
   box-sizing: border-box;
   max-width: 100%;
+}
+
+@supports (font-variation-settings: normal) {
+  html {
+    font-family: "Inter var", sans-serif;
+  }
 }
 
 img {
@@ -33,8 +49,10 @@ img {
   font-family: "IBM Plex Mono";
 }
 
-@supports (font-variation-settings: normal) {
-  html {
-    font-family: "Inter var", sans-serif;
-  }
+#nprogress .bar {
+  background: #612df6 !important;
+}
+
+#nprogress .spinner {
+  background: #612df6 !important;
 }

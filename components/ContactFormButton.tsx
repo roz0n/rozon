@@ -2,8 +2,18 @@ import styles from "../styles/ContactForm/ContactFormButton.module.css";
 import { ContactFormButtonProps } from "..";
 
 const ContactFormButton: React.FC<ContactFormButtonProps> = (props) => {
-  const { label } = props;
-  return <button className={styles.button}>{label}</button>;
+  const { label, onClick, isSelected } = props;
+
+  return (
+    <button
+      className={`${styles.button} ${
+        isSelected(label) && styles.selectedButton
+      }`}
+      onClick={() => onClick(label)}
+    >
+      {label}
+    </button>
+  );
 };
 
 export default ContactFormButton;

@@ -11,18 +11,18 @@ const FeatureSectionProjectPost: React.FC<FeatureSectionProjectPostProps> = (
 
   return (
     <article className={styles.container}>
-      <section>
+      <section className={styles.headerSectionContainer}>
         <article className={styles.headerContainer}>
-          <span className={styles.appIconContainer}>
+          <div className={styles.appIconContainer}>
             <Image
               src={SampleAppIcon}
               height="65"
               width="65"
               alt={`${title} app icon`}
             />
-          </span>
+          </div>
 
-          <span className={styles.titleContainer}>
+          <div className={styles.titleContainer}>
             <Link href={"/posts/[slug]"} as={`/posts/${slug}`}>
               <a>
                 <h3 className={styles.title}>{title}</h3>
@@ -33,10 +33,8 @@ const FeatureSectionProjectPost: React.FC<FeatureSectionProjectPostProps> = (
               <li className={styles.tagChip}>CoreML</li>
               <li className={styles.tagChip}>AVKit</li>
             </ul>
-          </span>
+          </div>
         </article>
-
-        <article></article>
       </section>
 
       <section>
