@@ -26,15 +26,30 @@ let contactFormButtons: ContactFormButtonItem[] = [
 
 const ContactForm: React.FC = (props) => {
   const [selectedButton, setSelectedButton] = useState(null);
-  const [formTextCount, setFormTextCount] = useState(0);
-  const [formText, setFormText] = useState(String());
+  const [emailText, setEmailText] = useState(String());
+  const [inquiryTextCount, setInquiryTextCount] = useState(0);
+  const [inquiryText, setInquiryText] = useState(String());
 
   const maxCharCount = 180;
   const isButtonSelected = (label: string) => label === selectedButton;
   const atMaxCharCount = (count: number) => count + 1 === maxCharCount;
-  const isFieldDisabled = () => formTextCount === 0;
+  const isButtonDisabled = () => {
+    if (inquiryTextCount <= 0) {
+      return true;
+    }
 
-  function handleSelectButton(label: string) {
+    if (!selectedButton) {
+      return true;
+    }
+
+    if (!handleEmailValidation(emailText)) {
+      return true;
+    }
+
+    return false;
+  };
+
+  function handleButtonSelection(label: string) {
     if (!contactFormButtons.map((button) => button.label).includes(label)) {
       return;
     }
@@ -42,16 +57,35 @@ const ContactForm: React.FC = (props) => {
     setSelectedButton(label);
   }
 
-  function handleFormInput(text: string, count: number, maxCount: number) {
+  function handleEmailText(email: string) {
+    setEmailText(email);
+  }
+
+  function handleEmailValidation(email: string) {
+    const regExp = /\S+@\S+\.\S+/;
+    return regExp.test(email);
+  }
+
+  function handleInquiryTextArea(
+    text: string,
+    count: number,
+    maxCount: number
+  ) {
     if (!atMaxCharCount(count)) {
       console.log(maxCount, count);
       console.log("Hitting");
-      setFormText(text);
-      setFormTextCount(count);
+      setInquiryText(text);
+      setInquiryTextCount(count);
     } else {
       return;
     }
   }
+
+  useEffect(() => {
+    console.log("FORM TEXT COUNT", inquiryTextCount);
+    console.log("SELECTED BUTTON", selectedButton);
+    console.log("isButtonDisabled", isButtonDisabled());
+  });
 
   return (
     <section className={styles.container}>
@@ -69,7 +103,7 @@ const ContactForm: React.FC = (props) => {
           <ContactFormButton
             key={button.label}
             label={button.label}
-            onClick={handleSelectButton}
+            onClick={handleButtonSelection}
             isSelected={isButtonSelected}
           />
         ))}
@@ -77,14 +111,21 @@ const ContactForm: React.FC = (props) => {
 
       <article className={styles.formContainer}>
         <form className={styles.form}>
-          <input className={styles.emailField} placeholder="Your email" />
+          <input
+            className={styles.emailField}
+            placeholder="Your email"
+            value={emailText}
+            onChange={(e) => {
+              handleEmailText(e.target.value);
+            }}
+          />
           <textarea
             className={styles.inquiryField}
             placeholder="Enter a brief inquiry..."
-            value={formText}
+            value={inquiryText}
             maxLength={maxCharCount}
             onChange={(e) =>
-              handleFormInput(
+              handleInquiryTextArea(
                 e.target.value,
                 e.target.value.length,
                 maxCharCount
@@ -94,18 +135,18 @@ const ContactForm: React.FC = (props) => {
           <div className={styles.toolbar}>
             <button
               className={`${
-                isFieldDisabled()
+                isButtonDisabled()
                   ? styles.submitButtonInactive
                   : styles.submitButtonActive
               }`}
-              disabled={isFieldDisabled()}
+              disabled={isButtonDisabled()}
             >
               {text.contactFormButton["en"]}
             </button>
             <article>
               <p
                 className={styles.wordcount}
-              >{`${formTextCount}/${maxCharCount}`}</p>
+              >{`${inquiryTextCount}/${maxCharCount}`}</p>
             </article>
           </div>
         </form>
