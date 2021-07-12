@@ -8,6 +8,7 @@
 .container:hover {
   background-color: #21262d;
   cursor: pointer;
+  transition: all 0.15s ease-in-out;
 }
 
 .container:hover .headerSectionContainer {

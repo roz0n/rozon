@@ -76,6 +76,14 @@ const Home: React.FC<{ creations: Post[]; thoughts: Post[] }> = (props) => {
               excerpt={post.custom_excerpt}
             />
           ))}
+          {creations.map((post) => (
+            <FeatureSectionProjectPost
+              key={post.slug}
+              slug={post.slug}
+              title={post.title}
+              excerpt={post.custom_excerpt}
+            />
+          ))}
         </div>
         <FeatureSectionButton />
       </FeatureSection>
