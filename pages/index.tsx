@@ -67,16 +67,19 @@ const Home: React.FC<{ creations: Post[]; thoughts: Post[] }> = (props) => {
     <main className={styles.container}>
       <HomeLede />
       <FeatureSection title={text.primaryFeatureSectionHeader["en"]}>
-        {creations.map((post) => (
-          <FeatureSectionProjectPost
-            key={post.slug}
-            slug={post.slug}
-            title={post.title}
-            excerpt={post.custom_excerpt}
-          />
-        ))}
+        <div className={styles.primaryFeatureSectionWrapper}>
+          {creations.map((post) => (
+            <FeatureSectionProjectPost
+              key={post.slug}
+              slug={post.slug}
+              title={post.title}
+              excerpt={post.custom_excerpt}
+            />
+          ))}
+        </div>
         <FeatureSectionButton />
       </FeatureSection>
+
       <FeatureSection title={text.secondaryFeatureSectionHeader["en"]}>
         {thoughts.map((post) => (
           <FeatureSectionBlogPost

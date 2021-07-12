@@ -1,17 +1,6 @@
 .container {
   margin-bottom: 2rem;
-  padding: 1.25rem;
-  border: 1px solid #21262d;
-  border-radius: 0.865rem;
-}
-
-.container:hover {
-  background-color: #21262d;
-  cursor: pointer;
-}
-
-.container:hover .headerSectionContainer {
-  border-color: #101215;
+  padding-right: 12.25rem;
 }
 
 .title {
@@ -29,8 +18,6 @@
 
 .headerSectionContainer {
   margin-bottom: 1.25rem;
-  border-bottom: 1px solid #21262d;
-  padding-bottom: 1.5rem;
 }
 
 .headerContainer {
