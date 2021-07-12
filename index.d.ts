@@ -25,6 +25,11 @@ export type HeaderButtonProps = {
   icon: any;
   alt: string;
   url?: string;
+  onClick?: () => void;
+};
+
+export type HeaderProps = {
+  handleDisplayModeToggle?: () => void;
 };
 
 export type HeaderNavigationItem = HeaderButtonProps;

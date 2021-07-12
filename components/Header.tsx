@@ -1,4 +1,5 @@
 import styles from "../styles/Header/Header.module.css";
+import { HeaderProps } from "..";
 import { HeaderNavigationItem } from "..";
 import HeaderButton from "./HeaderButton";
 import GithubIcon from "../public/images/icons/github-icon.svg";
@@ -35,7 +36,7 @@ let displayModeToggleItem: HeaderNavigationItem = {
   alt: "Toggle dark mode",
 };
 
-const Header: React.FC = (props) => {
+const Header: React.FC<HeaderProps> = ({ handleDisplayModeToggle }) => {
   return (
     <article className={styles.container}>
       <header className={styles.header}>
@@ -51,6 +52,7 @@ const Header: React.FC = (props) => {
         <HeaderButton
           icon={displayModeToggleItem.icon}
           alt={displayModeToggleItem.alt}
+          onClick={handleDisplayModeToggle}
         />
       </header>
       <nav className={styles.navigation}>

@@ -16,6 +16,7 @@ import Footer from "../components/Footer";
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
 
+  // Handle progress bar
   NProgress.configure({ showSpinner: false });
 
   useEffect(() => {
@@ -33,13 +34,18 @@ function MyApp({ Component, pageProps }) {
     };
   });
 
+  // Handle display mode toggle
+  function toggleDisplayMode() {
+    console.log("Light mode toggled");
+  }
+
   return (
     <MainLayout>
       <Head>
         <title>Arnold Rozon &middot; Engineering &amp; Design</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-      <Header />
+      <Header handleDisplayModeToggle={toggleDisplayMode} />
       <Component {...pageProps} />
       <Footer />
     </MainLayout>
