@@ -1,7 +1,8 @@
 // Styles
+import "../styles/variables.css";
+import "../styles/globals.css";
 import "highlight.js/styles/atom-one-dark.css";
 import "nprogress/nprogress.css";
-import "../styles/globals.css";
 // Fonts
 import "../public/fonts/panchang/css/panchang.css";
 import "../public/fonts/inter/css/inter.css";

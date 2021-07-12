@@ -1,15 +1,7 @@
 :root {
-  --primary-color: #302ae6;
-  --secondary-color: #536390;
-  --font-color: #424242;
-  --bg-color: #fff;
-  --heading-color: #292922;
+  --site-bg: #101215;
 }
 
 [data-theme="light"] {
-  --primary-color: #9a97f3;
-  --secondary-color: #818cab;
-  --font-color: #e1e1ff;
-  --bg-color: #161625;
-  --heading-color: #818cab;
+  --site-bg: #efefef;
 }

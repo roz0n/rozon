@@ -3,10 +3,11 @@ body {
   padding: 0;
   margin: 0;
   font-family: "Inter", sans-serif;
-  background-color: #101215;
+  background-color: var(--site-bg);
   color: #efefef;
   margin: 0 auto;
   height: 100%;
+  transition: background-color 0.25s ease-in-out;
 }
 
 a {
