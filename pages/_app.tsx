@@ -1,14 +1,18 @@
+// Styles
 import "highlight.js/styles/atom-one-dark.css";
 import "nprogress/nprogress.css";
 import "../styles/globals.css";
+// Fonts
 import "../public/fonts/panchang/css/panchang.css";
 import "../public/fonts/inter/css/inter.css";
 import "../public/fonts/weathericons/weather-icons.min.css";
 import "../public/fonts/ibm-plex-mono/css/ibm-plex-mono.css";
+// Deps
 import { useEffect } from "react";
 import { useRouter } from "next/router";
 import NProgress from "nprogress";
 import Head from "next/head";
+// Components
 import MainLayout from "../components/MainLayout";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -35,9 +39,39 @@ function MyApp({ Component, pageProps }) {
   });
 
   // Handle display mode toggle
+  const LIGHT = "light";
+  const DARK = "dark";
+
   function toggleDisplayMode() {
-    console.log("Light mode toggled");
+    const currentDisplaySetting =
+      document.documentElement.getAttribute("data-theme");
+
+    if (currentDisplaySetting === LIGHT) {
+      document.documentElement.setAttribute("data-theme", DARK);
+      localStorage.setItem("theme", DARK);
+    } else {
+      document.documentElement.setAttribute("data-theme", LIGHT);
+      localStorage.setItem("theme", LIGHT);
+    }
   }
+
+  // Handle loading display mode
+  function loadDisplayMode() {
+    const currentDisplaySetting = localStorage.getItem("theme");
+
+    if (currentDisplaySetting) {
+      document.documentElement.setAttribute(
+        "data-theme",
+        currentDisplaySetting
+      );
+    } else {
+      localStorage.setItem("theme", DARK);
+    }
+  }
+
+  useEffect(() => {
+    loadDisplayMode();
+  }, []);
 
   return (
     <MainLayout>
