@@ -1,7 +1,11 @@
 :root {
   --site-bg: #101215;
+  --site-main-text: #efefef;
+  --site-sub-text: #98a3b3;
 }
 
-[data-theme="light"] {
+[data-display="light"] {
   --site-bg: #efefef;
+  --site-main-text: #101215;
+  --site-sub-text: #787687;
 }

@@ -6,10 +6,10 @@
 }
 
 .header {
-  color: #efefef;
+  color: var(--site-main-text);
   margin-bottom: 1rem;
 }
 
 .subheader {
-  color: #98a3b3;
+  color: var(--site-sub-text);
 }

@@ -45,13 +45,13 @@ function MyApp({ Component, pageProps }) {
 
   function toggleDisplayMode() {
     const currentDisplaySetting =
-      document.documentElement.getAttribute("data-theme");
+      document.documentElement.getAttribute("data-display");
 
     if (currentDisplaySetting === LIGHT) {
-      document.documentElement.setAttribute("data-theme", DARK);
+      document.documentElement.setAttribute("data-display", DARK);
       localStorage.setItem("theme", DARK);
     } else {
-      document.documentElement.setAttribute("data-theme", LIGHT);
+      document.documentElement.setAttribute("data-display", LIGHT);
       localStorage.setItem("theme", LIGHT);
     }
   }
@@ -62,7 +62,7 @@ function MyApp({ Component, pageProps }) {
 
     if (currentDisplaySetting) {
       document.documentElement.setAttribute(
-        "data-theme",
+        "data-display",
         currentDisplaySetting
       );
     } else {
