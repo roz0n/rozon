@@ -1,17 +1,42 @@
-// TODO: Handle errors
+import querystring from "querystring";
 
-const getRecentlyPlayed = async (req, res) => {
-    // try {
-    //   const endpoint = `https://api.weatherbit.io/v2.0/current?units=I&postal_code=${process.env.WEATHERBIT_POSTAL_CODE}&key=${process.env.WEATHERBIT_API_KEY}&include=minutely`;
-    //   const response = await fetch(endpoint).then((res) => res.json());
-  
-    //   res.statusCode = 200;
-    //   res.json({ data: response.data });
-    // } catch (error) {
-    //   res.statusCode = 500;
-    //   res.json({ success: false, error: "Unable to fetch Weatherbit data" });
-    // }
-  };
-  
-  export default getRecentlyPlayed;
-  
+const getAccessToken = async () => {
+  const endpoint = `https://accounts.spotify.com/api/token`;
+  const { SPOTIFY_CLIENT_ID, SPOTIFY_CLIENT_SECRET, SPOTIFY_REFRESH_TOKEN } =
+    process.env;
+
+  const request = await fetch(endpoint, {
+    method: "POST",
+    headers: {
+      Authorization: `Basic ${Buffer.from(
+        `${SPOTIFY_CLIENT_ID}:${SPOTIFY_CLIENT_SECRET}`
+      ).toString("base64")}`,
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    body: querystring.stringify({
+      grant_type: "refresh_token",
+      refresh_token: SPOTIFY_REFRESH_TOKEN,
+    }),
+  });
+  const response = await request.json();
+  return response;
+};
+
+const getRecentlyPlayed = async () => {
+  const endpoint = `https://api.spotify.com/v1/me/player/recently-played`;
+  const { access_token } = await getAccessToken();
+
+  return fetch(endpoint, {
+    headers: {
+      Authorization: `Bearer ${access_token}`,
+    },
+  });
+};
+
+export default async (_, res) => {
+  // TODO: Try catch and errors
+  const request = await getRecentlyPlayed();
+  const response = await request.json();
+  console.log(response);
+  return res.status(200).json(response);
+};

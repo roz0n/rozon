@@ -17,7 +17,7 @@ async function getCreations() {
       filter: "tag:creations",
     });
 
-    console.log("Creations:", posts);
+    // console.log("Creations:", posts);
     return posts;
   } catch (error) {
     throw new Error("Unable to fetch Creations");
@@ -31,7 +31,7 @@ async function getThoughts() {
       filter: "tag:thoughts",
     });
 
-    console.log("Thoughts:", posts);
+    // console.log("Thoughts:", posts);
     return posts;
   } catch (error) {
     throw new Error("Unable to fetch Thoughts");

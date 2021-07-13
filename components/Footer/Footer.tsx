@@ -9,20 +9,47 @@ async function getWeatherData() {
   try {
     return await fetch("/api/weather").then((res) => res.json());
   } catch (error) {
-    console.log("Error fetching weather data");
+    // console.log("Error fetching weather data");
+  }
+}
+
+async function getSpotifyData() {
+  try {
+    return await fetch("/api/spotify").then((res) => res.json());
+  } catch (error) {
+    // console.log("Error fetching weather data");
   }
 }
 
 const Footer: React.FC = (props) => {
   const [weatherData, setWeatherData] = useState<WeatherDataObject[]>(null);
+  const [spotifyData, setSpotifyData] = useState(null);
 
   // TODO: Catch errors
   useEffect(() => {
     async function fetchWeather() {
       return await getWeatherData();
     }
-    fetchWeather().then((res) => setWeatherData(res.data));
+    fetchWeather().then((res) => {
+      console.log("WEATHER DATA", res.data);
+      return setWeatherData(res.data);
+    });
   }, []);
+
+  useEffect(() => {
+    console.log("Called");
+    async function fetchRecentlyPlayed() {
+      return await getSpotifyData();
+    }
+    fetchRecentlyPlayed().then((res) => {
+      console.log("SPOTIFY DATA", res);
+      return setSpotifyData(res);
+    });
+  }, []);
+
+  useEffect(() => {
+    console.log("Spotify data", spotifyData);
+  }, [spotifyData]);
 
   return (
     <footer className={styles.container}>

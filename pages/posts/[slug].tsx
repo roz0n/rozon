@@ -27,7 +27,7 @@ async function getSinglePost(slug: String) {
     `${GHOST_SITE_URL}/ghost/api/v3/content/posts/slug/${slug}?key=${GHOST_API_KEY}&fields=title,slug,custom_excerpt,reading_time,published_at,html`
   ).then((res) => res.json());
 
-  console.log("Posts:", req);
+  // console.log("Posts:", req);
   return req.posts;
 }
 
