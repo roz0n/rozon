@@ -1,9 +1,9 @@
-import styles from "../styles/Footer.module.css";
+import styles from "../../styles/Footer.module.css";
 import { WeatherDataObject } from "../..";
 import { useEffect, useState } from "react";
 import convertWeatherbitIcon from "../../utils/convertWeatherbitIcon";
 import Image from "next/image";
-import SpotifyLogo from "../public/images/index/spotify-logo.svg";
+import SpotifyLogo from "../../public/images/index/spotify-logo.svg";
 
 async function getWeatherData() {
   try {

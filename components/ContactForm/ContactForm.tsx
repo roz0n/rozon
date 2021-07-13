@@ -1,9 +1,9 @@
-import styles from "../styles/ContactForm/ContactForm.module.css";
+import styles from "../../styles/ContactForm/ContactForm.module.css";
 import text from "../../text/Index.text";
 import { useState, useEffect, SyntheticEvent } from "react";
 import { ContactFormButtonItem } from "../..";
 import Image from "next/image";
-import Memoji from "../public/images/index/memoji-2021.svg";
+import Memoji from "../../public/images/index/memoji-2021.svg";
 import ContactFormButton from "./ContactFormButton";
 
 let contactFormButtons: ContactFormButtonItem[] = [

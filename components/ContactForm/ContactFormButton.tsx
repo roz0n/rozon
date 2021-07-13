@@ -1,5 +1,5 @@
-import styles from "../styles/ContactForm/ContactFormButton.module.css";
-import { ContactFormButtonProps } from "..";
+import styles from "../../styles/ContactForm/ContactFormButton.module.css";
+import { ContactFormButtonProps } from "../..";
 
 const ContactFormButton: React.FC<ContactFormButtonProps> = (props) => {
   const { label, onClick, isSelected } = props;

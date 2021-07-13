@@ -1,5 +1,5 @@
 import { FeatureSectionProps } from "../..";
-import styles from "../styles/FeatureSection/FeatureSection.module.css";
+import styles from "../../styles/FeatureSection/FeatureSection.module.css";
 
 const FeatureSection: React.FC<FeatureSectionProps> = (props) => {
   let { title } = props;

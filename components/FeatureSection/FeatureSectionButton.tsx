@@ -1,5 +1,5 @@
-import { FeatureSectionButtonProps } from "../";
-import styles from "../styles/FeatureSection/FeatureSectionButton.module.css";
+import { FeatureSectionButtonProps } from "../..";
+import styles from "../../styles/FeatureSection/FeatureSectionButton.module.css";
 
 const FeatureSectionButton: React.FC<FeatureSectionButtonProps> = ({
   label = "View All",

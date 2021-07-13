@@ -1,8 +1,8 @@
-import styles from "../styles/FeatureSection/FeatureSectionProjectPost.module.css";
+import styles from "../../styles/FeatureSection/FeatureSectionProjectPost.module.css";
 import Image from "next/image";
 import Link from "next/link";
-import { FeatureSectionProjectPostProps } from "..";
-import SampleAppIcon from "../public/images/icons/sample-app-icon.svg";
+import { FeatureSectionProjectPostProps } from "../..";
+import SampleAppIcon from "../../public/images/icons/sample-app-icon.svg";
 
 const FeatureSectionProjectPost: React.FC<FeatureSectionProjectPostProps> = (
   props

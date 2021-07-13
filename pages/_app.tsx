@@ -14,9 +14,9 @@ import { useRouter } from "next/router";
 import NProgress from "nprogress";
 import Head from "next/head";
 // Components
-import MainLayout from "../components/MainLayout";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+import MainLayout from "../components/Layouts/MainLayout";
+import Header from "../components/Header/Header";
+import Footer from "../components/Home/Footer";
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();

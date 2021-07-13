@@ -1,5 +1,5 @@
-import styles from "../styles/Pages/Home/HomeLede.module.css";
-import text from "../text/Index.text";
+import styles from "../../styles/Pages/Home/HomeLede.module.css";
+import text from "../../text/Index.text";
 
 const HomeLede: React.FC = (props) => {
   return (
