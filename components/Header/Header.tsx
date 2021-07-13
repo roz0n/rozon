@@ -60,7 +60,7 @@ const Header: React.FC<HeaderProps> = ({
     <article className={styles.container}>
       <header className={styles.header}>
         <div className={styles.logotypeContainer}>
-          <Link href="/">
+          <Link href="/" passHref>
             <article
               className={styles.logotypeImage}
               aria-label="Arnold Rozon logotype"

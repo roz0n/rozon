@@ -114,7 +114,7 @@ const ContactForm: React.FC = (props) => {
       <span className={styles.headerContainer}>
         <h3 className={styles.header}>{text.contactFormHeader["en"]}</h3>
         <small className={styles.subheader}>
-          Select a topic and I'll get back to you soon (-ish).
+          Select a topic and I&#39;ll get back to you soon (-ish).
         </small>
       </span>
       <span className={styles.formWrapper}>

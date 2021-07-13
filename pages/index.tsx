@@ -10,7 +10,6 @@ import FeatureSectionBlogPost from "../components/FeatureSection/FeatureSectionB
 import FeatureSectionButton from "../components/FeatureSection/FeatureSectionButton";
 
 // Data
-
 async function getCreations() {
   try {
     const posts = await Ghost.posts.browse({
@@ -40,7 +39,6 @@ async function getThoughts() {
 }
 
 // Props
-
 export const getStaticProps = async ({ params }) => {
   let props: IndexPageProps = {};
 

@@ -10,7 +10,7 @@ import "../public/fonts/inter/css/inter.css";
 import "../public/fonts/weathericons/weather-icons.min.css";
 import "../public/fonts/ibm-plex-mono/css/ibm-plex-mono.css";
 // Deps
-import { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useRouter } from "next/router";
 import NProgress from "nprogress";
 import Head from "next/head";
@@ -21,6 +21,7 @@ import Footer from "../components/Footer/Footer";
 
 export const LIGHT = "light";
 export const DARK = "dark";
+export const ThemeContext = React.createContext<string>(null);
 
 function MyApp({ Component, pageProps }) {
   const [currentDisplayMode, setCurrentDisplayMode] = useState<string>(null);
@@ -91,7 +92,9 @@ function MyApp({ Component, pageProps }) {
         currentDisplayMode={currentDisplayMode}
         handleDisplayModeToggle={toggleDisplayMode}
       />
-      <Component {...pageProps} />
+      <ThemeContext.Provider value={currentDisplayMode}>
+        <Component {...pageProps} />
+      </ThemeContext.Provider>
       <Footer />
     </MainLayout>
   );
