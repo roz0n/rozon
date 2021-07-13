@@ -1,11 +1,14 @@
 import querystring from "querystring";
+const { SPOTIFY_CLIENT_ID, SPOTIFY_CLIENT_SECRET, SPOTIFY_REFRESH_TOKEN } =
+  process.env;
+
+const endpoints = {
+  token: "https://accounts.spotify.com/api/token",
+  recents: `https://api.spotify.com/v1/me/player/recently-played`,
+};
 
 const getAccessToken = async () => {
-  const endpoint = `https://accounts.spotify.com/api/token`;
-  const { SPOTIFY_CLIENT_ID, SPOTIFY_CLIENT_SECRET, SPOTIFY_REFRESH_TOKEN } =
-    process.env;
-
-  const request = await fetch(endpoint, {
+  const request = await fetch(endpoints.token, {
     method: "POST",
     headers: {
       Authorization: `Basic ${Buffer.from(
@@ -23,20 +26,13 @@ const getAccessToken = async () => {
 };
 
 const getRecentlyPlayed = async () => {
-  const endpoint = `https://api.spotify.com/v1/me/player/recently-played`;
   const { access_token } = await getAccessToken();
 
-  return fetch(endpoint, {
+  return fetch(endpoints.recents, {
     headers: {
       Authorization: `Bearer ${access_token}`,
     },
   });
 };
 
-export default async (_, res) => {
-  // TODO: Try catch and errors
-  const request = await getRecentlyPlayed();
-  const response = await request.json();
-  console.log(response);
-  return res.status(200).json(response);
-};
+export { getAccessToken, getRecentlyPlayed };

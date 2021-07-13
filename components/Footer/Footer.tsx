@@ -15,7 +15,9 @@ async function getWeatherData() {
 
 async function getSpotifyData() {
   try {
-    return await fetch("/api/spotify").then((res) => res.json());
+    return await fetch("/api/spotify/recentlyPlayedTracks").then((res) =>
+      res.json()
+    );
   } catch (error) {
     // console.log("Error fetching weather data");
   }
