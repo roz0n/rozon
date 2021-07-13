@@ -29,6 +29,7 @@ export type HeaderButtonProps = {
 };
 
 export type HeaderProps = {
+  currentDisplayMode?: string;
   handleDisplayModeToggle?: () => void;
 };
 

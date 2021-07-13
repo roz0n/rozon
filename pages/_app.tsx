@@ -9,7 +9,7 @@ import "../public/fonts/inter/css/inter.css";
 import "../public/fonts/weathericons/weather-icons.min.css";
 import "../public/fonts/ibm-plex-mono/css/ibm-plex-mono.css";
 // Deps
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import NProgress from "nprogress";
 import Head from "next/head";
@@ -18,7 +18,11 @@ import MainLayout from "../components/Layouts/MainLayout";
 import Header from "../components/Header/Header";
 import Footer from "../components/Home/Footer";
 
+export const LIGHT = "light";
+export const DARK = "dark";
+
 function MyApp({ Component, pageProps }) {
+  const [currentDisplayMode, setCurrentDisplayMode] = useState<string>(null);
   const router = useRouter();
 
   // Handle progress bar
@@ -40,9 +44,6 @@ function MyApp({ Component, pageProps }) {
   });
 
   // Handle display mode toggle
-  const LIGHT = "light";
-  const DARK = "dark";
-
   function toggleDisplayMode() {
     const currentDisplaySetting =
       document.documentElement.getAttribute("data-display");
@@ -50,9 +51,11 @@ function MyApp({ Component, pageProps }) {
     if (currentDisplaySetting === LIGHT) {
       document.documentElement.setAttribute("data-display", DARK);
       localStorage.setItem("theme", DARK);
+      setCurrentDisplayMode(DARK);
     } else {
       document.documentElement.setAttribute("data-display", LIGHT);
       localStorage.setItem("theme", LIGHT);
+      setCurrentDisplayMode(LIGHT);
     }
   }
 
@@ -65,8 +68,11 @@ function MyApp({ Component, pageProps }) {
         "data-display",
         currentDisplaySetting
       );
+
+      setCurrentDisplayMode(currentDisplaySetting);
     } else {
       localStorage.setItem("theme", DARK);
+      setCurrentDisplayMode(DARK);
     }
   }
 
@@ -80,7 +86,10 @@ function MyApp({ Component, pageProps }) {
         <title>Arnold Rozon &middot; Engineering &amp; Design</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-      <Header handleDisplayModeToggle={toggleDisplayMode} />
+      <Header
+        currentDisplayMode={currentDisplayMode}
+        handleDisplayModeToggle={toggleDisplayMode}
+      />
       <Component {...pageProps} />
       <Footer />
     </MainLayout>

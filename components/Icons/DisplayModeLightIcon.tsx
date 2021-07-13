@@ -1,6 +1,6 @@
 import { IconProps } from "../..";
 
-const DisplayModeIcon: React.FC<IconProps> = ({
+const DisplayModeLightIcon: React.FC<IconProps> = ({
   height,
   width,
   fillColor = "",
@@ -21,4 +21,4 @@ const DisplayModeIcon: React.FC<IconProps> = ({
   );
 };
 
-export default DisplayModeIcon;
+export default DisplayModeLightIcon;

@@ -1,12 +1,15 @@
 import styles from "../../styles/Header/Header.module.css";
 import { HeaderProps } from "../..";
 import { HeaderNavigationItem } from "../..";
+import { useEffect } from "react";
+import { DARK, LIGHT } from "../../pages/_app";
 import HeaderButton from "./HeaderButton";
 import GithubIcon from "../Icons/GithubIcon";
 import DribbbleIcon from "../Icons/DribbbleIcon";
 import LinkedInIcon from "../Icons/LinkedInIcon";
 import TwitterIcon from "../Icons/TwitterIcon";
-import DisplayModeIcon from "../Icons/DisplayModeIcon";
+import DisplayModeLightIcon from "../Icons/DisplayModeLightIcon";
+import DisplayModeDarkIcon from "../Icons/DisplayModeDarkIcon";
 
 const navigationItems: HeaderNavigationItem[] = [
   {
@@ -31,12 +34,28 @@ const navigationItems: HeaderNavigationItem[] = [
   },
 ];
 
-const displayModeNavigationItem: HeaderNavigationItem = {
-  icon: <DisplayModeIcon height={46} width={46} />,
+const darkDisplayModeNavigationItem: HeaderNavigationItem = {
+  icon: <DisplayModeDarkIcon height={46} width={46} />,
   alt: "Toggle dark mode",
 };
 
-const Header: React.FC<HeaderProps> = ({ handleDisplayModeToggle }) => {
+const lightDisplayModeNavigationItem: HeaderNavigationItem = {
+  icon: <DisplayModeLightIcon height={46} width={46} />,
+  alt: "Toggle light mode",
+};
+
+const Header: React.FC<HeaderProps> = ({
+  currentDisplayMode,
+  handleDisplayModeToggle,
+}) => {
+  const getDisplayModeItem = (mode): HeaderNavigationItem => {
+    if (mode === DARK) {
+      return lightDisplayModeNavigationItem;
+    } else {
+      return darkDisplayModeNavigationItem;
+    }
+  };
+
   return (
     <article className={styles.container}>
       <header className={styles.header}>
@@ -50,10 +69,10 @@ const Header: React.FC<HeaderProps> = ({ handleDisplayModeToggle }) => {
         </div>
 
         <HeaderButton
-          alt={displayModeNavigationItem.alt}
+          alt={getDisplayModeItem(currentDisplayMode).alt}
           onClick={handleDisplayModeToggle}
         >
-          {displayModeNavigationItem.icon}
+          {getDisplayModeItem(currentDisplayMode).icon}
         </HeaderButton>
       </header>
       <nav className={styles.navigation}>
