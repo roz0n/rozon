@@ -2,12 +2,12 @@ import { IndexPageProps, Post } from "..";
 import styles from "../styles/Pages/Home/Home.module.css";
 import text from "../text/Index.text";
 import Ghost from "../ghost";
-import HomeLede from "../components/HomeLede";
-import FeatureSection from "../components/FeatureSection";
-import ContactForm from "../components/ContactForm";
-import FeatureSectionProjectPost from "../components/FeatureSectionProjectPost";
-import FeatureSectionBlogPost from "../components/FeatureSectionBlogPost";
-import FeatureSectionButton from "../components/FeatureSectionButton";
+import HomeLede from "../components/Home/HomeLede";
+import FeatureSection from "../components/FeatureSection/FeatureSection";
+import ContactForm from "../components/ContactForm/ContactForm";
+import FeatureSectionProjectPost from "../components/FeatureSection/FeatureSectionProjectPost";
+import FeatureSectionBlogPost from "../components/FeatureSection/FeatureSectionBlogPost";
+import FeatureSectionButton from "../components/FeatureSection/FeatureSectionButton";
 
 // Data
 

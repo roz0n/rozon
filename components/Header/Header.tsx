@@ -1,6 +1,6 @@
 import styles from "../styles/Header/Header.module.css";
-import { HeaderProps } from "..";
-import { HeaderNavigationItem } from "..";
+import { HeaderProps } from "../..";
+import { HeaderNavigationItem } from "../..";
 import HeaderButton from "./HeaderButton";
 import GithubIcon from "../public/images/icons/github-icon.svg";
 import DribbbleIcon from "../public/images/icons/dribbble-icon.svg";
