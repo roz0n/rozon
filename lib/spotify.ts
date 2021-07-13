@@ -1,7 +1,7 @@
 import querystring from "querystring";
+
 const { SPOTIFY_CLIENT_ID, SPOTIFY_CLIENT_SECRET, SPOTIFY_REFRESH_TOKEN } =
   process.env;
-
 const endpoints = {
   token: "https://accounts.spotify.com/api/token",
   recents: `https://api.spotify.com/v1/me/player/recently-played`,
@@ -21,8 +21,8 @@ const getAccessToken = async () => {
       refresh_token: SPOTIFY_REFRESH_TOKEN,
     }),
   });
-  const response = await request.json();
-  return response;
+
+  return await request.json();
 };
 
 const getRecentlyPlayed = async () => {

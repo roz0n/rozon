@@ -7,7 +7,9 @@ import SpotifyLogo from "../../public/images/index/spotify-logo.svg";
 
 async function getWeatherData() {
   try {
-    return await fetch("/api/weather").then((res) => res.json());
+    return await fetch("/api/weatherbit/currentForecast").then((res) =>
+      res.json()
+    );
   } catch (error) {
     // console.log("Error fetching weather data");
   }
@@ -33,8 +35,8 @@ const Footer: React.FC = (props) => {
       return await getWeatherData();
     }
     fetchWeather().then((res) => {
-      console.log("WEATHER DATA", res.data);
-      return setWeatherData(res.data);
+      console.log("WEATHER DATA", res);
+      return setWeatherData(res);
     });
   }, []);
 
