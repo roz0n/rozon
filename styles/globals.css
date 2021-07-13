@@ -7,9 +7,10 @@
 * {
   box-sizing: border-box;
   max-width: 100%;
-  transition: background-color 0.15s ease-in-out;
+  transition: all 0.25s ease-in-out;
+  /* transition: background-color 5s ease-in-out;
   transition: border-color 0.15s ease-in-out;
-  transition: color 0.025s ease-in-out;
+  transition: color 0.025s ease-in-out; */
 }
 
 html,

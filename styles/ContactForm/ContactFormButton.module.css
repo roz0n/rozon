@@ -12,6 +12,19 @@
   line-height: 1.5rem;
 }
 
+.button:first-child {
+  margin-left: 0;
+}
+
+.button:last-child {
+  margin-right: 0;
+}
+
+.button:hover {
+  background-color: var(--site-item-hover);
+}
+
 .selectedButton {
   background-color: var(--section-borders);
+  cursor: default;
 }

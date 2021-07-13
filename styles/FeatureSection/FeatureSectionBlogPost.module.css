@@ -9,7 +9,7 @@
   margin: 0;
   margin-bottom: 1rem;
   color: var(--site-main-text);
-  transition: none !important;
+  /* transition: none !important; */
 }
 
 .title:hover {

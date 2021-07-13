@@ -49,6 +49,11 @@ const ContactForm: React.FC = (props) => {
     return false;
   };
 
+  // Form
+  const EMAIL = "email";
+  const INQUIRY = "inquiry";
+
+  // Helpers
   function handleButtonSelection(label: string) {
     if (!contactFormButtons.map((button) => button.label).includes(label)) {
       return;
@@ -106,62 +111,71 @@ const ContactForm: React.FC = (props) => {
         height={100}
         width={100}
       />
-      <h3 className={styles.header}>{text.contactFormHeader["en"]}</h3>
+      <span className={styles.headerContainer}>
+        <h3 className={styles.header}>{text.contactFormHeader["en"]}</h3>
+        <small className={styles.subheader}>
+          Select a topic and I'll get back to you shortly.
+        </small>
+      </span>
+      <span className={styles.formWrapper}>
+        <article className={styles.buttonsContainer}>
+          {contactFormButtons.map((button) => (
+            <ContactFormButton
+              key={button.label}
+              label={button.label}
+              onClick={handleButtonSelection}
+              isSelected={isButtonSelected}
+            />
+          ))}
+        </article>
 
-      <article>
-        {contactFormButtons.map((button) => (
-          <ContactFormButton
-            key={button.label}
-            label={button.label}
-            onClick={handleButtonSelection}
-            isSelected={isButtonSelected}
-          />
-        ))}
-      </article>
-
-      <article className={styles.formContainer}>
-        <form className={styles.form} onSubmit={(e) => handleSubmit(e)}>
-          <input
-            className={styles.emailField}
-            placeholder="Your email"
-            value={emailText}
-            type="email"
-            onChange={(e) => {
-              handleEmailText(e.target.value);
-            }}
-          />
-          <textarea
-            className={styles.inquiryField}
-            placeholder="Enter a brief inquiry..."
-            value={inquiryText}
-            maxLength={maxCharCount}
-            onChange={(e) =>
-              handleInquiryTextArea(
-                e.target.value,
-                e.target.value.length,
-                maxCharCount
-              )
-            }
-          />
-          <div className={styles.toolbar}>
-            <button
-              className={`${
-                isButtonDisabled()
-                  ? styles.submitButtonInactive
-                  : styles.submitButtonActive
-              }`}
-              disabled={isButtonDisabled()}
-            >
-              {text.contactFormButton["en"]}
-            </button>
-            <article>
-              <p
-                className={styles.wordcount}
-              >{`${inquiryTextCount}/${maxCharCount}`}</p>
-            </article>
-          </div>
-        </form>
-      </article>
+        <article className={styles.formContainer}>
+          <form className={styles.form} onSubmit={(e) => handleSubmit(e)}>
+            <input
+              name={EMAIL}
+              className={styles.emailField}
+              placeholder="Your email"
+              value={emailText}
+              autoComplete={"false"}
+              type="email"
+              onChange={(e) => {
+                handleEmailText(e.target.value);
+              }}
+            />
+            <textarea
+              name={INQUIRY}
+              className={styles.inquiryField}
+              placeholder="A brief inquiry"
+              value={inquiryText}
+              maxLength={maxCharCount}
+              onChange={(e) =>
+                handleInquiryTextArea(
+                  e.target.value,
+                  e.target.value.length,
+                  maxCharCount
+                )
+              }
+            />
+            <div className={styles.toolbar}>
+              <button
+                className={`${
+                  isButtonDisabled()
+                    ? styles.submitButtonInactive
+                    : styles.submitButtonActive
+                }`}
+                disabled={isButtonDisabled()}
+              >
+                {text.contactFormButton["en"]}
+              </button>
+              <article>
+                <p
+                  className={styles.wordcount}
+                >{`${inquiryTextCount}/${maxCharCount}`}</p>
+              </article>
+            </div>
+          </form>
+        </article>
+      </span>
     </section>
   );
 };
