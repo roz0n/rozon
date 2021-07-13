@@ -117,7 +117,7 @@
 }
 
 .postBody pre {
-  background-color: var(--site-item-hover);
+  background-color: var(--code-snippet-bg);
   border-top-right-radius: 0.375rem;
   border-top-left-radius: 0.375rem;
   padding-left: 1.5rem;

@@ -6,7 +6,6 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import Image from "next/image";
 import CommentsIcon from "../../public/images/icons/comments-icon.svg";
-import ShareIcon from "../../public/images/icons/share-icon.svg";
 
 const { GHOST_API_KEY, GHOST_SITE_URL } = process.env;
 hljs.registerLanguage("swift", swift);

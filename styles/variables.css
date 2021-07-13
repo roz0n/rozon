@@ -24,6 +24,9 @@
 
   /* Rules */
   --site-rule-hover: #101215;
+
+  /* Code */
+  --code-snippet-bg: #21262d45;
 }
 
 [data-display="light"] {
@@ -45,4 +48,7 @@
 
   /* Rules */
   --site-rule-hover: #c4cddb;
+
+  /* Code */
+  --code-snippet-bg: #c4cddb45;
 }
