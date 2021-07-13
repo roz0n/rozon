@@ -1,4 +1,5 @@
 import styles from "../../styles/Header/Header.module.css";
+import Link from "next/link";
 import { HeaderProps } from "../..";
 import { HeaderNavigationItem } from "../..";
 import { DARK } from "../../pages/_app";
@@ -59,12 +60,14 @@ const Header: React.FC<HeaderProps> = ({
     <article className={styles.container}>
       <header className={styles.header}>
         <div className={styles.logotypeContainer}>
-          <article
-            className={styles.logotypeImage}
-            aria-label="Arnold Rozon logotype"
-          >
-            &nbsp;
-          </article>
+          <Link href="/">
+            <article
+              className={styles.logotypeImage}
+              aria-label="Arnold Rozon logotype"
+            >
+              &nbsp;
+            </article>
+          </Link>
         </div>
 
         <HeaderButton

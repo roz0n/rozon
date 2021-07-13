@@ -80,7 +80,7 @@ const Post: React.FC<{ post: Post }> = (props) => {
             <section className={styles.postInfoContainer}>
               <div className={styles.byLineContainer}>
                 <p className={styles.byLine}>By Arnold Rozon</p>
-                <p className={styles.byLine}>July 26, 1993</p>
+                <p className={styles.byLine}>July 26, 2021</p>
               </div>
 
               <div className={styles.postControlsContainer}>
@@ -107,7 +107,11 @@ const Post: React.FC<{ post: Post }> = (props) => {
 
           <figure className={styles.postDisplayImageContainer}>
             {/* <Image alt="This blog post's display image" /> */}
+            {/* <figcaption>Fig.1 - Trulli, Puglia, Italy.</figcaption> */}
           </figure>
+          <figcaption className={styles.postDisplayImageCaption}>
+            Fig.1 - Trulli, Puglia, Italy.
+          </figcaption>
 
           <section
             className={styles.postBody}

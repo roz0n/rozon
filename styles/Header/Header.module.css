@@ -33,6 +33,10 @@
   align-items: center;
 }
 
+.logotypeContainer:hover {
+  cursor: pointer;
+}
+
 .logotypeImage {
   height: 2.5rem;
   width: 100%;
