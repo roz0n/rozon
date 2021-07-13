@@ -5,7 +5,6 @@ import swift from "highlight.js/lib/languages/swift";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import Image from "next/image";
-import ArrowBackIcon from "../../public/images/icons/arrow-back-icon.svg";
 import CommentsIcon from "../../public/images/icons/comments-icon.svg";
 import ShareIcon from "../../public/images/icons/share-icon.svg";
 
@@ -62,17 +61,12 @@ const Post: React.FC<{ post: Post }> = (props) => {
   } else {
     return (
       <>
-        {/* // TODO: This should reuse Layout and make it dynamic */}
         <header className={styles.header}>
-          <Image
-            src={ArrowBackIcon}
-            alt="An icon of an backward facing arrow"
-          />
           <Link href="/">
-            <a>All posts</a>
+            <a className={styles.headerLink}>&#8592;&nbsp;&nbsp; All Posts</a>
           </Link>
         </header>
-        <div className={styles.layout__REMOVE}>
+        <div className={styles.postContainer}>
           <div className={styles.categoryContainer}>
             <p>Development</p>
           </div>
@@ -97,10 +91,6 @@ const Post: React.FC<{ post: Post }> = (props) => {
                   />
                   <small className={styles.commentsCountLabel}>6</small>
                 </span>
-
-                <span className={styles.shareButtonContainer}>
-                  <Image src={ShareIcon} alt="A typical share icon" />
-                </span>
               </div>
             </section>
 
@@ -113,11 +103,11 @@ const Post: React.FC<{ post: Post }> = (props) => {
                 ante ligula.
               </h2>
             </section>
-
-            <figure className={styles.postDisplayImageContainer}>
-              {/* <Image alt="This blog post's display image" /> */}
-            </figure>
           </article>
+
+          <figure className={styles.postDisplayImageContainer}>
+            {/* <Image alt="This blog post's display image" /> */}
+          </figure>
 
           <section
             className={styles.postBody}

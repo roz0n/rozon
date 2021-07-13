@@ -8,9 +8,7 @@
   box-sizing: border-box;
   max-width: 100%;
   transition: all 0.25s ease-in-out;
-  /* transition: background-color 5s ease-in-out;
-  transition: border-color 0.15s ease-in-out;
-  transition: color 0.025s ease-in-out; */
+  transition-property: border-color, background-color;
 }
 
 html,
@@ -30,6 +28,8 @@ a {
 }
 
 p,
+figure,
+pre,
 h1,
 h2,
 h3,
@@ -37,6 +37,7 @@ h4,
 h5,
 h6 {
   margin: 0;
+  padding: 0;
 }
 
 img {
