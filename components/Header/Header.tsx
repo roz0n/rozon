@@ -1,8 +1,7 @@
 import styles from "../../styles/Header/Header.module.css";
 import { HeaderProps } from "../..";
 import { HeaderNavigationItem } from "../..";
-import { useEffect } from "react";
-import { DARK, LIGHT } from "../../pages/_app";
+import { DARK } from "../../pages/_app";
 import HeaderButton from "./HeaderButton";
 import GithubIcon from "../Icons/GithubIcon";
 import DribbbleIcon from "../Icons/DribbbleIcon";

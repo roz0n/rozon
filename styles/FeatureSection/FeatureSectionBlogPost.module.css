@@ -9,6 +9,12 @@
   margin: 0;
   margin-bottom: 1rem;
   color: var(--site-main-text);
+  transition: none !important;
+}
+
+.title:hover {
+  text-decoration: underline;
+  opacity: 0.85;
 }
 
 .date {
