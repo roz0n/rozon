@@ -8,12 +8,13 @@
   font-weight: 500;
   margin: 0;
   margin-bottom: 0.5rem;
+  color: var(--site-main-text);
 }
 
 .excerpt {
   font-size: 1rem;
   line-height: 1.55rem;
-  color: #98a3b3;
+  color: var(--site-sub-text);
 }
 
 .headerSectionContainer {
@@ -47,10 +48,10 @@
   margin: 0;
   margin-right: 0.75rem;
   list-style-type: none;
-  background-color: #21262d;
+  background-color: var(--site-chip-bg);
   padding: 0.25rem 0.65rem;
   border-radius: 6.25rem;
-  font-family: "Inter";
+  font-family: "Inter", sans-serif;
   font-size: 0.7rem;
   font-weight: 600;
   text-transform: uppercase;

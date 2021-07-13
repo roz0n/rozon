@@ -1,13 +1,24 @@
+@supports (font-variation-settings: normal) {
+  html {
+    font-family: "Inter var", sans-serif;
+  }
+}
+
+* {
+  box-sizing: border-box;
+  max-width: 100%;
+  transition: all 0.15s ease-in-out;
+}
+
 html,
 body {
   padding: 0;
   margin: 0;
   font-family: "Inter", sans-serif;
   background-color: var(--site-bg);
-  color: #efefef;
+  color: var(--site-main-text);
   margin: 0 auto;
   height: 100%;
-  transition: background-color 0.25s ease-in-out;
 }
 
 a {
@@ -25,39 +36,32 @@ h6 {
   margin: 0;
 }
 
-* {
-  box-sizing: border-box;
-  max-width: 100%;
-}
-
-@supports (font-variation-settings: normal) {
-  html {
-    font-family: "Inter var", sans-serif;
-  }
-}
-
 img {
   height: auto;
 }
 
 ::selection {
-  background-color: #7000ff;
-  color: #efefef;
+  background-color: var(--purple-main);
+  color: var(--white);
 }
+
+/* Highlight.js */
 
 .hljs {
   background-color: transparent !important;
-  font-family: "IBM Plex Mono";
+  font-family: "IBM Plex Mono", monospace;
 }
 
+/* NProgress */
+
 #nprogress .bar {
-  background: #612df6 !important;
+  background: var(--purple-accent) !important;
 }
 
 #nprogress .spinner {
-  background: #612df6 !important;
+  background: var(--purple-accent) !important;
 }
 
 #nprogress .peg {
-  box-shadow: 0 0 10px #bc89ff57, 0 0 5px #bc89ff57;
+  box-shadow: 0 0 10px var(--purple-alpha), 0 0 5px var(--purple-alpha);
 }

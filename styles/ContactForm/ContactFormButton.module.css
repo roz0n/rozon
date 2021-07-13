@@ -1,17 +1,17 @@
 .button {
-  border: 1px solid #21262d;
+  border: 1px solid var(--section-borders);
   background-color: transparent;
-  color: #efefef;
+  color: var(--site-main-text);
   padding: 0.75rem 1.5rem;
   border-radius: 100px;
   margin: 0.5rem;
   font-weight: 400;
   font-size: 1rem;
-  font-family: "Inter";
+  font-family: "Inter", sans-serif;
   cursor: pointer;
   line-height: 1.5rem;
 }
 
 .selectedButton {
-  background-color: #21262d;
+  background-color: var(--section-borders);
 }

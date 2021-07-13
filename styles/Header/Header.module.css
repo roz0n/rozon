@@ -7,8 +7,7 @@
   align-items: center;
   justify-content: space-between;
   height: 8.125rem;
-  /* background-color: red; */
-  border-bottom: 1px solid #21262d;
+  border-bottom: 1px solid var(--section-borders);
 }
 
 .navigation {
@@ -17,8 +16,7 @@
   align-items: center;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
-  /* background-color: blue; */
-  border-bottom: 1px solid #21262d;
+  border-bottom: 1px solid var(--section-borders);
 }
 
 .logotype {

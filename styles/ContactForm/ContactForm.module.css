@@ -3,8 +3,8 @@
   flex-direction: column;
   align-items: center;
   padding: 7.5rem;
-  border-top: 1px solid #21262d;
-  font-family: "Inter";
+  border-top: 1px solid var(--section-borders);
+  font-family: "Inter", sans-serif;
   font-size: 1.5rem;
 }
 
@@ -16,7 +16,7 @@
 .formContainer {
   width: 80%;
   margin: 2.5rem;
-  border: 1px solid #21262d;
+  border: 1px solid var(--section-borders);
   border-radius: 1.75rem;
 }
 
@@ -31,8 +31,8 @@
   padding: 1.5rem;
   font-size: 1rem;
   outline: none;
-  color: #efefef;
-  border-bottom: 1px solid #21262d;
+  color: var(--site-main-text);
+  border-bottom: 1px solid var(--section-borders);
 }
 
 .inquiryField {
@@ -42,9 +42,9 @@
   padding: 1.5rem;
   font-size: 1rem;
   outline: none;
-  color: #efefef;
+  color: var(--site-main-text);
   resize: none;
-  font-family: "Inter";
+  font-family: "Inter", sans-serif;
   line-height: 1.5rem;
 }
 
@@ -58,10 +58,10 @@
 
 .submitButtonInactive {
   background-color: transparent;
-  border: 1px solid #21262d;
+  border: 1px solid var(--section-borders);
   padding: 1rem 1.5rem;
   border-radius: 0.875rem;
-  color: #21262d;
+  color: var(--site-main-text);
   font-weight: 500;
   font-size: 1rem;
   cursor: not-allowed;
@@ -69,11 +69,11 @@
 }
 
 .submitButtonActive {
-  background-color: #21262d;
+  background-color: transparent;
   border: 0;
   padding: 1rem 1.5rem;
   border-radius: 0.875rem;
-  color: #efefef;
+  color: var(--site-main-text);
   font-weight: 500;
   font-size: 1rem;
 }
@@ -87,5 +87,5 @@
 
 .emailField::placeholder,
 .inquiryField::placeholder {
-  color: #626973;
+  color: var(--site-main-ph-text);
 }

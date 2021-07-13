@@ -1,11 +1,48 @@
 :root {
+  /* General (stays the same between display styles) */
+  --black: #101215;
+  --white: #efefef;
+  --purple-main: #7000ff;
+  --purple-accent: #612df6;
+  --purple-alpha: #bc89ff57;
+
+  /* Main background and text */
   --site-bg: #101215;
   --site-main-text: #efefef;
   --site-sub-text: #98a3b3;
+  --site-main-ph-text: #626973;
+  --site-item-hover: #21262d;
+
+  /* Chips */
+  --site-chip-bg: #21262d;
+  --site-chip-bg-hover: #101215;
+  --site-chip-text-hover: #efefef;
+
+  /* Borders */
+  --section-borders: #21262d;
+  --section-borders-alpha: #98a3b328;
+
+  /* Rules */
+  --site-rule-hover: #101215;
 }
 
 [data-display="light"] {
+  /* Main background and text */
   --site-bg: #efefef;
-  --site-main-text: #101215;
+  --site-main-text: #353535;
   --site-sub-text: #787687;
+  --site-main-ph-text: #626973;
+  --site-item-hover: #c4cddb55;
+
+  /* Chips */
+  --site-chip-bg: #c4cddb55;
+  --site-chip-bg-hover: #efefef;
+  --site-chip-text-hover: #353535;
+
+  /* Borders */
+  --section-borders: #c4cddb;
+  --section-borders-alpha: #78768728;
+
+  /* Rules */
+  --site-rule-hover: #c4cddb;
 }

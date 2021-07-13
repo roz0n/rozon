@@ -1,22 +1,23 @@
 .container {
   margin-bottom: 2rem;
   padding: 1.25rem;
-  border: 1px solid #21262d;
+  border: 1px solid var(--section-borders);
   border-radius: 0.865rem;
 }
 
 .container:hover {
-  background-color: #21262d;
+  background-color: var(--site-item-hover);
   cursor: pointer;
-  transition: all 0.15s ease-in-out;
 }
 
 .container:hover .headerSectionContainer {
-  border-color: #101215;
+  border-color: var(--site-rule-hover);
+  color: var(--site-main-text);
 }
 
 .container:hover .tagChip {
-  background-color: #101215;
+  background-color: var(--site-chip-bg-hover);
+  color: var(--site-chip-text-hover);
 }
 
 .title {
@@ -29,13 +30,14 @@
 .excerpt {
   font-size: 1rem;
   line-height: 1.55rem;
-  color: #98a3b3;
+  color: var(--site-sub-text);
 }
 
 .headerSectionContainer {
   margin-bottom: 1.25rem;
-  border-bottom: 1px solid #21262d;
+  border-bottom: 1px solid var(--section-borders);
   padding-bottom: 1.5rem;
+  color: var(--site-main-text);
 }
 
 .headerContainer {
@@ -65,10 +67,11 @@
   margin: 0;
   margin-right: 0.75rem;
   list-style-type: none;
-  background-color: #21262d;
+  background-color: var(--site-chip-bg);
+  color: var(--site-main-text);
   padding: 0.25rem 0.65rem;
   border-radius: 6.25rem;
-  font-family: "Inter";
+  font-family: "Inter", sans-serif;
   font-size: 0.7rem;
   font-weight: 600;
   text-transform: uppercase;
