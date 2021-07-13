@@ -1,6 +1,5 @@
 import styles from "../../styles/Header/HeaderButton.module.css";
 import { HeaderButtonProps } from "../..";
-import Image from "next/image";
 
 const HeaderButton: React.FC<HeaderButtonProps> = ({
   children,

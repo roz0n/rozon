@@ -66,15 +66,22 @@
 .commentsCountContainer {
   display: flex;
   flex-direction: row;
+  align-items: center;
 }
 
-.postControlsContainer img {
-  height: 1rem;
-  width: 1rem;
+.postControlsContainer svg {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  fill: var(--site-main-text);
+}
+
+.postControlsContainer svg:hover {
+  cursor: pointer;
 }
 
 .commentsCountLabel {
-  padding: 0 0.35rem;
+  padding: 0 0.0125rem;
 }
 
 .shareButtonContainer {

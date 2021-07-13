@@ -5,7 +5,8 @@ import swift from "highlight.js/lib/languages/swift";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import Image from "next/image";
-import CommentsIcon from "../../public/images/icons/comments-icon.svg";
+import CommentsIcon from "../../components/Icons/CommentsIcon";
+// import CommentsIcon from "../../public/images/icons/comments-icon.svg";
 import { ThemeContext } from "../_app";
 
 const { GHOST_API_KEY, GHOST_SITE_URL } = process.env;
@@ -85,13 +86,12 @@ const Post: React.FC<{ post: Post }> = (props) => {
               </div>
 
               <div className={styles.postControlsContainer}>
-                <span className={styles.commentsCountContainer}>
-                  <Image
-                    src={CommentsIcon}
-                    alt="A speech bubble icon to indicate comments"
-                  />
-                  <small className={styles.commentsCountLabel}>6</small>
-                </span>
+                <Link href="/" passHref>
+                  <span className={styles.commentsCountContainer}>
+                    <CommentsIcon height={36} width={36} />
+                    <small className={styles.commentsCountLabel}>6</small>
+                  </span>
+                </Link>
               </div>
             </section>
 
