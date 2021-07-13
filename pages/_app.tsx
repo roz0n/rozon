@@ -1,5 +1,6 @@
 // Styles
 import "../styles/variables.css";
+import "../styles/animations.css";
 import "../styles/globals.css";
 import "highlight.js/styles/atom-one-dark.css";
 import "nprogress/nprogress.css";

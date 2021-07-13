@@ -11,6 +11,13 @@
   transition-property: border-color, background-color;
 }
 
+section,
+article,
+div,
+span {
+  animation: fade-in 0.5s ease-in-out;
+}
+
 html,
 body {
   padding: 0;
