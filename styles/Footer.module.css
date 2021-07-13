@@ -42,8 +42,25 @@
 
 .weatherContainer {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
+}
+
+.weatherTempWrapper {
+  display: flex;
+  align-items: center;
+  width: 100%;
   justify-content: flex-end;
-  font-size: 0.85rem;
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+}
+
+.weatherCityWrapper {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: flex-end;
+  font-size: 0.75rem;
 }

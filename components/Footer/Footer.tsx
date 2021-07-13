@@ -39,18 +39,21 @@ const Footer: React.FC = (props) => {
         <span>&copy; 2021</span>
       </article>
       <article className={styles.weatherContainer}>
-        {weatherData && weatherData.length > 0 && (
+        {weatherData?.length > 0 && (
           <>
-            <i
-              className={`wi ${convertWeatherbitIcon(
-                weatherData[0].weather.code
-              )}`}
-            />
-            <span>&nbsp;{Math.round(+weatherData[0].temp)}&deg; &nbsp;</span>
-            <span>in&nbsp;</span>
-            <span>
-              {weatherData[0].city_name}, {weatherData[0].state_code}
-            </span>
+            <div className={styles.weatherTempWrapper}>
+              <i
+                className={`wi ${convertWeatherbitIcon(
+                  weatherData[0].weather.code
+                )}`}
+              />
+              <p>&nbsp;{Math.round(+weatherData[0].temp)}&deg;</p>
+            </div>
+            <div className={styles.weatherCityWrapper}>
+              <p>
+                in {weatherData[0].city_name}, {weatherData[0].state_code}
+              </p>
+            </div>
           </>
         )}
       </article>

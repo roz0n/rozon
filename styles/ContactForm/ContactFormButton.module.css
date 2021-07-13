@@ -27,4 +27,5 @@
 .selectedButton {
   background-color: var(--section-borders);
   cursor: default;
+  box-sizing: border-box;
 }

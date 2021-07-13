@@ -16,7 +16,7 @@ import Head from "next/head";
 // Components
 import MainLayout from "../components/Layouts/MainLayout";
 import Header from "../components/Header/Header";
-import Footer from "../components/Home/Footer";
+import Footer from "../components/Footer/Footer";
 
 export const LIGHT = "light";
 export const DARK = "dark";
