@@ -3,7 +3,7 @@ import { HeaderButtonProps } from "../..";
 import Image from "next/image";
 
 const HeaderButton: React.FC<HeaderButtonProps> = ({
-  icon,
+  children,
   alt,
   url,
   onClick,
@@ -11,7 +11,7 @@ const HeaderButton: React.FC<HeaderButtonProps> = ({
   return (
     <a href={url} target="_blank" rel="noopener noreferrer">
       <button className={styles.container} onClick={onClick}>
-        <Image src={icon} alt={alt} />
+        {children}
       </button>
     </a>
   );

@@ -16,6 +16,6 @@
   cursor: pointer;
 }
 
-/* .icon img {
-  width: 1.35rem;
-} */
+.container svg {
+  fill: var(--site-main-text);
+}

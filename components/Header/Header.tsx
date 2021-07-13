@@ -2,37 +2,37 @@ import styles from "../../styles/Header/Header.module.css";
 import { HeaderProps } from "../..";
 import { HeaderNavigationItem } from "../..";
 import HeaderButton from "./HeaderButton";
-import GithubIcon from "../../public/images/icons/github-icon.svg";
-import DribbbleIcon from "../../public/images/icons/dribbble-icon.svg";
-import LinkedInIcon from "../../public/images/icons/linkedin-icon.svg";
-import TwitterIcon from "../../public/images/icons/twitter-icon.svg";
-import DarkModeToggleIcon from "../../public/images/icons/dark-mode-toggle-icon.svg";
+import GithubIcon from "../Icons/GithubIcon";
+import DribbbleIcon from "../Icons/DribbbleIcon";
+import LinkedInIcon from "../Icons/LinkedInIcon";
+import TwitterIcon from "../Icons/TwitterIcon";
+import DisplayModeIcon from "../Icons/DisplayModeIcon";
 
-let navigationItems: HeaderNavigationItem[] = [
+const navigationItems: HeaderNavigationItem[] = [
   {
-    icon: GithubIcon,
+    icon: <GithubIcon height={46} width={46} />,
     alt: "A link to my Github account",
     url: "https://www.github.com/roz0n",
   },
   {
-    icon: DribbbleIcon,
+    icon: <DribbbleIcon height={46} width={46} />,
     alt: "A link to my Dribbble profile",
     url: "https://www.dribbble.com/roz0n",
   },
   {
-    icon: LinkedInIcon,
+    icon: <LinkedInIcon height={46} width={46} />,
     alt: "A link to my LinkedIn page",
     url: "https://www.linkedin.com/in/rozon",
   },
   {
-    icon: TwitterIcon,
+    icon: <TwitterIcon height={46} width={46} />,
     alt: "A link to my Twitter account",
     url: "https://www.twitter.com/roz0n",
   },
 ];
 
-let displayModeToggleItem: HeaderNavigationItem = {
-  icon: DarkModeToggleIcon,
+const displayModeNavigationItem: HeaderNavigationItem = {
+  icon: <DisplayModeIcon height={46} width={46} />,
   alt: "Toggle dark mode",
 };
 
@@ -50,20 +50,18 @@ const Header: React.FC<HeaderProps> = ({ handleDisplayModeToggle }) => {
         </div>
 
         <HeaderButton
-          icon={displayModeToggleItem.icon}
-          alt={displayModeToggleItem.alt}
+          alt={displayModeNavigationItem.alt}
           onClick={handleDisplayModeToggle}
-        />
+        >
+          {displayModeNavigationItem.icon}
+        </HeaderButton>
       </header>
       <nav className={styles.navigation}>
         {navigationItems.map((item) => {
           return (
-            <HeaderButton
-              key={`${item.alt}`}
-              icon={item.icon}
-              alt={item.alt}
-              url={item.url}
-            />
+            <HeaderButton key={`${item.alt}`} alt={item.alt} url={item.url}>
+              {item.icon}
+            </HeaderButton>
           );
         })}
       </nav>

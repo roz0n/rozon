@@ -22,7 +22,7 @@ export type FeatureSectionProps = {
 };
 
 export type HeaderButtonProps = {
-  icon: any;
+  icon?: any;
   alt: string;
   url?: string;
   onClick?: () => void;
@@ -33,6 +33,12 @@ export type HeaderProps = {
 };
 
 export type HeaderNavigationItem = HeaderButtonProps;
+
+export type IconProps = {
+  height: number;
+  width: number;
+  fillColor?: string;
+};
 
 export type ContactFormButtonProps = {
   label: string;
