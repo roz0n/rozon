@@ -7,7 +7,7 @@ const ContactFormButton: React.FC<ContactFormButtonProps> = (props) => {
   return (
     <button
       className={`${styles.button} ${
-        isSelected(label) && styles.selectedButton
+        isSelected && isSelected(label) && styles.selectedButton
       }`}
       onClick={() => onClick(label)}
     >

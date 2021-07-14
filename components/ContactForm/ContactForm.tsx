@@ -38,6 +38,7 @@ const ContactForm: React.FC = (props) => {
   const [emailText, setEmailText] = useState(String());
   const [inquiryTextCount, setInquiryTextCount] = useState(0);
   const [inquiryText, setInquiryText] = useState(String());
+  const [hasSubmitted, setHasSubmitted] = useState(false);
   const [memojiState, setMemojiState] = useState<MemojiStates>(
     MemojiStates.Smile
   );
@@ -106,6 +107,18 @@ const ContactForm: React.FC = (props) => {
       ${emailText} \n
       ${inquiryText} \n
     `);
+
+    setHasSubmitted(true);
+    setMemojiState(MemojiStates.Celebrate);
+  }
+
+  function handleReset() {
+    setSelectedButton(null);
+    setEmailText(String());
+    setInquiryTextCount(0);
+    setInquiryText(String());
+    setHasSubmitted(false);
+    setMemojiState(MemojiStates.Smile);
   }
 
   function getMemoji(state: MemojiStates) {
@@ -133,8 +146,8 @@ const ContactForm: React.FC = (props) => {
   }, [inquiryText, emailText]);
 
   return (
-    <section className={styles.container}>
-      <span className={styles.memojiContainer}>
+    <article className={styles.container}>
+      <article className={styles.memojiContainer}>
         <Image
           src={getMemoji(memojiState)}
           alt="An image of my Memoji avatar"
@@ -142,72 +155,88 @@ const ContactForm: React.FC = (props) => {
           height={120}
           width={120}
         />
-      </span>
-      <span className={styles.headerContainer}>
-        <h3 className={styles.header}>{text.contactFormHeader["en"]}</h3>
-        <small className={styles.subheader}>
-          Select a topic and I&#39;ll get back to you soon <i>(-ish)</i>.
-        </small>
-      </span>
-      <span className={styles.formWrapper}>
-        <article className={styles.buttonsContainer}>
-          {contactFormButtons.map((button) => (
-            <ContactFormButton
-              key={button.label}
-              label={button.label}
-              onClick={handleButtonSelection}
-              isSelected={isButtonSelected}
-            />
-          ))}
-        </article>
+      </article>
 
-        <article className={styles.formContainer}>
-          <form className={styles.form} onSubmit={(e) => handleSubmit(e)}>
-            <input
-              name={EMAIL}
-              className={styles.emailField}
-              placeholder="Your email"
-              value={emailText}
-              autoComplete={"false"}
-              onChange={(e) => {
-                handleEmailText(e.target.value);
-              }}
-            />
-            <textarea
-              name={INQUIRY}
-              className={styles.inquiryField}
-              placeholder="A brief inquiry"
-              value={inquiryText}
-              maxLength={maxCharCount}
-              onChange={(e) =>
-                handleInquiryTextAreaChange(
-                  e.target.value,
-                  e.target.value.length,
-                  maxCharCount
-                )
-              }
-            />
-            <div className={styles.toolbar}>
-              <button
-                className={`${
-                  isButtonDisabled()
-                    ? styles.submitButtonInactive
-                    : styles.submitButtonActive
-                }`}
-                disabled={isButtonDisabled()}
-              >
-                {text.contactFormButton["en"]}
-              </button>
-              <article>
-                <p
-                  className={styles.wordcount}
-                >{`${inquiryTextCount}/${maxCharCount}`}</p>
-              </article>
-            </div>
-          </form>
-        </article>
-      </span>
-    </section>
+      {!hasSubmitted ? (
+        <>
+          <article className={styles.headerContainer}>
+            <h3 className={styles.header}>{text.contactFormHeader["en"]}</h3>
+            <small className={styles.subheader}>
+              Select a topic and I&#39;ll get back to you soon <i>(-ish)</i>.
+            </small>
+          </article>
+
+          <article className={styles.formWrapper}>
+            <section className={styles.buttonsContainer}>
+              {contactFormButtons.map((button) => (
+                <ContactFormButton
+                  key={button.label}
+                  label={button.label}
+                  onClick={handleButtonSelection}
+                  isSelected={isButtonSelected}
+                />
+              ))}
+            </section>
+
+            <section className={styles.formContainer}>
+              <form className={styles.form} onSubmit={(e) => handleSubmit(e)}>
+                <input
+                  name={EMAIL}
+                  className={styles.emailField}
+                  placeholder="Your email"
+                  value={emailText}
+                  autoComplete={"false"}
+                  onChange={(e) => {
+                    handleEmailText(e.target.value);
+                  }}
+                />
+                <textarea
+                  name={INQUIRY}
+                  className={styles.inquiryField}
+                  placeholder="A brief inquiry"
+                  value={inquiryText}
+                  maxLength={maxCharCount}
+                  onChange={(e) =>
+                    handleInquiryTextAreaChange(
+                      e.target.value,
+                      e.target.value.length,
+                      maxCharCount
+                    )
+                  }
+                />
+                <div className={styles.toolbar}>
+                  <button
+                    className={`${
+                      isButtonDisabled()
+                        ? styles.submitButtonInactive
+                        : styles.submitButtonActive
+                    }`}
+                    disabled={isButtonDisabled()}
+                  >
+                    {text.contactFormButton["en"]}
+                  </button>
+                  <span>
+                    <p
+                      className={styles.wordcount}
+                    >{`${inquiryTextCount}/${maxCharCount}`}</p>
+                  </span>
+                </div>
+              </form>
+            </section>
+          </article>
+        </>
+      ) : (
+        <>
+          <article className={styles.headerContainer}>
+            <h3 className={styles.header}>I've received your inquiry!</h3>
+            <small className={styles.subheader}>
+              As promised, I&#39;ll get back to you soon <i>(-ish)</i>.
+            </small>
+          </article>
+          <ContactFormButton label={"Close"} onClick={handleReset} />
+        </>
+      )}
+    </article>
   );
 };
 
