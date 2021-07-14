@@ -1,7 +1,6 @@
 import styles from "../../styles/Footer.module.css";
 import { WeatherDataObject } from "../..";
 import { useEffect, useState } from "react";
-import convertWeatherbitIcon from "../../utils/convertWeatherbitIcon";
 import SpotifyWidget from "../SpotifyWidget";
 import WeatherbitWidget from "../WeatherbitWidget";
 

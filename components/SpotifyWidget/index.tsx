@@ -60,7 +60,7 @@ const SpotifyWidget: React.FC<SpotifyWidgetProps> = ({ track }) => {
       <header className={styles.headerContainer}>
         <span className={styles.headerWrapper}>
           <SpotifyIcon height={12} width={12} />
-          <p className={styles.title}>Recent vibes</p>
+          <p className={styles.title}>Latest Vibes</p>
         </span>
       </header>
 
@@ -71,17 +71,17 @@ const SpotifyWidget: React.FC<SpotifyWidgetProps> = ({ track }) => {
         >
           <div className={styles.playPauseContainer}>
             {previewTrackState ? (
-              <PauseIcon height={46} width={46} />
+              <PauseIcon height={50} width={50} />
             ) : (
-              <PlayIcon height={46} width={46} />
+              <PlayIcon height={50} width={50} />
             )}
           </div>
           {track.artworkUrl ? (
             <Image
               src={track?.artworkUrl}
               alt={`${track.name} by ${track.artist} album artwork`}
-              height={46}
-              width={46}
+              height={50}
+              width={50}
             />
           ) : (
             <div className={styles.missingArtworkContainer}></div>
