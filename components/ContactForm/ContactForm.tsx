@@ -137,7 +137,6 @@ const ContactForm: React.FC = (props) => {
               placeholder="Your email"
               value={emailText}
               autoComplete={"false"}
-              type="email"
               onChange={(e) => {
                 handleEmailText(e.target.value);
               }}

@@ -9,29 +9,6 @@
   color: var(--site-main-text);
 }
 
-.musicContainer {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.musicTrackContainer {
-  display: flex;
-  flex-direction: row;
-}
-
-.musicHeader {
-  font-weight: 300;
-  font-size: 0.75rem;
-  margin: 0;
-}
-
-.musicTrackTitle {
-  font-weight: 500;
-  font-size: 0.85rem;
-  margin-left: 0.5rem;
-}
-
 .copyrightContainer {
   display: flex;
   flex-direction: row;

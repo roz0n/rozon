@@ -2,8 +2,7 @@ import styles from "../../styles/Footer.module.css";
 import { WeatherDataObject } from "../..";
 import { useEffect, useState } from "react";
 import convertWeatherbitIcon from "../../utils/convertWeatherbitIcon";
-import Image from "next/image";
-import SpotifyLogo from "../../public/images/index/spotify-logo.svg";
+import SpotifyWidget from "../SpotifyWidget";
 
 async function getWeatherData() {
   try {
@@ -47,7 +46,26 @@ const Footer: React.FC = (props) => {
     }
     fetchRecentlyPlayed().then((res) => {
       console.log("SPOTIFY DATA", res);
-      return setSpotifyData(res);
+      console.log("Recently played", res);
+      const lastPlayedTrack = res?.items[0] || null;
+
+      if (lastPlayedTrack) {
+        const name = lastPlayedTrack.track.name;
+        const artist = lastPlayedTrack.track.artists[0].name;
+        const album = lastPlayedTrack.track.album.name;
+        const previewUrl = lastPlayedTrack.track.preview_url || null;
+        const artworkUrl = lastPlayedTrack.track.album.images[0].url;
+
+        return setSpotifyData({
+          name,
+          artist,
+          album,
+          previewUrl,
+          artworkUrl,
+        });
+      } else {
+        return setSpotifyData(null);
+      }
     });
   }, []);
 
@@ -57,7 +75,7 @@ const Footer: React.FC = (props) => {
 
   return (
     <footer className={styles.container}>
-      <article className={styles.musicContainer}>
+      {/* <article className={styles.musicContainer}>
         <p className={styles.musicHeader}>Recent vibes</p>
         <span className={styles.musicTrackContainer}>
           <Image src={SpotifyLogo} alt="The Spotify logo" />
@@ -65,7 +83,11 @@ const Footer: React.FC = (props) => {
             Planes - Agorazein, C. Tangana
           </p>
         </span>
-      </article>
+      </article> */}
+      <span>
+        <SpotifyWidget track={spotifyData} />
+      </span>
+
       <article className={styles.copyrightContainer}>
         <span>&copy; 2021</span>
       </article>

@@ -1,0 +1,63 @@
+.musicContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* background-color: lime; */
+  height: 100%;
+}
+
+.headerContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* background-color: purple; */
+  margin-bottom: 0.57rem;
+}
+
+.headerContainer img {
+  height: 0.85rem;
+  width: 0.85rem;
+}
+
+.musicHeader {
+  font-weight: 300;
+  font-size: 0.75rem;
+  margin-left: 0.35rem;
+}
+
+.trackInfoContainer {
+  display: flex;
+  flex-direction: row;
+  font-size: 0.75rem;
+}
+
+.artworkWrapper {
+  position: relative;
+}
+
+.artworkWrapper img {
+  border-radius: 0.5rem;
+  z-index: 1;
+}
+
+.artworkWrapper svg {
+  z-index: 2;
+  position: absolute;
+  fill: var(--site-main-text);
+}
+
+.artworkWrapper:hover {
+  cursor: pointer;
+}
+
+.musicTrackContainer {
+  display: flex;
+  flex-direction: column;
+  font-weight: 400;
+  font-size: 0.75rem;
+  margin-left: 0.5rem;
+  line-height: 1.05rem;
+}
+
+.musicTrackTitle {
+}
