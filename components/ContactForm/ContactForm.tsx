@@ -1,6 +1,6 @@
 import styles from "../../styles/ContactForm/ContactForm.module.css";
 import text from "../../text/Index.text";
-import { useState, useEffect, SyntheticEvent } from "react";
+import { useState, useEffect, useRef, SyntheticEvent } from "react";
 import { ContactFormButtonItem } from "../..";
 import Image from "next/image";
 import SmilingMemoji from "../../public/images/memoji/smiling-gold-tooth.png";
@@ -42,6 +42,7 @@ const ContactForm: React.FC = (props) => {
   const [memojiState, setMemojiState] = useState<MemojiStates>(
     MemojiStates.Smile
   );
+  const footerRef = useRef(null);
 
   const maxCharCount = 180;
   const isButtonSelected = (label: string) => label === selectedButton;
@@ -99,7 +100,7 @@ const ContactForm: React.FC = (props) => {
     }
   }
 
-  function handleSubmit(e: SyntheticEvent) {
+  async function handleSubmit(e: SyntheticEvent) {
     e.preventDefault();
 
     window.alert(`
@@ -108,6 +109,7 @@ const ContactForm: React.FC = (props) => {
       ${inquiryText} \n
     `);
 
+    await sendInquiry();
     setHasSubmitted(true);
     setMemojiState(MemojiStates.Celebrate);
   }
@@ -119,7 +121,9 @@ const ContactForm: React.FC = (props) => {
     setInquiryText(String());
     setHasSubmitted(false);
     setMemojiState(MemojiStates.Smile);
-    window.scrollTo(0, document.body.scrollHeight);
+
+    const footer = document.querySelector("footer");
+    footer.scrollIntoView({ behavior: "smooth" });
   }
 
   function getMemoji(state: MemojiStates) {
@@ -145,6 +149,27 @@ const ContactForm: React.FC = (props) => {
       setMemojiState(MemojiStates.Smile);
     }
   }, [inquiryText, emailText]);
+
+  async function sendInquiry() {
+    try {
+      console.log("Sending inquiry...");
+      return await fetch("/api/mailer/sendMail", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          from: emailText,
+          to: "arnold@rozon.org",
+          subject: "Rozon.org Website Inquiry",
+          text: inquiryText,
+        }),
+      });
+    } catch (error) {
+      console.log("Error sending email from frontend");
+    }
+  }
 
   return (
     <article className={styles.container}>
@@ -181,7 +206,10 @@ const ContactForm: React.FC = (props) => {
             </section>
 
             <section className={styles.formContainer}>
-              <form className={styles.form} onSubmit={(e) => handleSubmit(e)}>
+              <form
+                className={styles.form}
+                onSubmit={async (e) => await handleSubmit(e)}
+              >
                 <input
                   name={EMAIL}
                   className={styles.emailField}

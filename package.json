@@ -12,10 +12,12 @@
     "@tryghost/content-api": "^1.5.7",
     "highlight.js": "^11.0.1",
     "next": "11.0.0",
+    "nodemailer": "^6.6.3",
     "nprogress": "^0.2.0",
     "querystring": "^0.2.1",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "xoauth2": "^1.2.0"
   },
   "devDependencies": {
     "@types/node": "^16.0.0",
