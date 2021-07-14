@@ -1,10 +1,12 @@
 :root {
   /* General (stays the same between display styles) */
   --black: #101215;
+  --black-alpha: #10121563;
   --white: #efefef;
   --purple-main: #7000ff;
   --purple-accent: #612df6;
   --purple-alpha: #bc89ff57;
+  --green-main: #4bef11;
 
   /* Main background and text */
   --site-bg: #101215;

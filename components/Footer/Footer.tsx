@@ -75,18 +75,7 @@ const Footer: React.FC = (props) => {
 
   return (
     <footer className={styles.container}>
-      {/* <article className={styles.musicContainer}>
-        <p className={styles.musicHeader}>Recent vibes</p>
-        <span className={styles.musicTrackContainer}>
-          <Image src={SpotifyLogo} alt="The Spotify logo" />
-          <p className={styles.musicTrackTitle}>
-            Planes - Agorazein, C. Tangana
-          </p>
-        </span>
-      </article> */}
-      <span>
-        <SpotifyWidget track={spotifyData} />
-      </span>
+      <SpotifyWidget track={spotifyData} />
 
       <article className={styles.copyrightContainer}>
         <span>&copy; 2021</span>

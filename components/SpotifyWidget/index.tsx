@@ -1,9 +1,14 @@
 import styles from "../../styles/SpotifyWidget.module.css";
+import { useEffect, useState } from "react";
 import Image from "next/image";
-import SpotifyLogo from "../../public/images/index/spotify-logo.svg";
 import PlayIcon from "../Icons/PlayIcon";
 import PauseIcon from "../Icons/PauseIcon";
-import { useEffect, useState } from "react";
+import SpotifyIcon from "../Icons/SpotifyIcon";
+import {
+  UserIcon,
+  MusicNoteIcon,
+  PhotographIcon,
+} from "@heroicons/react/solid";
 
 type SpotifyWidgetProps = {
   track?: SpotifyTrack;
@@ -34,20 +39,26 @@ const SpotifyWidget: React.FC<SpotifyWidgetProps> = ({ track }) => {
   useEffect(() => {
     if (track?.previewUrl) {
       const audio = new Audio(track?.previewUrl);
-      audio.volume = 0.5;
+      audio.volume = 0.2;
       setPreviewTrack(audio);
     }
   }, [track?.previewUrl]);
 
+  useEffect(() => {
+    console.log("Track state changed to", previewTrack?.paused);
+  }, [previewTrack?.paused]);
+
   return track ? (
-    <article className={styles.musicContainer}>
-      <section className={styles.headerContainer}>
-        <Image src={SpotifyLogo} alt="The Spotify logo" />
-        <p className={styles.musicHeader}>Recent vibes</p>
-      </section>
+    <article className={styles.container}>
+      <header className={styles.headerContainer}>
+        <span className={styles.headerWrapper}>
+          <SpotifyIcon height={12} width={12} />
+          <p className={styles.title}>Recent vibes</p>
+        </span>
+      </header>
 
       <section className={styles.trackInfoContainer}>
-        <span
+        <article
           className={styles.artworkWrapper}
           onClick={() => handlePreviewTrack()}
         >
@@ -64,13 +75,28 @@ const SpotifyWidget: React.FC<SpotifyWidgetProps> = ({ track }) => {
             height={46}
             width={46}
           />
-        </span>
+        </article>
 
-        <span className={styles.musicTrackContainer}>
-          <p className={styles.musicTrackTitle}>{track.name}</p>
-          <p className={styles.musicTrackTitle}>{track.artist}</p>
-          <p className={styles.musicTrackTitle}>{track.album}</p>
-        </span>
+        <article className={styles.trackInfoWrapper}>
+          <p className={styles.trackInfoText}>
+            <span className={styles.trackInfoIconWrapper}>
+              <MusicNoteIcon height={12} width={12} />
+            </span>
+            {track.name}
+          </p>
+          <p className={styles.trackInfoText}>
+            <span className={styles.trackInfoIconWrapper}>
+              <UserIcon height={12} width={12} />
+            </span>
+            {track.artist}
+          </p>
+          <p className={styles.trackInfoText}>
+            <span className={styles.trackInfoIconWrapper}>
+              <PhotographIcon height={12} width={12} />
+            </span>
+            {track.album}
+          </p>
+        </article>
       </section>
     </article>
   ) : null;
