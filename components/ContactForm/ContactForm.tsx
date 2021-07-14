@@ -3,7 +3,10 @@ import text from "../../text/Index.text";
 import { useState, useEffect, SyntheticEvent } from "react";
 import { ContactFormButtonItem } from "../..";
 import Image from "next/image";
-import Memoji from "../../public/images/index/memoji-2021.svg";
+import SmilingMemoji from "../../public/images/memoji/smiling-gold-tooth.png";
+import ThinkingMemoji from "../../public/images/memoji/thinking.png";
+import CelebrateMemoji from "../../public/images/memoji/celebrate.png";
+
 import ContactFormButton from "./ContactFormButton";
 
 let contactFormButtons: ContactFormButtonItem[] = [
@@ -105,16 +108,16 @@ const ContactForm: React.FC = (props) => {
   return (
     <section className={styles.container}>
       <Image
-        src={Memoji}
+        src={SmilingMemoji}
         alt="An image of my Memoji avatar"
         quality={100}
-        height={100}
-        width={100}
+        height={120}
+        width={120}
       />
       <span className={styles.headerContainer}>
         <h3 className={styles.header}>{text.contactFormHeader["en"]}</h3>
         <small className={styles.subheader}>
-          Select a topic and I&#39;ll get back to you soon (-ish).
+          Select a topic and I&#39;ll get back to you soon <i>(-ish)</i>.
         </small>
       </span>
       <span className={styles.formWrapper}>
