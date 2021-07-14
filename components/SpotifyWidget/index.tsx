@@ -76,7 +76,7 @@ const SpotifyWidget: React.FC<SpotifyWidgetProps> = ({ track }) => {
               <PlayIcon height={46} width={46} />
             )}
           </div>
-          {track?.artworkUrl ? (
+          {track.artworkUrl ? (
             <Image
               src={track?.artworkUrl}
               alt={`${track.name} by ${track.artist} album artwork`}
