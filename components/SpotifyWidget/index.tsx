@@ -55,14 +55,6 @@ const SpotifyWidget: React.FC<SpotifyWidgetProps> = ({ track }) => {
     }
   }, [track?.previewUrl]);
 
-  useEffect(() => {
-    console.log("Track state changed to", previewTrack?.paused);
-  }, [previewTrack]);
-
-  useEffect(() => {
-    console.log("Track ended", previewTrack?.ended);
-  }, [previewTrack?.ended]);
-
   return track ? (
     <article className={styles.container}>
       <header className={styles.headerContainer}>

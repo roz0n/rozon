@@ -77,8 +77,8 @@ const ContactForm: React.FC = (props) => {
     maxCount: number
   ) {
     if (!atMaxCharCount(count)) {
-      console.log(maxCount, count);
-      console.log("Hitting");
+      // console.log(maxCount, count);
+      // console.log("Hitting");
       setInquiryText(text);
       setInquiryTextCount(count);
     } else {
@@ -97,9 +97,9 @@ const ContactForm: React.FC = (props) => {
   }
 
   useEffect(() => {
-    console.log("FORM TEXT COUNT", inquiryTextCount);
-    console.log("SELECTED BUTTON", selectedButton);
-    console.log("isButtonDisabled", isButtonDisabled());
+    // console.log("FORM TEXT COUNT", inquiryTextCount);
+    // console.log("SELECTED BUTTON", selectedButton);
+    // console.log("isButtonDisabled", isButtonDisabled());
   });
 
   return (

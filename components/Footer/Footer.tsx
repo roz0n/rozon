@@ -34,19 +34,19 @@ const Footer: React.FC = (props) => {
       return await getWeatherData();
     }
     fetchWeather().then((res) => {
-      console.log("WEATHER DATA", res);
+      // console.log("WEATHER DATA", res);
       return setWeatherData(res);
     });
   }, []);
 
   useEffect(() => {
-    console.log("Called");
+    // console.log("Called");
     async function fetchRecentlyPlayed() {
       return await getSpotifyData();
     }
     fetchRecentlyPlayed().then((res) => {
-      console.log("SPOTIFY DATA", res);
-      console.log("Recently played", res);
+      // console.log("SPOTIFY DATA", res);
+      // console.log("Recently played", res);
       const lastPlayedTrack = res?.items[0] || null;
 
       if (lastPlayedTrack) {
@@ -70,7 +70,7 @@ const Footer: React.FC = (props) => {
   }, []);
 
   useEffect(() => {
-    console.log("Spotify data", spotifyData);
+    // console.log("Spotify data", spotifyData);
   }, [spotifyData]);
 
   return (
