@@ -39,14 +39,29 @@ const SpotifyWidget: React.FC<SpotifyWidgetProps> = ({ track }) => {
   useEffect(() => {
     if (track?.previewUrl) {
       const audio = new Audio(track?.previewUrl);
+
       audio.volume = 0.2;
+      audio.onended = () => {
+        setPreviewTrackState(false);
+      };
+      audio.onpause = () => {
+        setPreviewTrackState(false);
+      };
+      audio.onplay = () => {
+        setPreviewTrackState(true);
+      };
+
       setPreviewTrack(audio);
     }
   }, [track?.previewUrl]);
 
   useEffect(() => {
     console.log("Track state changed to", previewTrack?.paused);
-  }, [previewTrack?.paused]);
+  }, [previewTrack]);
+
+  useEffect(() => {
+    console.log("Track ended", previewTrack?.ended);
+  }, [previewTrack?.ended]);
 
   return track ? (
     <article className={styles.container}>
@@ -99,7 +114,9 @@ const SpotifyWidget: React.FC<SpotifyWidgetProps> = ({ track }) => {
         </article>
       </section>
     </article>
-  ) : null;
+  ) : (
+    <div></div>
+  );
 };
 
 export default SpotifyWidget;

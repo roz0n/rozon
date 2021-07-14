@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* background-color: lime; */
   height: 100%;
 }
 
@@ -15,7 +14,7 @@
 .title {
   padding-left: 0.35rem;
   text-transform: uppercase;
-  font-size: 0.65rem;
+  font-size: 0.6rem;
   font-weight: 600;
   color: var(--site-sub-text);
 }
@@ -45,11 +44,12 @@
 .artworkWrapper {
   position: relative;
   margin-right: 0.5rem;
+  border-radius: 0.5rem;
 }
 
 .artworkWrapper img {
-  border-radius: 0.5rem;
   z-index: 1;
+  border-radius: 0.5rem;
 }
 
 .artworkWrapper svg {
