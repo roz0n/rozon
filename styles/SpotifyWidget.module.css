@@ -45,6 +45,8 @@
   position: relative;
   margin-right: 0.5rem;
   border-radius: 0.5rem;
+  min-width: 2.875rem;
+  min-height: 2.875rem;
 }
 
 .artworkWrapper img {
@@ -65,6 +67,11 @@
   z-index: 2;
   background-color: #10121545;
   position: absolute;
+}
+
+.missingArtworkContainer {
+  height: 2.875rem;
+  width: 2.875rem;
 }
 
 .trackInfoWrapper {

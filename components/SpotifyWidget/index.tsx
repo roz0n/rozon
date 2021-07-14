@@ -76,33 +76,43 @@ const SpotifyWidget: React.FC<SpotifyWidgetProps> = ({ track }) => {
               <PlayIcon height={46} width={46} />
             )}
           </div>
-          <Image
-            src={track?.artworkUrl}
-            alt={`${track.name} by ${track.artist} album artwork`}
-            height={46}
-            width={46}
-          />
+          {track?.artworkUrl ? (
+            <Image
+              src={track?.artworkUrl}
+              alt={`${track.name} by ${track.artist} album artwork`}
+              height={46}
+              width={46}
+            />
+          ) : (
+            <div className={styles.missingArtworkContainer}></div>
+          )}
         </article>
 
         <article className={styles.trackInfoWrapper}>
-          <p className={styles.trackInfoText}>
-            <span className={styles.trackInfoIconWrapper}>
-              <MusicNoteIcon height={12} width={12} />
-            </span>
-            {track.name}
-          </p>
-          <p className={styles.trackInfoText}>
-            <span className={styles.trackInfoIconWrapper}>
-              <UserIcon height={12} width={12} />
-            </span>
-            {track.artist}
-          </p>
-          <p className={styles.trackInfoText}>
-            <span className={styles.trackInfoIconWrapper}>
-              <PhotographIcon height={12} width={12} />
-            </span>
-            {track.album}
-          </p>
+          {track.name && (
+            <p className={styles.trackInfoText}>
+              <span className={styles.trackInfoIconWrapper}>
+                <MusicNoteIcon height={12} width={12} />
+              </span>
+              {track.name}
+            </p>
+          )}
+          {track.artist && (
+            <p className={styles.trackInfoText}>
+              <span className={styles.trackInfoIconWrapper}>
+                <UserIcon height={12} width={12} />
+              </span>
+              {track.artist}
+            </p>
+          )}
+          {track.album && (
+            <p className={styles.trackInfoText}>
+              <span className={styles.trackInfoIconWrapper}>
+                <PhotographIcon height={12} width={12} />
+              </span>
+              {track.album}
+            </p>
+          )}
         </article>
       </section>
     </article>
