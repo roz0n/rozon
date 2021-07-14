@@ -27,11 +27,20 @@ let contactFormButtons: ContactFormButtonItem[] = [
   },
 ];
 
+enum MemojiStates {
+  Smile,
+  Think,
+  Celebrate,
+}
+
 const ContactForm: React.FC = (props) => {
   const [selectedButton, setSelectedButton] = useState(null);
   const [emailText, setEmailText] = useState(String());
   const [inquiryTextCount, setInquiryTextCount] = useState(0);
   const [inquiryText, setInquiryText] = useState(String());
+  const [memojiState, setMemojiState] = useState<MemojiStates>(
+    MemojiStates.Smile
+  );
 
   const maxCharCount = 180;
   const isButtonSelected = (label: string) => label === selectedButton;
@@ -74,7 +83,7 @@ const ContactForm: React.FC = (props) => {
     return regExp.test(email);
   }
 
-  function handleInquiryTextArea(
+  function handleInquiryTextAreaChange(
     text: string,
     count: number,
     maxCount: number
@@ -99,21 +108,41 @@ const ContactForm: React.FC = (props) => {
     `);
   }
 
+  function getMemoji(state: MemojiStates) {
+    switch (state) {
+      case MemojiStates.Smile:
+        return SmilingMemoji;
+      case MemojiStates.Think:
+        return ThinkingMemoji;
+      case MemojiStates.Celebrate:
+        return CelebrateMemoji;
+      default:
+        break;
+    }
+  }
+
   useEffect(() => {
     // console.log("FORM TEXT COUNT", inquiryTextCount);
     // console.log("SELECTED BUTTON", selectedButton);
     // console.log("isButtonDisabled", isButtonDisabled());
-  });
+    if (inquiryText || emailText) {
+      setMemojiState(MemojiStates.Think);
+    } else {
+      setMemojiState(MemojiStates.Smile);
+    }
+  }, [inquiryText, emailText]);
 
   return (
     <section className={styles.container}>
-      <Image
-        src={SmilingMemoji}
-        alt="An image of my Memoji avatar"
-        quality={100}
-        height={120}
-        width={120}
-      />
+      <span className={styles.memojiContainer}>
+        <Image
+          src={getMemoji(memojiState)}
+          alt="An image of my Memoji avatar"
+          quality={100}
+          height={120}
+          width={120}
+        />
+      </span>
       <span className={styles.headerContainer}>
         <h3 className={styles.header}>{text.contactFormHeader["en"]}</h3>
         <small className={styles.subheader}>
@@ -151,7 +180,7 @@ const ContactForm: React.FC = (props) => {
               value={inquiryText}
               maxLength={maxCharCount}
               onChange={(e) =>
-                handleInquiryTextArea(
+                handleInquiryTextAreaChange(
                   e.target.value,
                   e.target.value.length,
                   maxCharCount
