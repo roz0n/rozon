@@ -6,7 +6,7 @@ import PauseIcon from "../Icons/PauseIcon";
 import { useEffect, useState } from "react";
 
 type SpotifyWidgetProps = {
-  track: SpotifyTrack;
+  track?: SpotifyTrack;
 };
 
 type SpotifyTrack = {
@@ -18,11 +18,8 @@ type SpotifyTrack = {
 };
 
 const SpotifyWidget: React.FC<SpotifyWidgetProps> = ({ track }) => {
-  if (!track) return null;
-
   const [previewTrack, setPreviewTrack] = useState(null);
   const [previewTrackState, setPreviewTrackState] = useState<boolean>(false);
-  const { name, artist, album, previewUrl, artworkUrl } = track;
 
   function handlePreviewTrack() {
     if (!previewTrackState) {
@@ -35,14 +32,14 @@ const SpotifyWidget: React.FC<SpotifyWidgetProps> = ({ track }) => {
   }
 
   useEffect(() => {
-    if (previewUrl) {
-      const audio = new Audio(previewUrl);
+    if (track?.previewUrl) {
+      const audio = new Audio(track?.previewUrl);
       audio.volume = 0.5;
       setPreviewTrack(audio);
     }
-  }, []);
+  }, [track?.previewUrl]);
 
-  return (
+  return track ? (
     <article className={styles.musicContainer}>
       <section className={styles.headerContainer}>
         <Image src={SpotifyLogo} alt="The Spotify logo" />
@@ -62,21 +59,21 @@ const SpotifyWidget: React.FC<SpotifyWidgetProps> = ({ track }) => {
             )}
           </div>
           <Image
-            src={artworkUrl}
-            alt={`${name} by ${artist} album artwork`}
+            src={track?.artworkUrl}
+            alt={`${track.name} by ${track.artist} album artwork`}
             height={46}
             width={46}
           />
         </span>
 
         <span className={styles.musicTrackContainer}>
-          <p className={styles.musicTrackTitle}>{name}</p>
-          <p className={styles.musicTrackTitle}>{artist}</p>
-          <p className={styles.musicTrackTitle}>{album}</p>
+          <p className={styles.musicTrackTitle}>{track.name}</p>
+          <p className={styles.musicTrackTitle}>{track.artist}</p>
+          <p className={styles.musicTrackTitle}>{track.album}</p>
         </span>
       </section>
     </article>
-  );
+  ) : null;
 };
 
 export default SpotifyWidget;
