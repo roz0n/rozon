@@ -119,6 +119,7 @@ const ContactForm: React.FC = (props) => {
     setInquiryText(String());
     setHasSubmitted(false);
     setMemojiState(MemojiStates.Smile);
+    window.scrollTo(0, document.body.scrollHeight);
   }
 
   function getMemoji(state: MemojiStates) {
@@ -162,7 +163,8 @@ const ContactForm: React.FC = (props) => {
           <article className={styles.headerContainer}>
             <h3 className={styles.header}>{text.contactFormHeader["en"]}</h3>
             <small className={styles.subheader}>
-              Select a topic and I&#39;ll get back to you soon <i>(-ish)</i>.
+              Select the nature of your inquiry below. I&#39;ll do my best to
+              respond soon <i>(-ish)</i>.
             </small>
           </article>
 
@@ -228,7 +230,7 @@ const ContactForm: React.FC = (props) => {
       ) : (
         <>
           <article className={styles.headerContainer}>
-            <h3 className={styles.header}>I've received your inquiry!</h3>
+            <h3 className={styles.header}>I&#39;ve received your inquiry!</h3>
             <small className={styles.subheader}>
               As promised, I&#39;ll get back to you soon <i>(-ish)</i>.
             </small>
