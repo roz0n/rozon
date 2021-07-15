@@ -1,6 +1,7 @@
 :root {
   /* General (stays the same between display styles) */
   --black: #101215;
+  /* --black: #0a0a0c; */
   --black-alpha: #10121563;
   --white: #efefef;
   --purple-main: #7000ff;
@@ -10,6 +11,7 @@
 
   /* Main background and text */
   --site-bg: #101215;
+  /* --site-bg: #0a0a0c; */
   --site-main-text: #efefef;
   --site-sub-text: #98a3b3;
   --site-main-ph-text: #626973;

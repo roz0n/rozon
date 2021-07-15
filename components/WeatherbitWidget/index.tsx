@@ -1,4 +1,4 @@
-import styles from "../../styles/WeatherbitWidget.module.css";
+import styles from "../../styles/Widgets/WeatherbitWidget.module.css";
 import { WeatherbitWidgetProps } from "../..";
 import convertWeatherbitIcon from "../../utils/convertWeatherbitIcon";
 

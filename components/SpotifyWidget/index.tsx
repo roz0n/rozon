@@ -1,4 +1,4 @@
-import styles from "../../styles/SpotifyWidget.module.css";
+import styles from "../../styles/Widgets/SpotifyWidget.module.css";
 import { SpotifyWidgetProps } from "../..";
 import { useEffect, useState } from "react";
 import Image from "next/image";

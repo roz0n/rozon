@@ -1,7 +1,7 @@
 import { IndexPageProps, Post } from "..";
 import styles from "../styles/Pages/Home/Home.module.css";
 import text from "../text/Index.text";
-import Ghost from "../ghost";
+import { getPostsByPrimaryTag } from "../lib/ghost";
 import HomeLede from "../components/Home/HomeLede";
 import FeatureSection from "../components/FeatureSection/FeatureSection";
 import ContactForm from "../components/ContactForm/ContactForm";
@@ -9,42 +9,15 @@ import FeatureSectionProjectPost from "../components/FeatureSection/FeatureSecti
 import FeatureSectionBlogPost from "../components/FeatureSection/FeatureSectionBlogPost";
 import FeatureSectionButton from "../components/FeatureSection/FeatureSectionButton";
 
-// Data
-async function getCreations() {
-  try {
-    const posts = await Ghost.posts.browse({
-      include: ["tags", "authors"],
-      filter: "tag:creations",
-    });
+const CREATIONS = "creations";
+const THOUGHTS = "thoughts";
 
-    // console.log("Creations:", posts);
-    return posts;
-  } catch (error) {
-    throw new Error("Unable to fetch Creations");
-  }
-}
-
-async function getThoughts() {
-  try {
-    const posts = await Ghost.posts.browse({
-      include: ["tags", "authors"],
-      filter: "tag:thoughts",
-    });
-
-    // console.log("Thoughts:", posts);
-    return posts;
-  } catch (error) {
-    throw new Error("Unable to fetch Thoughts");
-  }
-}
-
-// Props
 export const getStaticProps = async ({ params }) => {
   let props: IndexPageProps = {};
 
   try {
-    const creations = await getCreations();
-    const thoughts = await getThoughts();
+    const creations = await getPostsByPrimaryTag(CREATIONS);
+    const thoughts = await getPostsByPrimaryTag(THOUGHTS);
 
     props.creations = creations;
     props.thoughts = thoughts;
@@ -66,7 +39,7 @@ const Home: React.FC<{ creations: Post[]; thoughts: Post[] }> = (props) => {
       <HomeLede />
       <FeatureSection title={text.primaryFeatureSectionHeader["en"]}>
         <div className={styles.primaryFeatureSectionWrapper}>
-          {creations.map((post) => (
+          {creations?.map((post) => (
             <FeatureSectionProjectPost
               key={post.slug}
               slug={post.slug}
@@ -74,7 +47,7 @@ const Home: React.FC<{ creations: Post[]; thoughts: Post[] }> = (props) => {
               excerpt={post.custom_excerpt}
             />
           ))}
-          {creations.map((post) => (
+          {creations?.map((post) => (
             <FeatureSectionProjectPost
               key={post.slug}
               slug={post.slug}
@@ -87,7 +60,7 @@ const Home: React.FC<{ creations: Post[]; thoughts: Post[] }> = (props) => {
       </FeatureSection>
 
       <FeatureSection title={text.secondaryFeatureSectionHeader["en"]}>
-        {thoughts.map((post) => (
+        {thoughts?.map((post) => (
           <FeatureSectionBlogPost
             key={post.slug}
             slug={post.slug}

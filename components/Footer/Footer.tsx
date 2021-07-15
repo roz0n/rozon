@@ -1,4 +1,4 @@
-import styles from "../../styles/Footer.module.css";
+import styles from "../../styles/Footer/Footer.module.css";
 import { WeatherDataObject } from "../..";
 import { useEffect, useState } from "react";
 import SpotifyWidget from "../SpotifyWidget";

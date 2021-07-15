@@ -8,5 +8,6 @@
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   grid-column-gap: 1rem;
-  margin-bottom: 1rem;
+  grid-row-gap: 1rem;
+  margin-bottom: 2rem;
 }
