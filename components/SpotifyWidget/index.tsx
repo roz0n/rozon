@@ -1,4 +1,5 @@
 import styles from "../../styles/SpotifyWidget.module.css";
+import { SpotifyWidgetProps } from "../..";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import PlayIcon from "../Icons/PlayIcon";
@@ -9,19 +10,6 @@ import {
   MusicNoteIcon,
   PhotographIcon,
 } from "@heroicons/react/solid";
-
-type SpotifyWidgetProps = {
-  track?: SpotifyTrack;
-  error?: boolean;
-};
-
-type SpotifyTrack = {
-  name: string;
-  artist: string;
-  album: string;
-  previewUrl?: string;
-  artworkUrl: string;
-};
 
 const SpotifyWidget: React.FC<SpotifyWidgetProps> = ({ track, error }) => {
   const [previewTrack, setPreviewTrack] = useState(null);

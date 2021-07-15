@@ -1,26 +1,15 @@
 import styles from "../../styles/Pages/Post/Post.module.css";
+import { GhostPost } from "../../index";
 import { useEffect, useContext } from "react";
 import hljs from "highlight.js/lib/core";
 import swift from "highlight.js/lib/languages/swift";
 import { useRouter } from "next/router";
 import Link from "next/link";
-import Image from "next/image";
 import CommentsIcon from "../../components/Icons/CommentsIcon";
-// import CommentsIcon from "../../public/images/icons/comments-icon.svg";
 import { ThemeContext } from "../_app";
 
 const { GHOST_API_KEY, GHOST_SITE_URL } = process.env;
 hljs.registerLanguage("swift", swift);
-
-type Post = {
-  id: string;
-  title: string;
-  slug: string;
-  custom_excerpt: string;
-  reading_time: string;
-  published_at: string;
-  html?: string;
-};
 
 async function getSinglePost(slug: String) {
   const req = await fetch(
@@ -49,7 +38,7 @@ export const getStaticPaths = () => {
   };
 };
 
-const Post: React.FC<{ post: Post }> = (props) => {
+const Post: React.FC<{ post: GhostPost }> = (props) => {
   const router = useRouter();
   const { post } = props;
   const theme = useContext(ThemeContext);

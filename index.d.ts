@@ -2,7 +2,9 @@ import { FeatureSectionProps } from "..";
 import { HeaderButtonProps } from "..";
 import { PostsOrPages } from "@tryghost/content-api";
 
-// Global
+/**
+ * Global
+ */
 
 export type Post = {
   id: string;
@@ -61,7 +63,7 @@ export type FeatureSectionBlogPostProps = {
   excerpt: string;
 };
 
-type FeatureSectionButtonProps = {
+export type FeatureSectionButtonProps = {
   label?: string;
 };
 
@@ -72,6 +74,24 @@ export type WeatherDataObject = {
   weather: {
     code: number;
   };
+};
+
+export type WeatherbitWidgetProps = {
+  data?: WeatherDataObject[];
+  error?: boolean;
+};
+
+export type SpotifyWidgetProps = {
+  track?: SpotifyTrack;
+  error?: boolean;
+};
+
+export type SpotifyTrack = {
+  name: string;
+  artist: string;
+  album: string;
+  previewUrl?: string;
+  artworkUrl: string;
 };
 
 /**
@@ -85,4 +105,18 @@ export type IndexPageProps = {
   thoughts?: PostsOrPages;
   revalidate?: number;
   error?: boolean;
+};
+
+/**
+ * Backend
+ */
+
+export type GhostPost = {
+  id: string;
+  title: string;
+  slug: string;
+  custom_excerpt: string;
+  reading_time: string;
+  published_at: string;
+  html?: string;
 };

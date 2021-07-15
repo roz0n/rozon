@@ -1,11 +1,6 @@
 import styles from "../../styles/WeatherbitWidget.module.css";
+import { WeatherbitWidgetProps } from "../..";
 import convertWeatherbitIcon from "../../utils/convertWeatherbitIcon";
-import { WeatherDataObject } from "../..";
-
-type WeatherbitWidgetProps = {
-  data?: WeatherDataObject[];
-  error?: boolean;
-};
 
 const WeatherbitWidget: React.FC<WeatherbitWidgetProps> = ({ data, error }) => {
   return data?.length && !error ? (
