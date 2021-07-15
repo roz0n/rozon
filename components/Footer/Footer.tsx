@@ -18,13 +18,16 @@ const Footer: React.FC = (props) => {
       );
     }
 
-    try {
-      fetchWeather().then((res) => {
+    fetchWeather()
+      .then((res) => {
+        if (!res.success) {
+          throw new Error("Unable to fetch weather data :(");
+        }
         return setWeatherData(res.data);
+      })
+      .catch((e) => {
+        setWeatherError(true);
       });
-    } catch (error) {
-      setWeatherError(true);
-    }
   }, []);
 
   // Fetch Spotify Data
@@ -35,8 +38,8 @@ const Footer: React.FC = (props) => {
       );
     }
 
-    try {
-      fetchRecentlyPlayed().then((res) => {
+    fetchRecentlyPlayed()
+      .then((res) => {
         const lastPlayedTrack = res?.items[0] || null;
 
         if (lastPlayedTrack) {
@@ -56,10 +59,10 @@ const Footer: React.FC = (props) => {
         } else {
           return setSpotifyData(null);
         }
+      })
+      .catch((e) => {
+        setSpotifyError(true);
       });
-    } catch (error) {
-      setSpotifyError(true);
-    }
   }, []);
 
   return (
