@@ -3,7 +3,7 @@ import text from "../../text/Index.text";
 import { ContactFormButtonItem } from "../..";
 import Image from "next/image";
 import { useState, useEffect, useRef, SyntheticEvent } from "react";
-import Loader from "../Loader";
+import ContactFormLoader from "./ContactFormLoader";
 import SmilingMemoji from "../../public/images/memoji/smiling-gold-tooth.png";
 import ThinkingMemoji from "../../public/images/memoji/thinking.png";
 import CelebrateMemoji from "../../public/images/memoji/celebrate.png";
@@ -195,9 +195,8 @@ const ContactForm: React.FC = (props) => {
           />
         </article>
       ) : (
-        <Loader />
+        <ContactFormLoader />
       )}
-
       {!hasSubmitted && !mailerError && !isLoading && (
         <>
           <article className={styles.headerContainer}>
