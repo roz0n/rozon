@@ -157,3 +157,32 @@
   font-weight: 400;
   margin-bottom: 1.5rem;
 }
+
+.postBody :is(h1, h2, h3, h4, h5, h6) {
+  font-weight: 500;
+  margin: 2rem 0;
+}
+
+.postBody h1 {
+  font-size: 2rem;
+}
+
+.postBody h2 {
+  font-size: 1.75rem;
+}
+
+.postBody h3 {
+  font-size: 1.5rem;
+}
+
+.postBody h4 {
+  font-size: 1.25rem;
+}
+
+.postBody h5 {
+  font-size: 1.05rem;
+}
+
+.postBody h6 {
+  font-size: 1rem;
+}

@@ -44,7 +44,7 @@ const Post: React.FC<{ post: GhostPost }> = (props) => {
   const theme = useContext(ThemeContext);
 
   useEffect(() => {
-    hljs.initHighlighting();
+    hljs.highlightAll();
   }, [post]);
 
   if (router.isFallback) {
@@ -107,6 +107,15 @@ const Post: React.FC<{ post: GhostPost }> = (props) => {
             className={styles.postBody}
             dangerouslySetInnerHTML={{ __html: post.html }}
           ></section>
+
+          <section>
+            <script
+              async
+              src="https://comments.app/js/widget.js?3"
+              data-comments-app-website="tPChdq_H"
+              data-limit="5"
+            ></script>
+          </section>
         </div>
       </>
     );
