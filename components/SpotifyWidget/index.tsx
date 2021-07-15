@@ -5,6 +5,7 @@ import Image from "next/image";
 import PlayIcon from "../Icons/PlayIcon";
 import PauseIcon from "../Icons/PauseIcon";
 import SpotifyIcon from "../Icons/SpotifyIcon";
+import AnimatedEqualizerIcon from "../../public/images/index/animated-equalizer.gif";
 import {
   UserIcon,
   MusicNoteIcon,
@@ -48,7 +49,11 @@ const SpotifyWidget: React.FC<SpotifyWidgetProps> = ({ track, error }) => {
     <article className={styles.container}>
       <header className={styles.headerContainer}>
         <span className={styles.headerWrapper}>
-          <SpotifyIcon height={12} width={12} />
+          {previewTrackState ? (
+            <Image src={AnimatedEqualizerIcon} height={12} width={12} />
+          ) : (
+            <SpotifyIcon height={12} width={12} />
+          )}
           <p className={styles.title}>Latest Vibes</p>
         </span>
       </header>
