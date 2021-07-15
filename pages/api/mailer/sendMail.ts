@@ -9,9 +9,13 @@ const sendMail = async (req, res) => {
       text: req.body.text,
     };
     const request = await Mailer(email);
-    return res.status(200).json(request.info);
+
+    if (!request.accepted) {
+      throw new Error("Failed to send email");
+    }
+    return res.status(200).json({ success: true });
   } catch (error) {
-    res.status(500).json({ success: false, error });
+    res.status(500).json({ success: false });
   }
 };
 

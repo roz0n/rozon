@@ -1,15 +1,22 @@
 import styles from "../../styles/ContactForm/ContactForm.module.css";
 import text from "../../text/Index.text";
-import { useState, useEffect, useRef, SyntheticEvent } from "react";
 import { ContactFormButtonItem } from "../..";
 import Image from "next/image";
+import { useState, useEffect, useRef, SyntheticEvent } from "react";
 import SmilingMemoji from "../../public/images/memoji/smiling-gold-tooth.png";
 import ThinkingMemoji from "../../public/images/memoji/thinking.png";
 import CelebrateMemoji from "../../public/images/memoji/celebrate.png";
-
+import ExplosionMemoji from "../../public/images/memoji/explosion.png";
 import ContactFormButton from "./ContactFormButton";
 
-let contactFormButtons: ContactFormButtonItem[] = [
+enum MemojiStates {
+  Smile,
+  Think,
+  Celebrate,
+  Explosion,
+}
+
+const contactFormButtons: ContactFormButtonItem[] = [
   {
     label: "Consulting",
   },
@@ -27,18 +34,13 @@ let contactFormButtons: ContactFormButtonItem[] = [
   },
 ];
 
-enum MemojiStates {
-  Smile,
-  Think,
-  Celebrate,
-}
-
 const ContactForm: React.FC = (props) => {
   const [selectedButton, setSelectedButton] = useState(null);
   const [emailText, setEmailText] = useState(String());
   const [inquiryTextCount, setInquiryTextCount] = useState(0);
   const [inquiryText, setInquiryText] = useState(String());
   const [hasSubmitted, setHasSubmitted] = useState(false);
+  const [mailerError, setMailerError] = useState(false);
   const [memojiState, setMemojiState] = useState<MemojiStates>(
     MemojiStates.Smile
   );
@@ -85,14 +87,8 @@ const ContactForm: React.FC = (props) => {
     return regExp.test(email);
   }
 
-  function handleInquiryTextAreaChange(
-    text: string,
-    count: number,
-    maxCount: number
-  ) {
+  function handleInquiryTextAreaChange(text: string, count: number) {
     if (!atMaxCharCount(count)) {
-      // console.log(maxCount, count);
-      // console.log("Hitting");
       setInquiryText(text);
       setInquiryTextCount(count);
     } else {
@@ -110,8 +106,6 @@ const ContactForm: React.FC = (props) => {
     `);
 
     await sendInquiry();
-    setHasSubmitted(true);
-    setMemojiState(MemojiStates.Celebrate);
   }
 
   function handleReset() {
@@ -121,6 +115,7 @@ const ContactForm: React.FC = (props) => {
     setInquiryText(String());
     setHasSubmitted(false);
     setMemojiState(MemojiStates.Smile);
+    setMailerError(false);
 
     const footer = document.querySelector("footer");
     footer.scrollIntoView({ behavior: "smooth" });
@@ -134,15 +129,14 @@ const ContactForm: React.FC = (props) => {
         return ThinkingMemoji;
       case MemojiStates.Celebrate:
         return CelebrateMemoji;
+      case MemojiStates.Explosion:
+        return ExplosionMemoji;
       default:
         break;
     }
   }
 
   useEffect(() => {
-    // console.log("FORM TEXT COUNT", inquiryTextCount);
-    // console.log("SELECTED BUTTON", selectedButton);
-    // console.log("isButtonDisabled", isButtonDisabled());
     if (inquiryText || emailText) {
       setMemojiState(MemojiStates.Think);
     } else {
@@ -153,7 +147,7 @@ const ContactForm: React.FC = (props) => {
   async function sendInquiry() {
     try {
       console.log("Sending inquiry...");
-      return await fetch("/api/mailer/sendMail", {
+      const request = await fetch("/api/mailer/sendMail", {
         method: "POST",
         headers: {
           Accept: "application/json",
@@ -166,8 +160,19 @@ const ContactForm: React.FC = (props) => {
           text: inquiryText,
         }),
       });
+      const response = await request.json();
+
+      if (!response.success) {
+        throw new Error("Failed to send email :(");
+      } else {
+        setHasSubmitted(true);
+        setMailerError(false); // just in case...
+        setMemojiState(MemojiStates.Celebrate);
+      }
     } catch (error) {
-      console.log("Error sending email from frontend");
+      setMailerError(true);
+      setMemojiState(MemojiStates.Explosion);
+      console.log(error.message);
     }
   }
 
@@ -183,7 +188,7 @@ const ContactForm: React.FC = (props) => {
         />
       </article>
 
-      {!hasSubmitted ? (
+      {!hasSubmitted && !mailerError && (
         <>
           <article className={styles.headerContainer}>
             <h3 className={styles.header}>{text.contactFormHeader["en"]}</h3>
@@ -229,8 +234,7 @@ const ContactForm: React.FC = (props) => {
                   onChange={(e) =>
                     handleInquiryTextAreaChange(
                       e.target.value,
-                      e.target.value.length,
-                      maxCharCount
+                      e.target.value.length
                     )
                   }
                 />
@@ -255,12 +259,29 @@ const ContactForm: React.FC = (props) => {
             </section>
           </article>
         </>
-      ) : (
+      )}
+
+      {hasSubmitted && !mailerError && (
         <>
           <article className={styles.headerContainer}>
             <h3 className={styles.header}>I&#39;ve received your inquiry!</h3>
             <small className={styles.subheader}>
               As promised, I&#39;ll get back to you soon <i>(-ish)</i>.
+            </small>
+          </article>
+          <ContactFormButton label={"Close"} onClick={handleReset} />
+        </>
+      )}
+
+      {mailerError && (
+        <>
+          <article className={styles.headerContainer}>
+            <h3 className={styles.header}>
+              Uh-oh. Something&#39;s gone wrong...
+            </h3>
+            <small className={styles.subheader}>
+              A team of highly trained code monkeys has been dispatched to sort
+              this out.
             </small>
           </article>
           <ContactFormButton label={"Close"} onClick={handleReset} />
