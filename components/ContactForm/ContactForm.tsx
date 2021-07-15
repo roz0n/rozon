@@ -3,6 +3,7 @@ import text from "../../text/Index.text";
 import { ContactFormButtonItem } from "../..";
 import Image from "next/image";
 import { useState, useEffect, useRef, SyntheticEvent } from "react";
+import Loader from "../Loader";
 import SmilingMemoji from "../../public/images/memoji/smiling-gold-tooth.png";
 import ThinkingMemoji from "../../public/images/memoji/thinking.png";
 import CelebrateMemoji from "../../public/images/memoji/celebrate.png";
@@ -41,6 +42,8 @@ const ContactForm: React.FC = (props) => {
   const [inquiryText, setInquiryText] = useState(String());
   const [hasSubmitted, setHasSubmitted] = useState(false);
   const [mailerError, setMailerError] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+
   const [memojiState, setMemojiState] = useState<MemojiStates>(
     MemojiStates.Smile
   );
@@ -147,6 +150,7 @@ const ContactForm: React.FC = (props) => {
   async function sendInquiry() {
     try {
       console.log("Sending inquiry...");
+      setIsLoading(true);
       const request = await fetch("/api/mailer/sendMail", {
         method: "POST",
         headers: {
@@ -173,22 +177,28 @@ const ContactForm: React.FC = (props) => {
       setMailerError(true);
       setMemojiState(MemojiStates.Explosion);
       console.log(error.message);
+    } finally {
+      setIsLoading(false);
     }
   }
 
   return (
     <article className={styles.container}>
-      <article className={styles.memojiContainer}>
-        <Image
-          src={getMemoji(memojiState)}
-          alt="An image of my Memoji avatar"
-          quality={100}
-          height={120}
-          width={120}
-        />
-      </article>
+      {!isLoading ? (
+        <article className={styles.memojiContainer}>
+          <Image
+            src={getMemoji(memojiState)}
+            alt="An image of my Memoji avatar"
+            quality={100}
+            height={120}
+            width={120}
+          />
+        </article>
+      ) : (
+        <Loader />
+      )}
 
-      {!hasSubmitted && !mailerError && (
+      {!hasSubmitted && !mailerError && !isLoading && (
         <>
           <article className={styles.headerContainer}>
             <h3 className={styles.header}>{text.contactFormHeader["en"]}</h3>
@@ -261,7 +271,7 @@ const ContactForm: React.FC = (props) => {
         </>
       )}
 
-      {hasSubmitted && !mailerError && (
+      {hasSubmitted && !mailerError && !isLoading && (
         <>
           <article className={styles.headerContainer}>
             <h3 className={styles.header}>I&#39;ve received your inquiry!</h3>
@@ -273,7 +283,7 @@ const ContactForm: React.FC = (props) => {
         </>
       )}
 
-      {mailerError && (
+      {mailerError && !isLoading && (
         <>
           <article className={styles.headerContainer}>
             <h3 className={styles.header}>
