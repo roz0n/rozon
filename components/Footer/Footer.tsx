@@ -21,7 +21,7 @@ const Footer: React.FC = (props) => {
     fetchWeather()
       .then((res) => {
         if (!res.success) {
-          throw new Error("Unable to fetch weather data :(");
+          throw new Error('Unable to fetch weather data >.>"');
         }
         return setWeatherData(res.data);
       })
@@ -40,7 +40,11 @@ const Footer: React.FC = (props) => {
 
     fetchRecentlyPlayed()
       .then((res) => {
-        const lastPlayedTrack = res?.items[0] || null;
+        if (!res.success) {
+          throw new Error('Unable to fetch Spotify data >.<"');
+        }
+
+        const lastPlayedTrack = res?.data[0];
 
         if (lastPlayedTrack) {
           const name = lastPlayedTrack.track.name;
