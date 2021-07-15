@@ -99,16 +99,61 @@ const ContactForm: React.FC = (props) => {
     }
   }
 
+  async function sendInquiry(formattedEmail: string) {
+    try {
+      setIsLoading(true);
+      const request = await fetch("/api/mailer/sendMail", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          from: emailText,
+          to: "arnold@rozon.org",
+          subject: `(${selectedButton}) Rozon.org Website Inquiry`,
+          text: formattedEmail,
+        }),
+      });
+      const response = await request.json();
+
+      if (!response.success) {
+        throw new Error("Failed to send email :(");
+      } else {
+        setHasSubmitted(true);
+        setMailerError(false); // just in case...
+        setMemojiState(MemojiStates.Celebrate);
+      }
+    } catch (error) {
+      setMailerError(true);
+      setMemojiState(MemojiStates.Explosion);
+    } finally {
+      setIsLoading(false);
+    }
+  }
+
   async function handleSubmit(e: SyntheticEvent) {
     e.preventDefault();
 
-    window.alert(`
-      ${selectedButton} \n
-      ${emailText} \n
-      ${inquiryText} \n
-    `);
+    const formattedEmailText = `
+      <div>
+        <h3>Subject:</h3>
+        <p>${selectedButton}</p>
+        <hr />
+        <h3>Sender:</h3>
+        <p>${emailText}</p>
+        <hr />
+        <h3>Inquiry:</h3>
+        <p>${inquiryText}</p>
+        <br />
+        <br />
+        <br />
+        <small>IP Address of Sender:</small>
+        <small>xxx</small>
+      </div>
+    `;
 
-    await sendInquiry();
+    await sendInquiry(formattedEmailText);
   }
 
   function handleReset() {
@@ -146,41 +191,6 @@ const ContactForm: React.FC = (props) => {
       setMemojiState(MemojiStates.Smile);
     }
   }, [inquiryText, emailText]);
-
-  async function sendInquiry() {
-    try {
-      console.log("Sending inquiry...");
-      setIsLoading(true);
-      const request = await fetch("/api/mailer/sendMail", {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          from: emailText,
-          to: "arnold@rozon.org",
-          subject: "Rozon.org Website Inquiry",
-          text: inquiryText,
-        }),
-      });
-      const response = await request.json();
-
-      if (!response.success) {
-        throw new Error("Failed to send email :(");
-      } else {
-        setHasSubmitted(true);
-        setMailerError(false); // just in case...
-        setMemojiState(MemojiStates.Celebrate);
-      }
-    } catch (error) {
-      setMailerError(true);
-      setMemojiState(MemojiStates.Explosion);
-      console.log(error.message);
-    } finally {
-      setIsLoading(false);
-    }
-  }
 
   return (
     <article className={styles.container}>

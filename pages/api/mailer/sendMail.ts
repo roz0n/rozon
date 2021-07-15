@@ -7,6 +7,7 @@ const sendMail = async (req, res) => {
       to: req.body.to,
       subject: req.body.subject,
       text: req.body.text,
+      html: req.body.text,
     };
     const request = await Mailer(email);
 
