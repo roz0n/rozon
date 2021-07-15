@@ -1,0 +1,15 @@
+.container {
+  padding: 3rem 1rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  color: var(--site-sub-text);
+  user-select: none;
+  opacity: 0.5;
+}
+
+.iconContainer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 1rem;
+}

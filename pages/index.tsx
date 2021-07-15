@@ -2,12 +2,14 @@ import { IndexPageProps, Post } from "..";
 import styles from "../styles/Pages/Home/Home.module.css";
 import text from "../text/Index.text";
 import { getPostsByPrimaryTag } from "../lib/ghost";
+import { ExclamationCircleIcon } from "@heroicons/react/outline";
 import HomeLede from "../components/Home/HomeLede";
 import FeatureSection from "../components/FeatureSection/FeatureSection";
 import ContactForm from "../components/ContactForm/ContactForm";
 import FeatureSectionProjectPost from "../components/FeatureSection/FeatureSectionProjectPost";
 import FeatureSectionBlogPost from "../components/FeatureSection/FeatureSectionBlogPost";
 import FeatureSectionButton from "../components/FeatureSection/FeatureSectionButton";
+import FeatureSectionEmptyState from "../components/FeatureSection/FeatureSectionEmptyState";
 
 // TODO: When creating posts in Ghost, be sure to use the standard tags and not the frontend-centric "creations" and "thoughts"
 const PROJECTS = "creations";
@@ -46,36 +48,56 @@ const Home: React.FC<IndexPageProps> = ({
     <main className={styles.container}>
       <HomeLede />
       <FeatureSection title={text.primaryFeatureSectionHeader["en"]}>
-        <div className={styles.primaryFeatureSectionWrapper}>
-          {projects?.map((post) => (
-            <FeatureSectionProjectPost
-              key={post.slug}
-              slug={post.slug}
-              title={post.title}
-              excerpt={post.custom_excerpt}
-            />
-          ))}
-          {projects?.map((post) => (
-            <FeatureSectionProjectPost
-              key={post.slug}
-              slug={post.slug}
-              title={post.title}
-              excerpt={post.custom_excerpt}
-            />
-          ))}
-        </div>
-        <FeatureSectionButton />
+        {projects && !projectsError ? (
+          <>
+            <div className={styles.gridFeatureSectionWrapper}>
+              {projects.map((post) => (
+                <FeatureSectionProjectPost
+                  key={post.slug}
+                  slug={post.slug}
+                  title={post.title}
+                  excerpt={post.custom_excerpt}
+                />
+              ))}
+              {projects.map((post) => (
+                <FeatureSectionProjectPost
+                  key={post.slug}
+                  slug={post.slug}
+                  title={post.title}
+                  excerpt={post.custom_excerpt}
+                />
+              ))}
+            </div>
+            <FeatureSectionButton />
+          </>
+        ) : (
+          <FeatureSectionEmptyState
+            label={"No projects at the moment. Please check back later."}
+          >
+            <ExclamationCircleIcon height={24} width={24} />
+          </FeatureSectionEmptyState>
+        )}
       </FeatureSection>
       <FeatureSection title={text.secondaryFeatureSectionHeader["en"]}>
-        {blogPosts?.map((post) => (
-          <FeatureSectionBlogPost
-            key={post.slug}
-            slug={post.slug}
-            title={post.title}
-            excerpt={post.custom_excerpt}
-          />
-        ))}
-        <FeatureSectionButton />
+        {blogPosts && !blogPostsError ? (
+          <>
+            {blogPosts.map((post) => (
+              <FeatureSectionBlogPost
+                key={post.slug}
+                slug={post.slug}
+                title={post.title}
+                excerpt={post.custom_excerpt}
+              />
+            ))}
+            <FeatureSectionButton />
+          </>
+        ) : (
+          <FeatureSectionEmptyState
+            label={"No posts at the moment. Please check back later."}
+          >
+            <ExclamationCircleIcon height={24} width={24} />
+          </FeatureSectionEmptyState>
+        )}
       </FeatureSection>
       <ContactForm />
     </main>

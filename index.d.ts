@@ -67,6 +67,10 @@ export type FeatureSectionButtonProps = {
   label?: string;
 };
 
+export type FeatureSectionEmptyStateProps = {
+  label?: string;
+};
+
 export type WeatherDataObject = {
   temp: string;
   city_name: string;
