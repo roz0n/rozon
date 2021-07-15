@@ -10,9 +10,12 @@ type WeatherbitWidgetProps = {
 const WeatherbitWidget: React.FC<WeatherbitWidgetProps> = ({ data, error }) => {
   return data?.length && !error ? (
     <article className={styles.container}>
-      <p className={styles.title}>Latest Feels</p>
-      <span>
-        <div className={styles.tempContainer}>
+      <header className={styles.headerContainer}>
+        <p className={styles.title}>Latest Feels</p>
+      </header>
+
+      <section className={styles.tempContainer}>
+        <div className={styles.tempWrapper}>
           <i className={`wi ${convertWeatherbitIcon(data[0].weather.code)}`} />
           <p>&nbsp;{Math.round(+data[0].temp)}&deg;</p>
         </div>
@@ -21,7 +24,7 @@ const WeatherbitWidget: React.FC<WeatherbitWidgetProps> = ({ data, error }) => {
             in {data[0].city_name}, {data[0].state_code}
           </p>
         </div>
-      </span>
+      </section>
     </article>
   ) : (
     <div></div>

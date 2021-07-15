@@ -72,17 +72,17 @@ const SpotifyWidget: React.FC<SpotifyWidgetProps> = ({ track, error }) => {
         >
           <div className={styles.playPauseContainer}>
             {previewTrackState ? (
-              <PauseIcon height={50} width={50} />
+              <PauseIcon height={48} width={48} />
             ) : (
-              <PlayIcon height={50} width={50} />
+              <PlayIcon height={48} width={48} />
             )}
           </div>
           {track.artworkUrl ? (
             <Image
               src={track?.artworkUrl}
               alt={`${track.name} by ${track.artist} album artwork`}
-              height={50}
-              width={50}
+              height={48}
+              width={48}
             />
           ) : (
             <div className={styles.missingArtworkContainer}></div>

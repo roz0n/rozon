@@ -1,9 +1,17 @@
 .container {
-  width: 90rem;
+  max-width: 75rem;
   height: 100%;
   margin: 0px auto;
   padding: 0 2rem;
 }
 
-@media screen and (max-width: 1440px) {
+@media (min-width: 1200px) {
+  .container {
+    max-width: 71.25rem;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    max-width: 60rem;
+  }
 }
