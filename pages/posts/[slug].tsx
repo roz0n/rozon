@@ -7,6 +7,7 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import CommentsIcon from "../../components/Icons/CommentsIcon";
 import { ThemeContext } from "../_app";
+import TelegramComments from "../../components/TelegramComments";
 
 const { GHOST_API_KEY, GHOST_SITE_URL } = process.env;
 hljs.registerLanguage("swift", swift);
@@ -108,14 +109,18 @@ const Post: React.FC<{ post: GhostPost }> = (props) => {
             dangerouslySetInnerHTML={{ __html: post.html }}
           ></section>
 
-          <section>
-            <script
-              async
-              src="https://comments.app/js/widget.js?3"
-              data-comments-app-website="tPChdq_H"
-              data-limit="5"
-            ></script>
-          </section>
+          <TelegramComments
+            customColor="fb9f9f"
+            customHeight={450}
+            isDark
+            pageId="about-page"
+            showColorfulNames
+            showDislikes
+            showIconOutlines
+            websiteKey="tPChdq_H"
+            containerClassName="awesome-comments"
+            wrapperClassName="awesome-comments__wrapper"
+          />
         </div>
       </>
     );
