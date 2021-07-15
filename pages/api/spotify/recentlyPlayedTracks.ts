@@ -1,11 +1,13 @@
 import { getRecentlyPlayed } from "../../../lib/spotify";
 
 const recentlyPlayedTracks = async (_, res) => {
-  // TODO: Try catch and errors
-  const request = await getRecentlyPlayed();
-  const response = await request.json();
-  // console.log("Spotify response:", response);
-  return res.status(200).json(response);
+  try {
+    const request = await getRecentlyPlayed();
+    const response = await request.json();
+    return res.status(200).json(response);
+  } catch (error) {
+    return res.status(500).json({ success: false, error });
+  }
 };
 
 export default recentlyPlayedTracks;
