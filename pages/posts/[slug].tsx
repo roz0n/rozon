@@ -1,12 +1,14 @@
 import styles from "../../styles/Pages/Post/Post.module.css";
 import { GhostPost } from "../../index";
 import { useEffect, useContext } from "react";
+import { ThemeContext } from "../_app";
+import Link from "next/link";
+import { useRouter } from "next/router";
 import hljs from "highlight.js/lib/core";
 import swift from "highlight.js/lib/languages/swift";
-import { useRouter } from "next/router";
-import Link from "next/link";
 import CommentsIcon from "../../components/Icons/CommentsIcon";
-import { ThemeContext } from "../_app";
+import FeatureSectionEmptyState from "../../components/FeatureSection/FeatureSectionEmptyState";
+import { ChatAlt2Icon } from "@heroicons/react/outline";
 
 const { GHOST_API_KEY, GHOST_SITE_URL } = process.env;
 hljs.registerLanguage("swift", swift);
@@ -107,6 +109,12 @@ const Post: React.FC<{ post: GhostPost }> = (props) => {
             className={styles.postBody}
             dangerouslySetInnerHTML={{ __html: post.html }}
           ></section>
+
+          <section className={styles.commentsContainer}>
+            <FeatureSectionEmptyState label="Comments are currently disabled">
+              <ChatAlt2Icon height={24} width={24} />
+            </FeatureSectionEmptyState>
+          </section>
         </div>
       </>
     );
