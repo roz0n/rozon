@@ -101,10 +101,11 @@ export type SpotifyTrack = {
 // Index
 
 export type IndexPageProps = {
-  creations?: PostsOrPages;
-  thoughts?: PostsOrPages;
+  projects?: PostsOrPages;
+  blogPosts?: PostsOrPages;
   revalidate?: number;
-  error?: boolean;
+  projectsError?: boolean;
+  blogPostsError?: boolean;
 };
 
 /**

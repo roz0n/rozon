@@ -9,37 +9,45 @@ import FeatureSectionProjectPost from "../components/FeatureSection/FeatureSecti
 import FeatureSectionBlogPost from "../components/FeatureSection/FeatureSectionBlogPost";
 import FeatureSectionButton from "../components/FeatureSection/FeatureSectionButton";
 
-const CREATIONS = "creations";
-const THOUGHTS = "thoughts";
+// TODO: When creating posts in Ghost, be sure to use the standard tags and not the frontend-centric "creations" and "thoughts"
+const PROJECTS = "creations";
+const BLOG_POSTS = "thoughts";
 
-export const getStaticProps = async ({ params }) => {
+export const getStaticProps = async () => {
   let props: IndexPageProps = {};
 
   try {
-    const creations = await getPostsByPrimaryTag(CREATIONS);
-    const thoughts = await getPostsByPrimaryTag(THOUGHTS);
-
-    props.creations = creations;
-    props.thoughts = thoughts;
+    const projects = await getPostsByPrimaryTag(PROJECTS);
+    props.projects = projects;
   } catch (error) {
-    props.error = true;
-  } finally {
-    return {
-      props,
-      revalidate: 30,
-    };
+    props.projectsError = true;
   }
+
+  try {
+    const blogPosts = await getPostsByPrimaryTag(BLOG_POSTS);
+    props.blogPosts = blogPosts;
+  } catch (error) {
+    props.blogPostsError = true;
+  }
+
+  return {
+    props,
+    revalidate: 30,
+  };
 };
 
-const Home: React.FC<{ creations: Post[]; thoughts: Post[] }> = (props) => {
-  const { creations, thoughts } = props;
-
+const Home: React.FC<IndexPageProps> = ({
+  projects,
+  blogPosts,
+  projectsError,
+  blogPostsError,
+}) => {
   return (
     <main className={styles.container}>
       <HomeLede />
       <FeatureSection title={text.primaryFeatureSectionHeader["en"]}>
         <div className={styles.primaryFeatureSectionWrapper}>
-          {creations?.map((post) => (
+          {projects?.map((post) => (
             <FeatureSectionProjectPost
               key={post.slug}
               slug={post.slug}
@@ -47,7 +55,7 @@ const Home: React.FC<{ creations: Post[]; thoughts: Post[] }> = (props) => {
               excerpt={post.custom_excerpt}
             />
           ))}
-          {creations?.map((post) => (
+          {projects?.map((post) => (
             <FeatureSectionProjectPost
               key={post.slug}
               slug={post.slug}
@@ -58,9 +66,8 @@ const Home: React.FC<{ creations: Post[]; thoughts: Post[] }> = (props) => {
         </div>
         <FeatureSectionButton />
       </FeatureSection>
-
       <FeatureSection title={text.secondaryFeatureSectionHeader["en"]}>
-        {thoughts?.map((post) => (
+        {blogPosts?.map((post) => (
           <FeatureSectionBlogPost
             key={post.slug}
             slug={post.slug}
