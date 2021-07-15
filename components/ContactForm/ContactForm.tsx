@@ -137,13 +137,13 @@ const ContactForm: React.FC = (props) => {
 
     const formattedEmailText = `
       <div>
-        <h3>Subject:</h3>
+        <h2>Subject:</h2>
         <p>${selectedButton}</p>
         <hr />
-        <h3>Sender:</h3>
+        <h2>Sender:</h2>
         <p>${emailText}</p>
         <hr />
-        <h3>Inquiry:</h3>
+        <h2>Inquiry:</h2>
         <p>${inquiryText}</p>
         <br />
         <br />
