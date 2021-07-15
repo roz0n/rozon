@@ -4,10 +4,11 @@ import { WeatherDataObject } from "../..";
 
 type WeatherbitWidgetProps = {
   data?: WeatherDataObject[];
+  error?: boolean;
 };
 
-const WeatherbitWidget: React.FC<WeatherbitWidgetProps> = ({ data }) => {
-  return data?.length ? (
+const WeatherbitWidget: React.FC<WeatherbitWidgetProps> = ({ data, error }) => {
+  return data?.length && !error ? (
     <article className={styles.container}>
       <p className={styles.title}>Latest Feels</p>
       <span>

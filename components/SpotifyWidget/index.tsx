@@ -12,6 +12,7 @@ import {
 
 type SpotifyWidgetProps = {
   track?: SpotifyTrack;
+  error?: boolean;
 };
 
 type SpotifyTrack = {
@@ -22,7 +23,7 @@ type SpotifyTrack = {
   artworkUrl: string;
 };
 
-const SpotifyWidget: React.FC<SpotifyWidgetProps> = ({ track }) => {
+const SpotifyWidget: React.FC<SpotifyWidgetProps> = ({ track, error }) => {
   const [previewTrack, setPreviewTrack] = useState(null);
   const [previewTrackState, setPreviewTrackState] = useState<boolean>(false);
 
@@ -55,7 +56,7 @@ const SpotifyWidget: React.FC<SpotifyWidgetProps> = ({ track }) => {
     }
   }, [track?.previewUrl]);
 
-  return track ? (
+  return track && !error ? (
     <article className={styles.container}>
       <header className={styles.headerContainer}>
         <span className={styles.headerWrapper}>
