@@ -98,15 +98,19 @@
   font-family: "Panchang-Bold", sans-serif;
   text-transform: uppercase;
   font-size: 1.125rem;
-  margin-top: 1.5rem;
+  margin-top: 2.3rem;
   margin-bottom: 1.25rem;
+}
+
+.tagListContainer {
+  padding-right: 1.5rem;
 }
 
 .contentContainer {
 }
 
 .contentHeaderContainer {
-  margin-top: 1.5rem;
+  margin-top: 2.3rem;
   margin-left: 1.3rem;
   margin-bottom: 1.25rem;
 }

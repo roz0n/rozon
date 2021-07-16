@@ -1,0 +1,23 @@
+.container {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  font-family: "Inter", sans-serif;
+  width: 100%;
+  margin-bottom: 0.75rem;
+  user-select: none;
+  font-size: 1rem;
+}
+
+.nameContainer {
+  margin-right: 1rem;
+  width: 100%;
+}
+
+.countContainer {
+  background-color: var(--section-borders);
+  border-radius: 6.25rem;
+  padding: 0.25rem 1rem;
+  align-self: flex-end;
+  font-size: 0.75rem;
+  font-weight: 600;
+}

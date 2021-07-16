@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import { SearchIcon } from "@heroicons/react/outline";
 import { AdjustmentsIcon, XIcon } from "@heroicons/react/solid";
 import SearchProjectPost from "../components/Search/SearchProjectPost";
+import SearchTagBar from "../components/Search/SearchTagBar";
 import { PROJECTS, BLOG_POSTS } from "../utils/constants";
 
 export const getStaticProps = async () => {
@@ -93,11 +94,13 @@ const Search: React.FC<SearchPageProps> = ({
           <header>
             <h1 className={styles.sidebarTitle}>Tags</h1>
           </header>
-          <section>
+          <section className={styles.tagListContainer}>
             {tags?.map((tag) => (
-              <p key={tag.name}>
-                {tag.name} - {tag.count?.posts || 0}
-              </p>
+              <SearchTagBar
+                key={tag.name}
+                name={tag.name}
+                count={tag.count?.posts || 0}
+              />
             ))}
           </section>
         </aside>
