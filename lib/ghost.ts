@@ -26,4 +26,8 @@ const getPostBySlug = (slug: string) => {
   );
 };
 
-export { Ghost, getPostsByPrimaryTag, getPostBySlug };
+const getAllTags = () => {
+  return Ghost.tags.browse({ order: "slug ASC", include: "count.posts" });
+};
+
+export { Ghost, getPostsByPrimaryTag, getPostBySlug, getAllTags };

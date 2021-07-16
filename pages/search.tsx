@@ -1,6 +1,6 @@
 import styles from "../styles/Pages/Search/Search.module.css";
 import { SearchPageProps } from "../";
-import { getPostsByPrimaryTag } from "../lib/ghost";
+import { getPostsByPrimaryTag, getAllTags } from "../lib/ghost";
 import { SearchIcon } from "@heroicons/react/outline";
 import { AdjustmentsIcon, XIcon } from "@heroicons/react/solid";
 import SearchProjectPost from "../components/Search/SearchProjectPost";
@@ -23,6 +23,13 @@ export const getStaticProps = async () => {
     props.blogPostsError = true;
   }
 
+  try {
+    const allTags = await getAllTags();
+    props.tags = allTags;
+  } catch (error) {
+    props.tagsError = true;
+  }
+
   return {
     props,
     revalidate: 30,
@@ -32,11 +39,14 @@ export const getStaticProps = async () => {
 const Search: React.FC<SearchPageProps> = ({
   projects,
   blogPosts,
+  tags,
   projectsError,
   blogPostsError,
+  tagsError,
 }) => {
   console.log("PROJECTS", projects);
   console.log("POSTS", blogPosts);
+  console.log("TAGS", tags);
   return (
     <article>
       <section className={styles.headerContainer}>
@@ -80,6 +90,13 @@ const Search: React.FC<SearchPageProps> = ({
           <header>
             <h1 className={styles.sidebarTitle}>Tags</h1>
           </header>
+          <section>
+            {tags?.map((tag) => (
+              <p>
+                {tag.name} - {tag.count?.posts || 0}
+              </p>
+            ))}
+          </section>
         </aside>
         <article className={styles.contentContainer}>
           <section className={styles.contentHeaderContainer}>

@@ -1,6 +1,6 @@
 import { FeatureSectionProps } from "..";
 import { HeaderButtonProps } from "..";
-import { PostsOrPages } from "@tryghost/content-api";
+import { PostsOrPages, BrowseResults, Tag } from "@tryghost/content-api";
 
 /**
  * Global
@@ -115,9 +115,11 @@ export type IndexPageProps = {
 export type SearchPageProps = {
   projects?: PostsOrPages;
   blogPosts?: PostsOrPages;
+  tags?: BrowseResults<Tag>;
   revalidate?: number;
   projectsError?: boolean;
   blogPostsError?: boolean;
+  tagsError?: boolean;
 };
 
 /**

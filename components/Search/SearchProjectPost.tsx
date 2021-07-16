@@ -14,8 +14,8 @@ const SearchProjectPost: React.FC<FeatureSectionProjectPostProps> = (props) => {
           <div className={styles.appIconContainer}>
             <Image
               src={SampleAppIcon}
-              height="65"
-              width="65"
+              height="50"
+              width="50"
               alt={`${title} app icon`}
             />
           </div>
