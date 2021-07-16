@@ -72,7 +72,7 @@ const Home: React.FC<IndexPageProps> = ({
             </div>
             <Link href="/search" passHref>
               <span>
-                <FeatureSectionButton label={"View All Projects"}>
+                <FeatureSectionButton label={"View Projects"}>
                   <DesktopComputerIcon height={20} width={20} />
                 </FeatureSectionButton>
               </span>
@@ -99,7 +99,7 @@ const Home: React.FC<IndexPageProps> = ({
             ))}
             <Link href="/search" passHref>
               <span>
-                <FeatureSectionButton label={"View All Posts"}>
+                <FeatureSectionButton label={"View Posts"}>
                   <AnnotationIcon height={20} width={20} />
                 </FeatureSectionButton>
               </span>

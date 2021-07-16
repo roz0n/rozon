@@ -13,7 +13,7 @@
   display: flex;
 }
 
-.searchBarItemButton {
+.filterItemButton {
   margin: 0;
   padding: 0;
 
@@ -32,7 +32,7 @@
   align-items: center;
 }
 
-.searchBarItemButton:not(:last-child) {
+.filterItemButton:not(:last-child) {
   margin-right: 0.5rem;
 }
 
@@ -49,10 +49,23 @@
   margin: 0 2rem;
 }
 
+.filterIconWrapper {
+  display: flex;
+  align-items: center;
+  margin-right: 1rem;
+  margin-left: 0.75rem;
+}
+
 .searchIconWrapper {
   display: flex;
   align-items: center;
   margin-right: 1rem;
+}
+
+.clearIconWrapper {
+  display: flex;
+  align-items: center;
+  margin-right: 0.75rem;
 }
 
 .searchInputField {

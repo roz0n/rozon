@@ -13,21 +13,11 @@ const Search: React.FC = (props) => {
       <section className={styles.headerContainer}>
         <header className={styles.header}>
           <article className={styles.searchBarItemContainer}>
-            <span className={styles.searchIconWrapper}>
+            <span className={styles.filterIconWrapper}>
               <AdjustmentsIcon width={20} height={20} />
             </span>
-            <button className={styles.searchBarItemButton}>
-              {/* <span className={styles.searchBarItemButtonIcon}>
-                <DesktopComputerIcon height={18} width={18} />
-              </span> */}
-              Projects
-            </button>
-            <button className={styles.searchBarItemButton}>
-              {/* <span className={styles.searchBarItemButtonIcon}>
-                <AnnotationIcon height={18} width={18} />
-              </span> */}
-              Posts
-            </button>
+            <button className={styles.filterItemButton}>Projects</button>
+            <button className={styles.filterItemButton}>Posts</button>
           </article>
 
           <article className={styles.searchContainer}>
@@ -41,8 +31,8 @@ const Search: React.FC = (props) => {
           </article>
 
           <article className={styles.searchBarItemContainer}>
-            <span className={styles.searchIconWrapper}>
-              <XCircleIcon width={24} height={24} />
+            <span className={styles.clearIconWrapper}>
+              <XCircleIcon width={22} height={22} />
             </span>
           </article>
         </header>
