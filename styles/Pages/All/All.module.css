@@ -11,13 +11,33 @@
 
 .searchBarItemContainer {
   display: flex;
-  margin: 0 1rem;
+}
+
+.searchBarItemButton {
+  margin: 0;
+  padding: 0;
+
+  border: 1px solid var(--section-borders);
+  background-color: transparent;
+  color: var(--site-main-text);
+  padding: 0.5rem 1.25rem;
+  border-radius: 100px;
+  font-weight: 400;
+  font-size: 0.85rem;
+  font-family: "Inter", sans-serif;
+  cursor: pointer;
+  line-height: 1.5rem;
+}
+
+.searchBarItemButton:not(:last-child) {
+  margin-right: 0.5rem;
 }
 
 .searchContainer {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 0 2rem;
 }
 
 .searchIconWrapper {
@@ -32,13 +52,13 @@
   padding: 0.75rem 1.25rem;
   border: 0;
   border: 1px solid var(--section-borders);
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
   width: 100%;
+  font-size: 0.85rem;
 }
 
 .searchInputField::placeholder {
   color: var(--site-main-ph-text);
-  font-size: 0.85rem;
   font-family: "Inter", sans-serif;
 }
 
@@ -49,5 +69,16 @@
 }
 
 .sidebarContainer {
-  min-width: 16rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 12rem;
+  background-color: yellowgreen;
+}
+
+.contentContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: tomato;
 }

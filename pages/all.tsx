@@ -1,5 +1,6 @@
 import styles from "../styles/Pages/All/All.module.css";
-import { SearchIcon } from "@heroicons/react/outline";
+import { SearchIcon, FilterIcon } from "@heroicons/react/outline";
+import { XCircleIcon } from "@heroicons/react/solid";
 
 const All: React.FC = (props) => {
   return (
@@ -7,8 +8,11 @@ const All: React.FC = (props) => {
       <section className={styles.headerContainer}>
         <header className={styles.header}>
           <article className={styles.searchBarItemContainer}>
-            <button>Projects</button>
-            <button>Posts</button>
+            <span className={styles.searchIconWrapper}>
+              <FilterIcon width={18} height={18} />
+            </span>
+            <button className={styles.searchBarItemButton}>Projects</button>
+            <button className={styles.searchBarItemButton}>Posts</button>
           </article>
 
           <article className={styles.searchContainer}>
@@ -22,14 +26,16 @@ const All: React.FC = (props) => {
           </article>
 
           <article className={styles.searchBarItemContainer}>
-            <button>Clear</button>
+            <span className={styles.searchIconWrapper}>
+              <XCircleIcon width={24} height={24} />
+            </span>
           </article>
         </header>
       </section>
 
       <section className={styles.bodyContainer}>
         <aside className={styles.sidebarContainer}>Tags</aside>
-        <article>All page body</article>
+        <article className={styles.contentContainer}>All page body</article>
       </section>
     </article>
   );
