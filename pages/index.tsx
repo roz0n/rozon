@@ -12,10 +12,7 @@ import FeatureSectionProjectPost from "../components/FeatureSection/FeatureSecti
 import FeatureSectionBlogPost from "../components/FeatureSection/FeatureSectionBlogPost";
 import FeatureSectionButton from "../components/FeatureSection/FeatureSectionButton";
 import FeatureSectionEmptyState from "../components/FeatureSection/FeatureSectionEmptyState";
-
-// TODO: When creating posts in Ghost, be sure to use the standard tags and not the frontend-centric "creations" and "thoughts"
-const PROJECTS = "creations";
-const BLOG_POSTS = "thoughts";
+import { PROJECTS, BLOG_POSTS } from "../utils/constants";
 
 export const getStaticProps = async () => {
   let props: IndexPageProps = {};

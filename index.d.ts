@@ -112,6 +112,14 @@ export type IndexPageProps = {
   blogPostsError?: boolean;
 };
 
+export type SearchPageProps = {
+  projects?: PostsOrPages;
+  blogPosts?: PostsOrPages;
+  revalidate?: number;
+  projectsError?: boolean;
+  blogPostsError?: boolean;
+};
+
 /**
  * Backend
  */
