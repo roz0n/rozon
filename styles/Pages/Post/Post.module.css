@@ -15,7 +15,7 @@
   /* NOTE: These padding values should be identical to the margin values of the post container */
   padding-top: 2rem;
   padding-bottom: 1.5rem;
-  min-height: 100vw;
+  min-height: 100vh;
 }
 
 .postContainer {
