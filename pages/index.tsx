@@ -67,7 +67,10 @@ const Home: React.FC<IndexPageProps> = ({
                 />
               ))}
             </div>
-            <Link href="/search" passHref>
+            <Link
+              href={{ pathname: "search", query: { type: "projects" } }}
+              passHref
+            >
               <span>
                 <FeatureSectionButton label={"View Projects"}>
                   <DesktopComputerIcon height={20} width={20} />
@@ -94,7 +97,10 @@ const Home: React.FC<IndexPageProps> = ({
                 excerpt={post.custom_excerpt}
               />
             ))}
-            <Link href="/search" passHref>
+            <Link
+              href={{ pathname: "search", query: { type: "posts" } }}
+              passHref
+            >
               <span>
                 <FeatureSectionButton label={"View Posts"}>
                   <AnnotationIcon height={20} width={20} />

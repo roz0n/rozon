@@ -1,6 +1,7 @@
 import styles from "../styles/Pages/Search/Search.module.css";
 import { SearchPageProps } from "../";
 import { getPostsByPrimaryTag, getAllTags } from "../lib/ghost";
+import { useRouter } from "next/router";
 import { SearchIcon } from "@heroicons/react/outline";
 import { AdjustmentsIcon, XIcon } from "@heroicons/react/solid";
 import SearchProjectPost from "../components/Search/SearchProjectPost";
@@ -44,6 +45,8 @@ const Search: React.FC<SearchPageProps> = ({
   blogPostsError,
   tagsError,
 }) => {
+  const router = useRouter();
+  console.log("QUERY", router.query);
   console.log("PROJECTS", projects);
   console.log("POSTS", blogPosts);
   console.log("TAGS", tags);
@@ -92,7 +95,7 @@ const Search: React.FC<SearchPageProps> = ({
           </header>
           <section>
             {tags?.map((tag) => (
-              <p>
+              <p key={tag.name}>
                 {tag.name} - {tag.count?.posts || 0}
               </p>
             ))}
