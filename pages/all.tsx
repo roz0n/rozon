@@ -6,7 +6,10 @@ const All: React.FC = (props) => {
     <article>
       <section className={styles.headerContainer}>
         <header className={styles.header}>
-          <article>{/* Back button */}</article>
+          <article className={styles.searchBarItemContainer}>
+            <button>Projects</button>
+            <button>Posts</button>
+          </article>
 
           <article className={styles.searchContainer}>
             <span className={styles.searchIconWrapper}>
@@ -18,11 +21,16 @@ const All: React.FC = (props) => {
             />
           </article>
 
-          <article>{/* Something else? */}</article>
+          <article className={styles.searchBarItemContainer}>
+            <button>Clear</button>
+          </article>
         </header>
       </section>
 
-      <section className={styles.bodyContainer}>All page body</section>
+      <section className={styles.bodyContainer}>
+        <aside className={styles.sidebarContainer}>Tags</aside>
+        <article>All page body</article>
+      </section>
     </article>
   );
 };

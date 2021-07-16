@@ -6,7 +6,12 @@
 
 .header {
   display: grid;
-  grid-template-columns: repeat(3, auto);
+  grid-template-columns: auto 1fr auto;
+}
+
+.searchBarItemContainer {
+  display: flex;
+  margin: 0 1rem;
 }
 
 .searchContainer {
@@ -38,8 +43,11 @@
 }
 
 .bodyContainer {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
+  display: grid;
+  grid-template-columns: auto 1fr;
   min-height: 100vh;
+}
+
+.sidebarContainer {
+  min-width: 16rem;
 }
