@@ -11,6 +11,13 @@
   opacity: 0.95;
 }
 
+.skeletonContainer {
+  /* NOTE: These padding values should be identical to the margin values of the post container */
+  padding-top: 2rem;
+  padding-bottom: 1.5rem;
+  min-height: 100vw;
+}
+
 .postContainer {
   display: flex;
   flex-direction: column;

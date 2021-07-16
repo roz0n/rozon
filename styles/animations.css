@@ -1,3 +1,6 @@
+/*
+  Fade animation
+*/
 .fade-in {
   -webkit-animation: fade-in-down 500ms ease-in-out; /* Chrome, Safari, Opera */
   animation: fade-in 500ms ease-in-out;
