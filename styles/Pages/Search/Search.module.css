@@ -24,7 +24,7 @@
   padding: 0.5rem 1.25rem;
   border-radius: 100px;
   font-weight: 500;
-  font-size: 0.85rem;
+  font-size: 1rem;
   font-family: "Inter", sans-serif;
   cursor: pointer;
   line-height: 1.5rem;
@@ -74,7 +74,7 @@
   border: 1px solid var(--section-borders);
   border-radius: 0.75rem;
   width: 100%;
-  font-size: 0.85rem;
+  font-size: 1rem;
 }
 
 .searchInputField::placeholder {
@@ -97,7 +97,7 @@
 .sidebarTitle {
   font-family: "Panchang-Bold", sans-serif;
   text-transform: uppercase;
-  font-size: 1rem;
+  font-size: 1.125rem;
   margin-top: 1.5rem;
   margin-bottom: 1.25rem;
 }
@@ -114,12 +114,12 @@
 .contentTitle {
   font-family: "Panchang-Bold", sans-serif;
   text-transform: uppercase;
-  font-size: 1rem;
+  font-size: 1.125rem;
   margin-bottom: 0.65rem;
 }
 
 .contentSubheader {
-  font-size: 0.85rem;
+  font-size: 1rem;
   color: var(--site-sub-text);
 }
 
