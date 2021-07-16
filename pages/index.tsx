@@ -1,7 +1,8 @@
-import { IndexPageProps, Post } from "..";
+import { IndexPageProps } from "..";
 import styles from "../styles/Pages/Home/Home.module.css";
 import text from "../text/Index.text";
 import { getPostsByPrimaryTag } from "../lib/ghost";
+import Link from "next/link";
 import { ExclamationCircleIcon } from "@heroicons/react/outline";
 import HomeLede from "../components/Home/HomeLede";
 import FeatureSection from "../components/FeatureSection/FeatureSection";
@@ -68,7 +69,11 @@ const Home: React.FC<IndexPageProps> = ({
                 />
               ))}
             </div>
-            <FeatureSectionButton />
+            <Link href="/all" passHref>
+              <span>
+                <FeatureSectionButton />
+              </span>
+            </Link>
           </>
         ) : (
           <FeatureSectionEmptyState
@@ -89,7 +94,11 @@ const Home: React.FC<IndexPageProps> = ({
                 excerpt={post.custom_excerpt}
               />
             ))}
-            <FeatureSectionButton />
+            <Link href="/all" passHref>
+              <span>
+                <FeatureSectionButton />
+              </span>
+            </Link>
           </>
         ) : (
           <FeatureSectionEmptyState

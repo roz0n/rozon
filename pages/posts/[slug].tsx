@@ -33,7 +33,8 @@ export const getStaticPaths = () => {
   };
 };
 
-const SkeletonLoader = () => {
+const PostSkeletonLoader = () => {
+  // TODO: Needs a light mode implementation
   return (
     <div className={styles.skeletonContainer}>
       <BarSkeletonLoader height="1rem" width="6.25rem" />
@@ -42,8 +43,14 @@ const SkeletonLoader = () => {
       <BarSkeletonLoader height="1rem" width="7.813rem" />
       <BarSkeletonLoader height="4.688rem" width="100%" />
       <BarSkeletonLoader height="31.25rem" width="100%" />
-      {Array.from(Array(30).keys()).map(() => {
-        return <BarSkeletonLoader height=".5rem" width="100%" />;
+      {Array.from(Array(30).keys()).map((i) => {
+        return (
+          <BarSkeletonLoader
+            key={`skeletonLoader-${i}`}
+            height=".5rem"
+            width="100%"
+          />
+        );
       })}
     </div>
   );
@@ -59,7 +66,7 @@ const Post: React.FC<{ post: GhostPost }> = (props) => {
   }, [post]);
 
   if (router.isFallback) {
-    return <SkeletonLoader />;
+    return <PostSkeletonLoader />;
   } else {
     return (
       <>
