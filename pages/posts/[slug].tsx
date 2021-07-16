@@ -1,33 +1,25 @@
 import styles from "../../styles/Pages/Post/Post.module.css";
 import { GhostPost } from "../../index";
 import { useEffect, useContext } from "react";
-import { ThemeContext } from "../_app";
+// import { ThemeContext } from "../_app";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { getPostBySlug } from "../../lib/ghost";
 import hljs from "highlight.js/lib/core";
 import swift from "highlight.js/lib/languages/swift";
 import CommentsIcon from "../../components/Icons/CommentsIcon";
+// TODO: This could be its own component, e.g. not tied to `FeatureSection`
 import FeatureSectionEmptyState from "../../components/FeatureSection/FeatureSectionEmptyState";
 import { ChatAlt2Icon } from "@heroicons/react/outline";
 
-const { GHOST_API_KEY, GHOST_SITE_URL } = process.env;
 hljs.registerLanguage("swift", swift);
 
-async function getSinglePost(slug: String) {
-  const req = await fetch(
-    `${GHOST_SITE_URL}/ghost/api/v3/content/posts/slug/${slug}?key=${GHOST_API_KEY}&fields=title,slug,custom_excerpt,reading_time,published_at,html`
-  ).then((res) => res.json());
-
-  // console.log("Posts:", req);
-  return req.posts;
-}
-
 export const getStaticProps = async ({ params }) => {
-  const post = await getSinglePost(params.slug);
+  const post = await getPostBySlug(params.slug);
 
   return {
     props: {
-      post: post[0] ?? null,
+      post: post,
       revalidate: 30,
     },
   };
@@ -43,7 +35,7 @@ export const getStaticPaths = () => {
 const Post: React.FC<{ post: GhostPost }> = (props) => {
   const router = useRouter();
   const { post } = props;
-  const theme = useContext(ThemeContext);
+  // const theme = useContext(ThemeContext);
 
   useEffect(() => {
     hljs.highlightAll();

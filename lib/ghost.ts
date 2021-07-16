@@ -15,6 +15,15 @@ const getPostsByPrimaryTag = (tag: string) => {
   });
 };
 
-const getPostBySlug = (slug: string) => {};
+const getPostBySlug = (slug: string) => {
+  return Ghost.posts.read(
+    {
+      slug,
+    },
+    {
+      include: ["tags"],
+    }
+  );
+};
 
-export { Ghost, getPostsByPrimaryTag };
+export { Ghost, getPostsByPrimaryTag, getPostBySlug };
