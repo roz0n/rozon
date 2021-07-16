@@ -1,10 +1,10 @@
 const text = {
   primaryFeatureSectionHeader: {
-    en: `Creations`,
+    en: `Projects`,
     es: `xxx`,
   },
   secondaryFeatureSectionHeader: {
-    en: `Thoughts`,
+    en: `Posts`,
     es: `xxx`,
   },
   homeLedeHeader: {

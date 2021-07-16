@@ -27,10 +27,19 @@
   font-family: "Inter", sans-serif;
   cursor: pointer;
   line-height: 1.5rem;
+
+  display: flex;
+  align-items: center;
 }
 
 .searchBarItemButton:not(:last-child) {
   margin-right: 0.5rem;
+}
+
+.searchBarItemButtonIcon {
+  margin-right: 0.5rem;
+  display: flex;
+  align-items: center;
 }
 
 .searchContainer {
@@ -65,20 +74,36 @@
 .bodyContainer {
   display: grid;
   grid-template-columns: auto 1fr;
+  grid-column-gap: 1rem;
   min-height: 100vh;
 }
 
 .sidebarContainer {
-  display: flex;
+  /* display: flex;
   align-items: center;
-  justify-content: center;
-  min-width: 12rem;
-  background-color: yellowgreen;
+  justify-content: center; */
+  min-width: 14rem;
+  border-right: 1px solid var(--section-borders);
+}
+
+.sidebarTitle {
+  font-family: "Panchang-Bold", sans-serif;
+  text-transform: uppercase;
+  font-size: 1rem;
+  margin: 1.25rem 0;
 }
 
 .contentContainer {
-  display: flex;
+  /* display: flex;
   align-items: center;
   justify-content: center;
-  background-color: tomato;
+  background-color: tomato; */
+}
+
+.contentTitle {
+  font-family: "Panchang-Bold", sans-serif;
+  text-transform: uppercase;
+  font-size: 1rem;
+  margin: 1.25rem 0;
+  margin-left: 1rem;
 }

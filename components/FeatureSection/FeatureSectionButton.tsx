@@ -2,9 +2,15 @@ import { FeatureSectionButtonProps } from "../..";
 import styles from "../../styles/FeatureSection/FeatureSectionButton.module.css";
 
 const FeatureSectionButton: React.FC<FeatureSectionButtonProps> = ({
-  label = "View All",
+  label,
+  children,
 }) => {
-  return <button className={styles.button}>{label}&nbsp;&nbsp;&#8594;</button>;
+  return (
+    <button className={styles.button}>
+      <span className={styles.childrenContainer}>{children}</span>
+      {label}
+    </button>
+  );
 };
 
 export default FeatureSectionButton;

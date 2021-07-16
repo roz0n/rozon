@@ -4,6 +4,7 @@ import text from "../text/Index.text";
 import { getPostsByPrimaryTag } from "../lib/ghost";
 import Link from "next/link";
 import { ExclamationCircleIcon } from "@heroicons/react/outline";
+import { DesktopComputerIcon, AnnotationIcon } from "@heroicons/react/solid";
 import HomeLede from "../components/Home/HomeLede";
 import FeatureSection from "../components/FeatureSection/FeatureSection";
 import ContactForm from "../components/ContactForm/ContactForm";
@@ -69,9 +70,11 @@ const Home: React.FC<IndexPageProps> = ({
                 />
               ))}
             </div>
-            <Link href="/all" passHref>
+            <Link href="/search" passHref>
               <span>
-                <FeatureSectionButton />
+                <FeatureSectionButton label={"View All Projects"}>
+                  <DesktopComputerIcon height={20} width={20} />
+                </FeatureSectionButton>
               </span>
             </Link>
           </>
@@ -94,9 +97,11 @@ const Home: React.FC<IndexPageProps> = ({
                 excerpt={post.custom_excerpt}
               />
             ))}
-            <Link href="/all" passHref>
+            <Link href="/search" passHref>
               <span>
-                <FeatureSectionButton />
+                <FeatureSectionButton label={"View All Posts"}>
+                  <AnnotationIcon height={20} width={20} />
+                </FeatureSectionButton>
               </span>
             </Link>
           </>
