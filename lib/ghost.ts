@@ -15,4 +15,6 @@ const getPostsByPrimaryTag = (tag: string) => {
   });
 };
 
+const getPostBySlug = (slug: string) => {};
+
 export { Ghost, getPostsByPrimaryTag };
