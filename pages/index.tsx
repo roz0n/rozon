@@ -68,7 +68,7 @@ const Home: React.FC<IndexPageProps> = ({
               ))}
             </div>
             <Link
-              href={{ pathname: "/search", query: { type: "projects" } }}
+              href={{ pathname: "/search", query: { type: PROJECTS } }}
               passHref
             >
               <span>
@@ -98,7 +98,7 @@ const Home: React.FC<IndexPageProps> = ({
               />
             ))}
             <Link
-              href={{ pathname: "/search", query: { type: "posts" } }}
+              href={{ pathname: "/search", query: { type: BLOG_POSTS } }}
               passHref
             >
               <span>

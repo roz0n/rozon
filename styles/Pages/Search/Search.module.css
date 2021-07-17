@@ -34,6 +34,12 @@
   margin-right: 0.5rem;
 }
 
+.filterItemButtonSelected {
+  background-color: var(--section-borders);
+  cursor: default;
+  box-sizing: border-box;
+}
+
 .searchBarItemButtonIcon {
   margin-right: 0.5rem;
   display: flex;
@@ -64,6 +70,11 @@
   display: flex;
   align-items: center;
   margin-right: 0.75rem;
+}
+
+.clearIconWrapper:hover {
+  cursor: pointer;
+  opacity: 0.95;
 }
 
 .searchInputField {
