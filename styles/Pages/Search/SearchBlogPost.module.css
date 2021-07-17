@@ -1,0 +1,23 @@
+.container {
+  margin-bottom: 2rem;
+}
+
+.title {
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.title:hover {
+  text-decoration: underline;
+  opacity: 0.95rem;
+  cursor: pointer;
+}
+
+.date {
+  margin-bottom: 0.5rem;
+}
+
+.excerpt {
+  color: var(--site-sub-text);
+}

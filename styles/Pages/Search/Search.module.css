@@ -142,3 +142,12 @@
   margin-top: 2rem;
   margin-left: 1.3rem;
 }
+
+.resultsListHeader {
+  color: var(--site-sub-text);
+  border-bottom: 1px solid var(--section-borders);
+  font-size: 1rem;
+  font-weight: 600;
+  padding-bottom: 0.75rem;
+  margin-bottom: 2rem;
+}

@@ -35,9 +35,11 @@ const SearchProjectPost: React.FC<FeatureSectionProjectPostProps> = (props) => {
         </article>
       </section>
 
-      <section>
-        <p className={styles.excerpt}>{excerpt}</p>
-      </section>
+      {excerpt && (
+        <section>
+          <p className={styles.excerpt}>{excerpt}</p>
+        </section>
+      )}
     </article>
   );
 };

@@ -25,10 +25,10 @@ export const getStaticProps = async () => {
   }
 
   try {
-    const blogPosts = await getPostsByPrimaryTag(POSTS);
-    props.blogPosts = blogPosts;
+    const posts = await getPostsByPrimaryTag(POSTS);
+    props.posts = posts;
   } catch (error) {
-    props.blogPostsError = true;
+    props.postsError = true;
   }
 
   return {
@@ -39,9 +39,9 @@ export const getStaticProps = async () => {
 
 const Home: React.FC<IndexPageProps> = ({
   projects,
-  blogPosts,
+  posts,
   projectsError,
-  blogPostsError,
+  postsError,
 }) => {
   return (
     <main className={styles.container}>
@@ -87,9 +87,9 @@ const Home: React.FC<IndexPageProps> = ({
         )}
       </FeatureSection>
       <FeatureSection title={text.secondaryFeatureSectionHeader["en"]}>
-        {blogPosts && !blogPostsError ? (
+        {posts && !postsError ? (
           <>
-            {blogPosts.map((post) => (
+            {posts.map((post) => (
               <FeatureSectionBlogPost
                 key={post.slug}
                 slug={post.slug}

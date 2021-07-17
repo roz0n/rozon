@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 import { SearchIcon } from "@heroicons/react/outline";
 import { AdjustmentsIcon, XIcon } from "@heroicons/react/solid";
 import SearchProjectPost from "../components/Search/SearchProjectPost";
+import SearchBlogPost from "../components/Search/SearchBlogPost";
 import SearchTagBar from "../components/Search/SearchTagBar";
 import { PROJECTS, POSTS } from "../utils/constants";
 
@@ -20,10 +21,10 @@ export const getStaticProps = async () => {
   }
 
   try {
-    const blogPosts = await getPostsByPrimaryTag(POSTS);
-    props.blogPosts = blogPosts;
+    const posts = await getPostsByPrimaryTag(POSTS);
+    props.posts = posts;
   } catch (error) {
-    props.blogPostsError = true;
+    props.postsError = true;
   }
 
   try {
@@ -41,10 +42,10 @@ export const getStaticProps = async () => {
 
 const Search: React.FC<SearchPageProps> = ({
   projects,
-  blogPosts,
+  posts,
   tags,
   projectsError,
-  blogPostsError,
+  postsError,
   tagsError,
 }) => {
   const router = useRouter();
@@ -54,7 +55,7 @@ const Search: React.FC<SearchPageProps> = ({
 
   // console.log("QUERY", router.query);
   // console.log("PROJECTS", projects);
-  // console.log("POSTS", blogPosts);
+  console.log("POSTS", posts);
   // console.log("TAGS", tags);
   // console.log("PARAMS", router.query.type);
 
@@ -219,6 +220,7 @@ const Search: React.FC<SearchPageProps> = ({
             ))}
           </section>
         </aside>
+
         <article className={styles.contentContainer}>
           <section className={styles.contentHeaderContainer}>
             <header>
@@ -232,12 +234,24 @@ const Search: React.FC<SearchPageProps> = ({
           </section>
 
           <section className={styles.resultsListContainer}>
+            <h1 className={styles.resultsListHeader}>Projects</h1>
             {projects?.map((project) => (
               <SearchProjectPost
                 key={project.title}
                 title={project.title}
-                slug={project.slug}
                 excerpt={project.excerpt}
+                slug={project.slug}
+              />
+            ))}
+          </section>
+
+          <section className={styles.resultsListContainer}>
+            <h1 className={styles.resultsListHeader}>Posts</h1>
+            {posts?.map((post) => (
+              <SearchBlogPost
+                title={post.title}
+                excerpt={post.excerpt}
+                slug={post.slug}
               />
             ))}
           </section>

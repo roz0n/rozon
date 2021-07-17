@@ -54,7 +54,7 @@ export type ContactFormButtonItem = ContactFormButtonProps;
 export type FeatureSectionProjectPostProps = {
   slug: string;
   title: string;
-  excerpt: string;
+  excerpt?: string;
 };
 
 export type FeatureSectionBlogPostProps = {
@@ -106,19 +106,19 @@ export type SpotifyTrack = {
 
 export type IndexPageProps = {
   projects?: PostsOrPages;
-  blogPosts?: PostsOrPages;
+  posts?: PostsOrPages;
   revalidate?: number;
   projectsError?: boolean;
-  blogPostsError?: boolean;
+  postsError?: boolean;
 };
 
 export type SearchPageProps = {
   projects?: PostsOrPages;
-  blogPosts?: PostsOrPages;
+  posts?: PostsOrPages;
   tags?: BrowseResults<Tag>;
   revalidate?: number;
   projectsError?: boolean;
-  blogPostsError?: boolean;
+  postsError?: boolean;
   tagsError?: boolean;
 };
 
