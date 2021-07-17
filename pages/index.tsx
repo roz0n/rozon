@@ -12,7 +12,7 @@ import FeatureSectionProjectPost from "../components/FeatureSection/FeatureSecti
 import FeatureSectionBlogPost from "../components/FeatureSection/FeatureSectionBlogPost";
 import FeatureSectionButton from "../components/FeatureSection/FeatureSectionButton";
 import FeatureSectionEmptyState from "../components/FeatureSection/FeatureSectionEmptyState";
-import { PROJECTS, BLOG_POSTS } from "../utils/constants";
+import { PROJECTS, POSTS } from "../utils/constants";
 
 export const getStaticProps = async () => {
   let props: IndexPageProps = {};
@@ -25,7 +25,7 @@ export const getStaticProps = async () => {
   }
 
   try {
-    const blogPosts = await getPostsByPrimaryTag(BLOG_POSTS);
+    const blogPosts = await getPostsByPrimaryTag(POSTS);
     props.blogPosts = blogPosts;
   } catch (error) {
     props.blogPostsError = true;
@@ -98,7 +98,7 @@ const Home: React.FC<IndexPageProps> = ({
               />
             ))}
             <Link
-              href={{ pathname: "/search", query: { type: BLOG_POSTS } }}
+              href={{ pathname: "/search", query: { type: POSTS } }}
               passHref
             >
               <span>

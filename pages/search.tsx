@@ -7,7 +7,7 @@ import { SearchIcon } from "@heroicons/react/outline";
 import { AdjustmentsIcon, XIcon } from "@heroicons/react/solid";
 import SearchProjectPost from "../components/Search/SearchProjectPost";
 import SearchTagBar from "../components/Search/SearchTagBar";
-import { PROJECTS, BLOG_POSTS } from "../utils/constants";
+import { PROJECTS, POSTS } from "../utils/constants";
 
 export const getStaticProps = async () => {
   let props: SearchPageProps = {};
@@ -20,7 +20,7 @@ export const getStaticProps = async () => {
   }
 
   try {
-    const blogPosts = await getPostsByPrimaryTag(BLOG_POSTS);
+    const blogPosts = await getPostsByPrimaryTag(POSTS);
     props.blogPosts = blogPosts;
   } catch (error) {
     props.blogPostsError = true;
@@ -73,43 +73,56 @@ const Search: React.FC<SearchPageProps> = ({
     setSearchQuery("");
   }
 
-  function toggleProjectsButton() {
-    // console.log("Projects button toggled");
-    // const currentQuery = router.query?.type;
-    // const currentQueryValues = currentQuery[0]?.split(",");
-    // const containsDesiredValue = currentQueryValues.includes(PROJECTS);
-    // if (containsDesiredValue && projectsSelected) {
-    //   // Toggle it off
-    //   const index = currentQueryValues.indexOf(PROJECTS);
-    //   currentQueryValues.splice(index);
-    //   router.push({
-    //     pathname: "/search",
-    //     query: { type: currentQueryValues.toString() },
-    //   });
-    // } else {
-    //   // Toggle it on
-    //   const newQuery = currentQueryValues.push(PROJECTS);
-    //   router.push({
-    //     pathname: "/search",
-    //     query: { type: newQuery.toString() },
-    //   });
-    // }
-  }
+  /*
+    NOTE: Before making any modifications to this function, be sure to take a few deep breaths.
+    I seriously hope there's an easier way to do this that I am not privy to.
+  */
+  function toggleFilterButton(
+    buttonName: string,
+    stateHandler: (boolean) => void
+  ) {
+    const typeQuery = router.query?.type as string;
 
-  function togglePostsButton() {
-    // console.log("Posts button toggled");
-    // if (postsSelected) {
-    //   router.push({
-    //     pathname: "/search",
-    //     query: { type: BLOG_POSTS },
-    //   });
-    // } else {
-    //   router.push({
-    //     pathname: "/search",
-    //     query: {},
-    //   });
-    // }
-    // setPostsSelected(!postsSelected);
+    if (!typeQuery) {
+      // No type is not present, set the state to true and add it to the query param
+      stateHandler(true);
+
+      router.push({
+        pathname: "/search",
+        query: { type: buttonName },
+      });
+    } else {
+      // A value for type is present, split it and check its value
+      const splitQuery = typeQuery.split(",");
+
+      if (splitQuery.includes(buttonName)) {
+        // The value we are checking for is already in the query, remove it and set the state to false
+        const removeIndex = splitQuery.indexOf(buttonName);
+
+        splitQuery.splice(removeIndex, 1);
+        stateHandler(false);
+
+        // If there are no values remaining in the type query param array, just remove it from the url (`type=` is not ideal)
+        // Otherwise, convert the array to a string and do the dance.
+        const queryObject = !splitQuery.length
+          ? null
+          : { type: splitQuery.toString() };
+
+        router.push({
+          pathname: "/search",
+          query: queryObject,
+        });
+      } else {
+        // There is a value present in the type query param array, but it's not the value we're trying to set.
+        // In that case, just add it to the array and do the dance.
+        splitQuery.push(buttonName);
+
+        router.push({
+          pathname: "/search",
+          query: { type: splitQuery.toString() },
+        });
+      }
+    }
   }
 
   // Effects
@@ -118,28 +131,16 @@ const Search: React.FC<SearchPageProps> = ({
   useEffect(() => {
     const typeQuery = router.query?.type as string;
 
-    if (typeQuery) {
-      const splitQuery = typeQuery.split(",");
+    // There's no type query, do nothing.
+    if (!typeQuery) return;
 
-      if (splitQuery.length > 1) {
-        if (splitQuery.includes(PROJECTS)) {
-          setProjectsSelected(true);
-        }
+    // There's a type query, turn it to an array.
+    const splitQuery = typeQuery.split(",");
 
-        if (splitQuery.includes(BLOG_POSTS)) {
-          setPostsSelected(true);
-        }
-      } else {
-        // The query value onLoad is a single string, determine which one
-        if (typeQuery === PROJECTS) {
-          setProjectsSelected(true);
-        }
-
-        if (typeQuery === BLOG_POSTS) {
-          setPostsSelected(true);
-        }
-      }
-    }
+    // If the split worked, set the appropriate state depending on which string is present.
+    if (!splitQuery.length) return;
+    if (splitQuery.includes(PROJECTS)) setProjectsSelected(true);
+    if (splitQuery.includes(POSTS)) setPostsSelected(true);
   }, [router]);
 
   return (
@@ -160,7 +161,7 @@ const Search: React.FC<SearchPageProps> = ({
                   ? styles.filterItemButton
                   : `${styles.filterItemButton} ${styles.filterItemButtonSelected}`
               }
-              onClick={toggleProjectsButton}
+              onClick={() => toggleFilterButton(PROJECTS, setProjectsSelected)}
             >
               Projects
             </button>
@@ -170,7 +171,7 @@ const Search: React.FC<SearchPageProps> = ({
                   ? styles.filterItemButton
                   : `${styles.filterItemButton} ${styles.filterItemButtonSelected}`
               }
-              onClick={togglePostsButton}
+              onClick={() => toggleFilterButton(POSTS, setPostsSelected)}
             >
               Posts
             </button>
