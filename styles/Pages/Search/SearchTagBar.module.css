@@ -6,11 +6,27 @@
   margin-bottom: 0.75rem;
   user-select: none;
   font-size: 1rem;
+  font-weight: 500;
+  padding: 0.5rem 0;
+  border-radius: 0.5rem;
+}
+
+.container:hover {
+  cursor: pointer;
+}
+
+.container:hover .countContainer {
+  color: var(--site-chip-bg-hover);
+  background-color: var(--site-chip-text-hover);
+}
+
+.container:hover .nameContainer {
+  opacity: 0.95;
 }
 
 .nameContainer {
-  margin-right: 1rem;
-  width: 100%;
+  display: flex;
+  align-items: center;
 }
 
 .countContainer {

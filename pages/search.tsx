@@ -210,7 +210,7 @@ const Search: React.FC<SearchPageProps> = ({
       <section className={styles.bodyContainer}>
         <aside className={styles.sidebarContainer}>
           <header>
-            <h1 className={styles.sidebarTitle}>Tags</h1>
+            <h1 className={styles.sidebarTitle}>Top Tags</h1>
           </header>
           <section className={styles.tagListContainer}>
             {tags?.map((tag) => (

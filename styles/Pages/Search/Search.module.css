@@ -78,7 +78,7 @@
 
 .searchInputField {
   background-color: transparent;
-  color: var(--site-main-bg);
+  color: var(--site-bg);
   padding: 0.75rem 1.25rem;
   border: 0;
   border: 1px solid var(--section-borders);
