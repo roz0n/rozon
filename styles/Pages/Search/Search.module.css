@@ -36,7 +36,6 @@
 
 .filterItemButtonSelected {
   background-color: var(--section-borders);
-  cursor: default;
   box-sizing: border-box;
 }
 
@@ -150,4 +149,11 @@
   font-weight: 600;
   padding-bottom: 0.75rem;
   margin-bottom: 2rem;
+}
+
+.emptyContentContainer {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }

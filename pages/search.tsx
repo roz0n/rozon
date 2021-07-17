@@ -5,9 +5,11 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { SearchIcon } from "@heroicons/react/outline";
 import { AdjustmentsIcon, XIcon } from "@heroicons/react/solid";
+import { SearchCircleIcon, EmojiHappyIcon } from "@heroicons/react/outline";
 import SearchProjectPost from "../components/Search/SearchProjectPost";
 import SearchBlogPost from "../components/Search/SearchBlogPost";
 import SearchTagBar from "../components/Search/SearchTagBar";
+import FeatureSectionEmptyState from "../components/FeatureSection/FeatureSectionEmptyState";
 import { PROJECTS, POSTS } from "../utils/constants";
 
 export const getStaticProps = async () => {
@@ -223,9 +225,11 @@ const Search: React.FC<SearchPageProps> = ({
 
         <article className={styles.contentContainer}>
           <section className={styles.contentHeaderContainer}>
-            <header>
-              <h1 className={styles.contentTitle}>Results</h1>
-            </header>
+            {(projectsSelected || postsSelected) && (
+              <header>
+                <h1 className={styles.contentTitle}>Results</h1>
+              </header>
+            )}
             {searchQuery && (
               <p className={styles.contentSubheader}>
                 2 results retrieved for "{`${searchQuery}`}"
@@ -233,28 +237,42 @@ const Search: React.FC<SearchPageProps> = ({
             )}
           </section>
 
-          <section className={styles.resultsListContainer}>
-            <h1 className={styles.resultsListHeader}>Projects</h1>
-            {projects?.map((project) => (
-              <SearchProjectPost
-                key={project.title}
-                title={project.title}
-                excerpt={project.excerpt}
-                slug={project.slug}
-              />
-            ))}
-          </section>
+          {!projectsSelected && !postsSelected && (
+            <span className={styles.emptyContentContainer}>
+              <FeatureSectionEmptyState
+                label={"Your search results will appear here"}
+              >
+                <EmojiHappyIcon height={32} width={32} />
+              </FeatureSectionEmptyState>
+            </span>
+          )}
 
-          <section className={styles.resultsListContainer}>
-            <h1 className={styles.resultsListHeader}>Posts</h1>
-            {posts?.map((post) => (
-              <SearchBlogPost
-                title={post.title}
-                excerpt={post.excerpt}
-                slug={post.slug}
-              />
-            ))}
-          </section>
+          {projectsSelected && (
+            <section className={styles.resultsListContainer}>
+              <h1 className={styles.resultsListHeader}>Projects</h1>
+              {projects?.map((project) => (
+                <SearchProjectPost
+                  key={project.title}
+                  title={project.title}
+                  excerpt={project.excerpt}
+                  slug={project.slug}
+                />
+              ))}
+            </section>
+          )}
+
+          {postsSelected && (
+            <section className={styles.resultsListContainer}>
+              <h1 className={styles.resultsListHeader}>Posts</h1>
+              {posts?.map((post) => (
+                <SearchBlogPost
+                  title={post.title}
+                  excerpt={post.excerpt}
+                  slug={post.slug}
+                />
+              ))}
+            </section>
+          )}
         </article>
       </section>
     </article>
