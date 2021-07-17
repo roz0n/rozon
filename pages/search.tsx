@@ -84,7 +84,7 @@ const Search: React.FC<SearchPageProps> = ({
     const typeQuery = router.query?.type as string;
 
     if (!typeQuery) {
-      // No type is not present, set the state to true and add it to the query param
+      // No type query param is present, set the appropriate state to true and add it to it.
       stateHandler(true);
 
       router.push({
@@ -92,18 +92,18 @@ const Search: React.FC<SearchPageProps> = ({
         query: { type: buttonName },
       });
     } else {
-      // A value for type is present, split it and check its value
+      // The type query param contains a value, convert it to an array and check its value.
       const splitQuery = typeQuery.split(",");
 
       if (splitQuery.includes(buttonName)) {
-        // The value we are checking for is already in the query, remove it and set the state to false
+        // The button we are trying to toggle is already in the type query param, remove it and set state accordingly.
         const removeIndex = splitQuery.indexOf(buttonName);
 
         splitQuery.splice(removeIndex, 1);
         stateHandler(false);
 
-        // If there are no values remaining in the type query param array, just remove it from the url (`type=` is not ideal)
-        // Otherwise, convert the array to a string and do the dance.
+        // If there are no values remaining in the type query param array, just remove it from the url (`type=` is not ideal).
+        // Otherwise, convert the array back to a string and do the dance.
         const queryObject = !splitQuery.length
           ? null
           : { type: splitQuery.toString() };
@@ -113,8 +113,8 @@ const Search: React.FC<SearchPageProps> = ({
           query: queryObject,
         });
       } else {
-        // There is a value present in the type query param array, but it's not the value we're trying to set.
-        // In that case, just add it to the array and do the dance.
+        // There is a value present in the type query param array, but it's not of the button we're trying to toggle.
+        // In that case, we can assume we're toggling this button to "true", so just add it to the array and do the dance.
         splitQuery.push(buttonName);
 
         router.push({
@@ -127,14 +127,14 @@ const Search: React.FC<SearchPageProps> = ({
 
   // Effects
 
-  // Handle type query on load
+  // Handle type query param on mount and each time `router` updates
   useEffect(() => {
     const typeQuery = router.query?.type as string;
 
-    // There's no type query, do nothing.
+    // There's no type query param, do nothing.
     if (!typeQuery) return;
 
-    // There's a type query, turn it to an array.
+    // There's a type query param, turn it to an array.
     const splitQuery = typeQuery.split(",");
 
     // If the split worked, set the appropriate state depending on which string is present.
