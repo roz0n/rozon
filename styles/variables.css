@@ -16,6 +16,7 @@
   --site-sub-text: #98a3b3;
   --site-main-ph-text: #626973;
   --site-item-hover: #21262d;
+  --site-item-hover-alpha: #21262d75;
 
   /* Chips */
   --site-chip-bg: #21262d;
@@ -40,6 +41,7 @@
   --site-sub-text: #787687;
   --site-main-ph-text: #626973;
   --site-item-hover: #c4cddb55;
+  --site-item-hover-alpha: #c4cddb75;
 
   /* Chips */
   --site-chip-bg: #c4cddb55;
