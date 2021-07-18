@@ -3,7 +3,7 @@
   align-items: center;
   justify-content: flex-start;
   border-top: 1px solid var(--section-borders);
-  border-bottom: 1px solid var(--section-borders);
+  /* border-bottom: 1px solid var(--section-borders); */
   font-family: "Panchang-Bold", sans-serif;
   text-transform: uppercase;
   font-size: 0.75rem;

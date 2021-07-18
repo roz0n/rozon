@@ -232,7 +232,7 @@ const Search: React.FC<SearchPageProps> = ({
             )}
             {searchQuery && (
               <p className={styles.contentSubheader}>
-                2 results retrieved for "{`${searchQuery}`}"
+                2 results retrieved for &quot;{`${searchQuery}`}&quot;
               </p>
             )}
           </section>
@@ -266,6 +266,7 @@ const Search: React.FC<SearchPageProps> = ({
               <h1 className={styles.resultsListHeader}>Posts</h1>
               {posts?.map((post) => (
                 <SearchBlogPost
+                  key={post.title}
                   title={post.title}
                   excerpt={post.excerpt}
                   slug={post.slug}

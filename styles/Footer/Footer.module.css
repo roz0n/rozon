@@ -4,7 +4,7 @@
   grid-column-gap: 0;
   grid-row-gap: 0;
   grid-template-rows: none;
-  border-top: 1px solid var(--section-borders);
+  /* border-top: 1px solid var(--section-borders); */
   color: var(--site-main-text);
   padding: 1.5rem 0;
 }

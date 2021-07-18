@@ -50,7 +50,12 @@ const SpotifyWidget: React.FC<SpotifyWidgetProps> = ({ track, error }) => {
       <header className={styles.headerContainer}>
         <span className={styles.headerWrapper}>
           {previewTrackState ? (
-            <Image src={AnimatedEqualizerIcon} height={12} width={12} />
+            <Image
+              src={AnimatedEqualizerIcon}
+              height={12}
+              width={12}
+              alt="Audio playing icon that resembles an equalizer"
+            />
           ) : (
             <SpotifyIcon height={12} width={12} />
           )}
