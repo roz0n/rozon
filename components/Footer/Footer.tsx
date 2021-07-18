@@ -71,15 +71,23 @@ const Footer: React.FC = (props) => {
 
   return (
     <footer className={styles.container}>
-      <span className={styles.primaryWidgetContainer}>
-        <SpotifyWidget track={spotifyData} error={spotifyError} />
+      <span className={styles.gridContainer}>
+        <section className={styles.primaryWidgetContainer}>
+          <SpotifyWidget track={spotifyData} error={spotifyError} />
+        </section>
+
+        <section className={styles.copyrightContainer}>
+          <span>&copy; 2021</span>
+        </section>
+
+        <section className={styles.secondaryWidgetContainer}>
+          <WeatherbitWidget data={weatherData} error={weatherError} />
+        </section>
       </span>
-      <article className={styles.copyrightContainer}>
+
+      <section className={styles.mobileCopyrightContainer}>
         <span>&copy; 2021</span>
-      </article>
-      <span className={styles.secondaryWidgetContainer}>
-        <WeatherbitWidget data={weatherData} error={weatherError} />
-      </span>
+      </section>
     </footer>
   );
 };
