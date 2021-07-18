@@ -12,3 +12,11 @@
 .subheader {
   color: var(--site-sub-text);
 }
+
+@media (max-width: 767.98px) {
+  .container {
+    padding: 1.75rem 0;
+    font-size: 1.25rem;
+    line-height: 2rem;
+  }
+}

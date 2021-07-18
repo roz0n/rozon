@@ -9,6 +9,14 @@
   padding: 1.5rem 0;
 }
 
+.primaryWidgetContainer {
+  order: 1;
+}
+
+.secondaryWidgetContainer {
+  order: 3;
+}
+
 .copyrightContainer {
   display: flex;
   flex-direction: row;
@@ -17,9 +25,40 @@
   font-size: 0.85rem;
   font-weight: 600;
   font-family: "Panchang-Bold", sans-serif;
+  order: 2;
 }
 
 .copyrightContainer span {
   width: 100%;
   text-align: center;
+}
+
+@media (max-width: 767.98px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .copyrightContainer {
+    padding: 1.5rem 0;
+    order: 3;
+  }
+
+  .primaryWidgetContainer,
+  .secondaryWidgetContainer {
+    display: flex;
+    justify-content: space-around;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--section-borders);
+  }
+
+  .secondaryWidgetContainer {
+    order: 1;
+    border-top: 1px solid var(--section-borders);
+  }
+
+  .primaryWidgetContainer {
+    order: 2;
+  }
 }

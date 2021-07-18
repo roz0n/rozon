@@ -70,12 +70,14 @@ const Header: React.FC<HeaderProps> = ({
           </Link>
         </div>
 
-        <HeaderButton
-          alt={getDisplayModeItem(currentDisplayMode).alt}
-          onClick={handleDisplayModeToggle}
-        >
-          {getDisplayModeItem(currentDisplayMode).icon}
-        </HeaderButton>
+        <span className={styles.displayModeButtonContainer}>
+          <HeaderButton
+            alt={getDisplayModeItem(currentDisplayMode).alt}
+            onClick={handleDisplayModeToggle}
+          >
+            {getDisplayModeItem(currentDisplayMode).icon}
+          </HeaderButton>
+        </span>
       </header>
       <nav className={styles.navigation}>
         {navigationItems.map((item) => {

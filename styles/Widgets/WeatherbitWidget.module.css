@@ -1,6 +1,7 @@
 .container {
   display: grid;
   grid-template-rows: 1rem auto;
+  height: 100%;
 }
 
 .title {

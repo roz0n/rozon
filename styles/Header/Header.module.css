@@ -16,7 +16,7 @@
   align-items: center;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
-  /* border-bottom: 1px solid var(--section-borders); */
+  border-bottom: 1px solid var(--section-borders);
 }
 
 .logotype {
@@ -68,5 +68,24 @@
   }
   100% {
     background-position: 0% 82%;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .header {
+    height: 5.125rem;
+    margin-top: 1rem;
+  }
+
+  .navigation {
+    justify-content: space-around;
+  }
+
+  .logotypeContainer {
+    height: unset;
+  }
+
+  .displayModeButtonContainer {
+    display: none;
   }
 }

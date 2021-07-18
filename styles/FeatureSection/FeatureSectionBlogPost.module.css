@@ -25,3 +25,9 @@
   color: var(--site-sub-text);
   margin-right: 4rem;
 }
+
+@media (max-width: 767.98px) {
+  .excerpt {
+    margin-right: 0;
+  }
+}

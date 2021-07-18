@@ -11,3 +11,10 @@
   grid-row-gap: 1rem;
   margin-bottom: 2rem;
 }
+
+@media (max-width: 767.98px) {
+  .gridFeatureSectionWrapper {
+    display: flex;
+    flex-direction: column;
+  }
+}
