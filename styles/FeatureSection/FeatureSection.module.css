@@ -20,5 +20,6 @@
 @media (max-width: 767.98px) {
   .titleContainer {
     padding-bottom: 0;
+    font-size: 0.65rem;
   }
 }

@@ -127,3 +127,9 @@
 .inquiryField::placeholder {
   color: var(--site-main-ph-text);
 }
+
+@media (max-width: 767.98px) {
+  .container {
+    padding: 2rem 0;
+  }
+}

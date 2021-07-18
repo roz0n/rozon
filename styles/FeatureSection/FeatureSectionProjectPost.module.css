@@ -76,3 +76,33 @@
   text-transform: uppercase;
   user-select: none;
 }
+
+@media (max-width: 767.98px) {
+  .title {
+    font-size: 1.25rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .excerpt {
+    font-size: 0.9rem;
+    line-height: 1.35rem;
+  }
+
+  .headerSectionContainer {
+    align-items: center;
+  }
+
+  .headerSectionContainer {
+    margin-bottom: 1rem;
+    padding-bottom: 1.25rem;
+  }
+
+  .appIconContainer {
+    height: 48px;
+    width: 48px;
+  }
+
+  .tagChip {
+    font-size: 0.55rem;
+  }
+}

@@ -7,7 +7,6 @@
   align-items: center;
   justify-content: space-between;
   height: 8.125rem;
-  border-bottom: 1px solid var(--section-borders);
 }
 
 .navigation {
@@ -17,6 +16,7 @@
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
   border-bottom: 1px solid var(--section-borders);
+  border-top: 1px solid var(--section-borders);
 }
 
 .logotype {
@@ -71,21 +71,25 @@
   }
 }
 
-@media (max-width: 767.98px) {
+@media (max-width: 950px) {
   .header {
-    height: 5.125rem;
-    margin-top: 1rem;
+    margin-bottom: -0.5rem;
   }
 
   .navigation {
-    justify-content: space-around;
+    /* justify-content: space-around; */
   }
 
   .logotypeContainer {
-    height: unset;
+    /* height: unset; */
   }
 
-  .displayModeButtonContainer {
-    display: none;
+  .logotypeImage {
+    height: 3rem;
+    mask: url("/images/index/logotype-mobile.svg") 0 0 / contain no-repeat;
   }
+
+  /* .displayModeButtonContainer {
+    display: none;
+  } */
 }
