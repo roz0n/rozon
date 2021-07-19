@@ -3,6 +3,7 @@ import text from "../../text/Index.text";
 import { ContactFormButtonItem } from "../..";
 import Image from "next/image";
 import { useState, useEffect, useRef, SyntheticEvent } from "react";
+import { ChevronDownIcon } from "@heroicons/react/solid";
 import ContactFormLoader from "./ContactFormLoader";
 import SmilingMemoji from "../../public/images/memoji/smiling-gold-tooth.png";
 import ThinkingMemoji from "../../public/images/memoji/thinking.png";
@@ -228,6 +229,22 @@ const ContactForm: React.FC = (props) => {
                 />
               ))}
             </section>
+
+            <article className={styles.mobileMenuWrapper}>
+              <span className={styles.mobileMenuIcon}>
+                <ChevronDownIcon height={"1.5rem"} width={"1.5rem"} />
+              </span>
+              <select
+                className={styles.mobileMenu}
+                onChange={(e) => handleButtonSelection(e.target.value)}
+              >
+                {contactFormButtons.map((button) => (
+                  <option key={button.label} value={button.label}>
+                    {button.label}
+                  </option>
+                ))}
+              </select>
+            </article>
 
             <section className={styles.formContainer}>
               <form
