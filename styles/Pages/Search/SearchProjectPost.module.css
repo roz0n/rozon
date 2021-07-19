@@ -51,7 +51,7 @@
 
 .tagChip {
   margin: 0;
-  margin-right: 0.75rem;
+  margin-right: 0.5rem;
   list-style-type: none;
   background-color: var(--site-chip-bg);
   padding: 0.25rem 0.65rem;

@@ -46,6 +46,8 @@ const Home: React.FC<IndexPageProps> = ({
   const [hideProjects, setHideProjects] = useState(false);
   const [hidePosts, setHidePosts] = useState(true);
 
+  console.log("projects", projects);
+
   return (
     <main className={styles.container}>
       <HomeLede />
@@ -59,14 +61,9 @@ const Home: React.FC<IndexPageProps> = ({
                   slug={post.slug}
                   title={post.title}
                   excerpt={post.custom_excerpt}
-                />
-              ))}
-              {projects.map((post) => (
-                <FeatureSectionProjectPost
-                  key={post.slug}
-                  slug={post.slug}
-                  title={post.title}
-                  excerpt={post.custom_excerpt}
+                  image={post.feature_image}
+                  html={post.html}
+                  tags={post.tags}
                 />
               ))}
             </div>

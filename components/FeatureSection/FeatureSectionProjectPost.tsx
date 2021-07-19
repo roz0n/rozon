@@ -2,45 +2,58 @@ import styles from "../../styles/FeatureSection/FeatureSectionProjectPost.module
 import Image from "next/image";
 import Link from "next/link";
 import { FeatureSectionProjectPostProps } from "../..";
-import SampleAppIcon from "../../public/images/icons/sample-app-icon.svg";
+import {
+  PROJECT_ICONS,
+  formatProjectUrl,
+  restrictedTags,
+} from "../../utils/ghostUtils";
 
-const FeatureSectionProjectPost: React.FC<FeatureSectionProjectPostProps> = (
-  props
-) => {
-  const { slug, title, excerpt } = props;
-
+const FeatureSectionProjectPost: React.FC<FeatureSectionProjectPostProps> = ({
+  slug,
+  title,
+  excerpt,
+  image,
+  html,
+  tags,
+}) => {
   return (
-    <article className={styles.container}>
-      <section className={styles.headerSectionContainer}>
-        <article className={styles.headerContainer}>
-          <div className={styles.appIconContainer}>
-            <Image
-              src={SampleAppIcon}
-              height="65"
-              width="65"
-              alt={`${title} app icon`}
-            />
-          </div>
-
-          <div className={styles.titleContainer}>
-            <Link href={"/posts/[slug]"} as={`/posts/${slug}`}>
-              <a>
+    <Link href={formatProjectUrl(html)}>
+      <a>
+        <article className={styles.container}>
+          <section className={styles.headerSectionContainer}>
+            <article className={styles.headerContainer}>
+              <article className={styles.appIconContainer}>
+                <Image
+                  src={PROJECT_ICONS[slug] || image}
+                  height="65"
+                  width="65"
+                  alt={`${title} app icon`}
+                  quality={100}
+                  unoptimized={false}
+                  priority={true}
+                />
+              </article>
+              <article className={styles.titleContainer}>
                 <h3 className={styles.title}>{title}</h3>
-              </a>
-            </Link>
-            <ul className={styles.tagList}>
-              <li className={styles.tagChip}>Swift</li>
-              <li className={styles.tagChip}>CoreML</li>
-              <li className={styles.tagChip}>AVKit</li>
-            </ul>
-          </div>
+                <ul className={styles.tagList}>
+                  {tags?.map(
+                    (tag) =>
+                      !restrictedTags.includes(tag.name) && (
+                        <li key={tag.name} className={styles.tagChip}>
+                          {tag.name}
+                        </li>
+                      )
+                  )}
+                </ul>
+              </article>
+            </article>
+          </section>
+          <section>
+            <p className={styles.excerpt}>{excerpt}</p>
+          </section>
         </article>
-      </section>
-
-      <section>
-        <p className={styles.excerpt}>{excerpt}</p>
-      </section>
-    </article>
+      </a>
+    </Link>
   );
 };
 

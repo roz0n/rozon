@@ -55,6 +55,9 @@ export type FeatureSectionProjectPostProps = {
   slug: string;
   title: string;
   excerpt?: string;
+  image?: string;
+  html?: string;
+  tags?: Tag[];
 };
 
 export type FeatureSectionBlogPostProps = {

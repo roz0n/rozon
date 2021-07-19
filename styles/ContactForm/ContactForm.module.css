@@ -3,9 +3,12 @@
   flex-direction: column;
   align-items: center;
   padding: 7.5rem;
-  /* border-top: 1px solid var(--section-borders); */
   font-family: "Inter", sans-serif;
   font-size: 1.5rem;
+}
+
+.secondaryMessageContainer {
+  text-align: center;
 }
 
 .memojiContainer {
@@ -126,6 +129,10 @@
 @media (max-width: 970px) {
   .container {
     padding: 4rem 0;
+  }
+
+  .secondaryMessageContainer {
+    padding: 6rem 0;
   }
 
   .memojiContainer {

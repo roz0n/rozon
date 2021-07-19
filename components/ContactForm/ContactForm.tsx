@@ -302,7 +302,7 @@ const ContactForm: React.FC = (props) => {
       )}
 
       {hasSubmitted && !mailerError && !isLoading && (
-        <>
+        <div className={styles.secondaryMessageContainer}>
           <article className={styles.headerContainer}>
             <h3 className={styles.header}>I&#39;ve received your inquiry!</h3>
             <small className={styles.subheader}>
@@ -310,11 +310,11 @@ const ContactForm: React.FC = (props) => {
             </small>
           </article>
           <ContactFormButton label={"Close"} onClick={handleReset} />
-        </>
+        </div>
       )}
 
       {mailerError && !isLoading && (
-        <>
+        <div className={styles.secondaryMessageContainer}>
           <article className={styles.headerContainer}>
             <h3 className={styles.header}>
               Uh-oh. Something&#39;s gone wrong...
@@ -325,7 +325,7 @@ const ContactForm: React.FC = (props) => {
             </small>
           </article>
           <ContactFormButton label={"Close"} onClick={handleReset} />
-        </>
+        </div>
       )}
     </article>
   );
