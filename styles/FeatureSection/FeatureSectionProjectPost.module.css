@@ -2,6 +2,7 @@
   padding: 1.25rem;
   border: 1px solid var(--section-borders);
   border-radius: 0.865rem;
+  min-height: 225px;
 }
 
 .container:hover {
@@ -77,9 +78,10 @@
   user-select: none;
 }
 
-@media (max-width: 767.98px) {
+@media (max-width: 830px) {
   .container {
     margin-bottom: 1rem;
+    min-height: unset;
   }
 
   .title {

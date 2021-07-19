@@ -61,7 +61,6 @@
 
   .primaryWidgetContainer {
     order: 1;
-    border-right: 1px solid var(--section-borders);
   }
 
   .secondaryWidgetContainer {
