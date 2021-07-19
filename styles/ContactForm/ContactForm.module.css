@@ -93,7 +93,7 @@
 
 .submitButtonInactive {
   background-color: transparent;
-  border: 0;
+  border: 1px solid var(--section-borders);
   padding: 1rem 1.5rem;
   border-radius: 0.875rem;
   color: var(--site-main-text);
@@ -101,14 +101,11 @@
   font-size: 1rem;
   cursor: not-allowed;
   user-select: none;
-  opacity: 0;
+  opacity: 0.5;
 }
 
 .submitButtonActive {
   background-color: transparent;
-  border: 1px solid var(--section-borders);
-  padding: 1rem 1.5rem;
-  border-radius: 0.875rem;
   color: var(--site-main-text);
   font-weight: 500;
   font-size: 1rem;

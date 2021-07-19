@@ -38,7 +38,7 @@
   /* Main background and text */
   --site-bg: #efefef;
   --site-main-text: #353535;
-  --site-sub-text: #787687;
+  --site-sub-text: #54535f;
   --site-main-ph-text: #626973;
   --site-item-hover: #c4cddb55;
   --site-item-hover-alpha: #c4cddb75;
@@ -49,11 +49,11 @@
   --site-chip-text-hover: #353535;
 
   /* Borders */
-  --section-borders: #c4cddb;
+  --section-borders: #d5d5d5;
   --section-borders-alpha: #c4cddb26;
 
   /* Rules */
-  --site-rule-hover: #c4cddb;
+  --site-rule-hover: #d5d5d5;
 
   /* Code */
   --code-snippet-bg: #c4cddb45;

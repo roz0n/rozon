@@ -18,3 +18,10 @@
 .container svg {
   fill: var(--site-main-text);
 }
+
+@media (max-width: 830px) {
+  .container {
+    height: 50px;
+    width: 50px;
+  }
+}

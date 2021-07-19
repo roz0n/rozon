@@ -57,7 +57,7 @@
 
 .artworkWrapper svg {
   z-index: 3;
-  fill: var(--site-main-text);
+  fill: var(--white);
 }
 
 .artworkWrapper:hover {
@@ -70,6 +70,7 @@
   position: absolute;
   max-height: 48px;
   max-width: 48px;
+  border-radius: 0.5rem;
 }
 
 .missingArtworkContainer {
