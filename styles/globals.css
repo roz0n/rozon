@@ -27,6 +27,7 @@ body {
   color: var(--site-main-text);
   margin: 0 auto;
   height: 100%;
+  overflow-x: hidden;
 }
 
 a {
