@@ -1,0 +1,26 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 10rem 0;
+  width: 100%;
+  min-height: 72vh;
+  text-align: center;
+  font-family: "Inter", sans-serif;
+}
+
+.memojiContainer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  user-select: none;
+}
+
+.header {
+  font-size: 6rem;
+}
+
+.subheader {
+  font-size: 1.25rem;
+  color: var(--site-sub-text);
+}
