@@ -107,6 +107,9 @@
 
 .submitButtonActive {
   background-color: transparent;
+  border: 1px solid var(--section-borders);
+  padding: 1rem 1.5rem;
+  border-radius: 0.875rem;
   color: var(--site-main-text);
   font-weight: 500;
   font-size: 1rem;
