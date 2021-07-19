@@ -243,12 +243,7 @@ const ContactForm: React.FC = (props) => {
                     {button.label}
                   </option>
                 ))}
-                <option
-                  value={"default"}
-                  defaultValue={"default"}
-                  selected
-                  disabled
-                >
+                <option value={"default"} defaultValue={"default"} disabled>
                   Select an option
                 </option>
               </select>

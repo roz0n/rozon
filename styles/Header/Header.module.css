@@ -24,7 +24,7 @@
 }
 
 .logotype {
-  font-family: "Panchang-Variable";
+  font-family: "Panchang-Variable", sans-serif;
   text-transform: uppercase;
   font-size: 3rem;
   line-height: 2.5rem;
@@ -75,7 +75,7 @@
   }
 }
 
-@media (max-width: 950px) {
+@media (max-width: 830px) {
   .header {
     margin-bottom: -0.75rem;
   }
