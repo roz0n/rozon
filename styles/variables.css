@@ -1,6 +1,6 @@
 :root {
   /* General (stays the same between display styles) */
-  --black: #101215;
+  --black: #0b0c0e;
   /* --black: #0a0a0c; */
   --black-alpha: #10121563;
   --white: #efefef;
@@ -10,7 +10,7 @@
   --green-main: #4bef11;
 
   /* Main background and text */
-  --site-bg: #101215;
+  --site-bg: #0b0c0e;
   /* --site-bg: #0a0a0c; */
   --site-main-text: #efefef;
   --site-sub-text: #98a3b3;
@@ -20,7 +20,7 @@
 
   /* Chips */
   --site-chip-bg: #21262d;
-  --site-chip-bg-hover: #101215;
+  --site-chip-bg-hover: #0b0c0e;
   --site-chip-text-hover: #efefef;
 
   /* Borders */
@@ -28,7 +28,7 @@
   --section-borders-alpha: #21262d26;
 
   /* Rules */
-  --site-rule-hover: #101215;
+  --site-rule-hover: #0b0c0e;
 
   /* Code */
   --code-snippet-bg: #21262d45;
