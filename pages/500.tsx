@@ -18,7 +18,7 @@ const InternalServerError = () => {
       <section>
         <h1 className={styles.header}>500</h1>
         <small className={styles.subheader}>
-          Woops. That wasn't supposed to happen.
+          Woops. That wasn&apos;t supposed to happen.
         </small>
       </section>
     </article>

@@ -18,7 +18,7 @@ const NotFound = () => {
       <section>
         <h1 className={styles.header}>404</h1>
         <small className={styles.subheader}>
-          Are you sure you're in the right place?
+          Are you sure you&apos;re in the right place?
         </small>
       </section>
     </article>
