@@ -152,18 +152,15 @@
     position: relative;
   }
 
-  .mobileMenu {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    text-indent: 1px;
-    text-overflow: "";
-  }
-
   .buttonsContainer {
     display: none;
   }
 
   .mobileMenu {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 1px;
+    text-overflow: "";
     width: 100%;
     font-size: 0.95rem;
     padding: 1rem;
@@ -172,6 +169,7 @@
     margin-bottom: 1.5rem;
     background-color: transparent;
     color: var(--site-main-text);
+    font-family: "Inter", sans-serif;
   }
 
   .mobileMenuIcon {
