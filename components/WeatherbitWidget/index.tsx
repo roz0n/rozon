@@ -6,7 +6,7 @@ const WeatherbitWidget: React.FC<WeatherbitWidgetProps> = ({ data, error }) => {
   return data?.length && !error ? (
     <article className={styles.container}>
       <header className={styles.headerContainer}>
-        <p className={styles.title}>Latest Feels</p>
+        {/* <p className={styles.title}>Latest Feels</p> */}
       </header>
 
       <section className={styles.tempContainer}>

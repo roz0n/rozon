@@ -59,7 +59,7 @@ const SpotifyWidget: React.FC<SpotifyWidgetProps> = ({ track, error }) => {
           ) : (
             <SpotifyIcon height={12} width={12} />
           )}
-          <p className={styles.title}>Latest Vibes</p>
+          <p className={styles.title}>Latest Feels</p>
         </span>
       </header>
 
