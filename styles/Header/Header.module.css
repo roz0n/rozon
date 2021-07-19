@@ -77,19 +77,17 @@
   }
 
   .navigation {
-    /* justify-content: space-around; */
   }
 
   .logotypeContainer {
-    /* height: unset; */
   }
 
   .logotypeImage {
-    height: 3rem;
+    height: 4rem;
     mask: url("/images/index/logotype-mobile.svg") 0 0 / contain no-repeat;
   }
 
-  /* .displayModeButtonContainer {
+  .displayModeButtonContainer {
     display: none;
-  } */
+  }
 }
