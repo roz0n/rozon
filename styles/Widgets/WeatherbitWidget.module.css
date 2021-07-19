@@ -39,6 +39,8 @@
 }
 
 @media (max-width: 767.98px) {
-  .headerContainer {
+  .tempWrapper {
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
   }
 }

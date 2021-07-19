@@ -10,7 +10,7 @@
 }
 
 .container:hover .headerSectionContainer {
-  border-color: var(--site-rule-hover);
+  border-color: var(--section-borders);
   color: var(--site-main-text);
 }
 
