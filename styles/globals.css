@@ -56,6 +56,15 @@ img {
   color: var(--white);
 }
 
+input:-webkit-autofill {
+  background-color: transparent !important;
+  -webkit-box-shadow: 0 0 0 50px var(--site-bg) inset;
+  -webkit-text-fill-color: var(--site-main-text);
+  border-top-right-radius: 1.5rem;
+  border-top-left-radius: 1.5rem;
+  border-bottom: 1px solid var(--section-borders);
+}
+
 /* Highlight.js */
 
 .hljs {
