@@ -82,6 +82,12 @@
 
 @media (max-width: 830px) {
   .header {
+    height: unset;
+    padding: 1rem 0;
+  }
+
+  .logotypeImage {
+    height: unset;
   }
 
   .logotypeImage {
