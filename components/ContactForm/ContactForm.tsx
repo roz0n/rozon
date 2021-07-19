@@ -235,6 +235,7 @@ const ContactForm: React.FC = (props) => {
                 <ChevronDownIcon height={"1.5rem"} width={"1.5rem"} />
               </span>
               <select
+                defaultValue=""
                 className={styles.mobileMenu}
                 onChange={(e) => handleButtonSelection(e.target.value)}
               >
@@ -243,7 +244,7 @@ const ContactForm: React.FC = (props) => {
                     {button.label}
                   </option>
                 ))}
-                <option value={"default"} defaultValue={"default"} disabled>
+                <option hidden value="" disabled>
                   Select an option
                 </option>
               </select>

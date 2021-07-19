@@ -59,6 +59,7 @@ img {
 
 input:-webkit-autofill {
   background-color: transparent !important;
+  box-shadow: 0 0 0 50px var(--site-bg) inset;
   -webkit-box-shadow: 0 0 0 50px var(--site-bg) inset;
   -webkit-text-fill-color: var(--site-main-text);
   border-top-right-radius: 1.5rem;
