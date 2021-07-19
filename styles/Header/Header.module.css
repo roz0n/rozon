@@ -7,6 +7,7 @@
   align-items: center;
   justify-content: space-between;
   height: 8.125rem;
+  padding: 2rem 0;
 }
 
 .navigation {
@@ -19,8 +20,12 @@
   border-top: 1px solid var(--section-borders);
 }
 
-.displayModeButtonContainer {
+.navigationButtonContainer {
+  margin-right: 0.5rem;
 }
+
+/* .displayModeButtonContainer {
+} */
 
 .logotype {
   font-family: "Panchang-Variable", sans-serif;
@@ -30,10 +35,10 @@
 }
 
 .logotypeContainer {
-  height: 100%;
   width: 100%;
   display: flex;
   align-items: center;
+  margin-right: 2rem;
 }
 
 .logotypeContainer:hover {
@@ -60,6 +65,7 @@
   background-size: 600% 600%;
   mask: url("/images/index/logotype.svg") 0 0 / contain no-repeat;
   user-select: none;
+  mask-position: left;
 }
 
 @keyframes gradientAnimation {
@@ -76,15 +82,9 @@
 
 @media (max-width: 830px) {
   .header {
-    margin-bottom: -0.75rem;
   }
 
   .logotypeImage {
-    height: 4rem;
     mask: url("/images/index/logotype-mobile.svg") 0 0 / contain no-repeat;
-  }
-
-  .displayModeButtonContainer {
-    display: none;
   }
 }

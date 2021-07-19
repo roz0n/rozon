@@ -44,15 +44,13 @@ const Home: React.FC<IndexPageProps> = ({
   postsError,
 }) => {
   const [hideProjects, setHideProjects] = useState(false);
-  const [hidePosts, setHidePosts] = useState(true);
-
-  console.log("projects", projects);
+  const [hidePosts, setHidePosts] = useState(false);
 
   return (
     <main className={styles.container}>
       <HomeLede />
       <FeatureSection title={text.primaryFeatureSectionHeader["en"]}>
-        {projects && !projectsError ? (
+        {projects.length > 0 && !projectsError ? (
           <>
             <div className={styles.gridFeatureSectionWrapper}>
               {projects.map((post) => (
@@ -88,7 +86,7 @@ const Home: React.FC<IndexPageProps> = ({
       </FeatureSection>
       {!hidePosts && (
         <FeatureSection title={text.secondaryFeatureSectionHeader["en"]}>
-          {posts && !postsError ? (
+          {posts.length > 0 && !postsError ? (
             <>
               {posts.map((post) => (
                 <FeatureSectionBlogPost
@@ -98,7 +96,7 @@ const Home: React.FC<IndexPageProps> = ({
                   excerpt={post.custom_excerpt}
                 />
               ))}
-              <Link
+              {/* <Link
                 href={{ pathname: "/search", query: { type: POSTS } }}
                 passHref
               >
@@ -107,11 +105,11 @@ const Home: React.FC<IndexPageProps> = ({
                     <AnnotationIcon height={20} width={20} />
                   </FeatureSectionButton>
                 </span>
-              </Link>
+              </Link> */}
             </>
           ) : (
             <FeatureSectionEmptyState
-              label={"No posts at the moment. Please check back later."}
+              label={"No posts at the moment! Please check back later."}
             >
               <AnnotationIcon height={24} width={24} />
             </FeatureSectionEmptyState>

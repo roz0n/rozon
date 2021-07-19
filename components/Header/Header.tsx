@@ -82,9 +82,14 @@ const Header: React.FC<HeaderProps> = ({
       <nav className={styles.navigation}>
         {navigationItems.map((item) => {
           return (
-            <HeaderButton key={`${item.alt}`} alt={item.alt} url={item.url}>
-              {item.icon}
-            </HeaderButton>
+            <span
+              key={`${item.alt}`}
+              className={styles.navigationButtonContainer}
+            >
+              <HeaderButton alt={item.alt} url={item.url}>
+                {item.icon}
+              </HeaderButton>
+            </span>
           );
         })}
       </nav>
