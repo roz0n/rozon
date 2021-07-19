@@ -76,12 +76,6 @@
     margin-bottom: -0.75rem;
   }
 
-  .navigation {
-  }
-
-  .logotypeContainer {
-  }
-
   .logotypeImage {
     height: 4rem;
     mask: url("/images/index/logotype-mobile.svg") 0 0 / contain no-repeat;

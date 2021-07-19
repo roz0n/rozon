@@ -2,8 +2,8 @@ import { IndexPageProps } from "..";
 import styles from "../styles/Pages/Home/Home.module.css";
 import text from "../text/Index.text";
 import { getPostsByPrimaryTag } from "../lib/ghost";
+import { useState } from "react";
 import Link from "next/link";
-import { ExclamationCircleIcon } from "@heroicons/react/outline";
 import { DesktopComputerIcon, AnnotationIcon } from "@heroicons/react/solid";
 import HomeLede from "../components/Home/HomeLede";
 import FeatureSection from "../components/FeatureSection/FeatureSection";
@@ -43,6 +43,9 @@ const Home: React.FC<IndexPageProps> = ({
   projectsError,
   postsError,
 }) => {
+  const [hideProjects, setHideProjects] = useState(false);
+  const [hidePosts, setHidePosts] = useState(true);
+
   return (
     <main className={styles.container}>
       <HomeLede />
@@ -67,7 +70,7 @@ const Home: React.FC<IndexPageProps> = ({
                 />
               ))}
             </div>
-            <Link
+            {/* <Link
               href={{ pathname: "/search", query: { type: PROJECTS } }}
               passHref
             >
@@ -76,46 +79,48 @@ const Home: React.FC<IndexPageProps> = ({
                   <DesktopComputerIcon height={20} width={20} />
                 </FeatureSectionButton>
               </span>
-            </Link>
+            </Link> */}
           </>
         ) : (
           <FeatureSectionEmptyState
             label={"No projects at the moment. Please check back later."}
           >
-            <ExclamationCircleIcon height={24} width={24} />
+            <DesktopComputerIcon height={24} width={24} />
           </FeatureSectionEmptyState>
         )}
       </FeatureSection>
-      <FeatureSection title={text.secondaryFeatureSectionHeader["en"]}>
-        {posts && !postsError ? (
-          <>
-            {posts.map((post) => (
-              <FeatureSectionBlogPost
-                key={post.slug}
-                slug={post.slug}
-                title={post.title}
-                excerpt={post.custom_excerpt}
-              />
-            ))}
-            <Link
-              href={{ pathname: "/search", query: { type: POSTS } }}
-              passHref
+      {!hidePosts && (
+        <FeatureSection title={text.secondaryFeatureSectionHeader["en"]}>
+          {posts && !postsError ? (
+            <>
+              {posts.map((post) => (
+                <FeatureSectionBlogPost
+                  key={post.slug}
+                  slug={post.slug}
+                  title={post.title}
+                  excerpt={post.custom_excerpt}
+                />
+              ))}
+              <Link
+                href={{ pathname: "/search", query: { type: POSTS } }}
+                passHref
+              >
+                <span>
+                  <FeatureSectionButton label={"View Posts"}>
+                    <AnnotationIcon height={20} width={20} />
+                  </FeatureSectionButton>
+                </span>
+              </Link>
+            </>
+          ) : (
+            <FeatureSectionEmptyState
+              label={"No posts at the moment. Please check back later."}
             >
-              <span>
-                <FeatureSectionButton label={"View Posts"}>
-                  <AnnotationIcon height={20} width={20} />
-                </FeatureSectionButton>
-              </span>
-            </Link>
-          </>
-        ) : (
-          <FeatureSectionEmptyState
-            label={"No posts at the moment. Please check back later."}
-          >
-            <ExclamationCircleIcon height={24} width={24} />
-          </FeatureSectionEmptyState>
-        )}
-      </FeatureSection>
+              <AnnotationIcon height={24} width={24} />
+            </FeatureSectionEmptyState>
+          )}
+        </FeatureSection>
+      )}
       <ContactForm />
     </main>
   );
