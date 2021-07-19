@@ -44,7 +44,7 @@ const Home: React.FC<IndexPageProps> = ({
   postsError,
 }) => {
   const [hideProjects, setHideProjects] = useState(false);
-  const [hidePosts, setHidePosts] = useState(false);
+  const [hidePosts, setHidePosts] = useState(true);
 
   return (
     <main className={styles.container}>
