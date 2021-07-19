@@ -89,28 +89,28 @@ const SpotifyWidget: React.FC<SpotifyWidgetProps> = ({ track, error }) => {
 
         <article className={styles.trackInfoWrapper}>
           {track.name && (
-            <p className={styles.trackInfoText}>
+            <article className={styles.trackInfo}>
               <span className={styles.trackInfoIconWrapper}>
                 <MusicNoteIcon height={12} width={12} />
               </span>
-              {track.name}
-            </p>
+              <p className={styles.trackInfoText}>{track.name}</p>
+            </article>
           )}
           {track.artist && (
-            <p className={styles.trackInfoText}>
+            <article className={styles.trackInfo}>
               <span className={styles.trackInfoIconWrapper}>
                 <UserIcon height={12} width={12} />
               </span>
-              {track.artist}
-            </p>
+              <p className={styles.trackInfoText}>{track.artist}</p>
+            </article>
           )}
           {track.album && (
-            <p className={styles.trackInfoText}>
+            <article className={styles.trackInfo}>
               <span className={styles.trackInfoIconWrapper}>
                 <PhotographIcon height={12} width={12} />
               </span>
-              {track.album}
-            </p>
+              <p className={styles.trackInfoText}>{track.album}</p>
+            </article>
           )}
         </article>
       </section>
