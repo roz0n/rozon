@@ -137,6 +137,11 @@
     padding: 4rem 0;
   }
 
+  .memojiContainer {
+    width: 115px;
+    height: 115px;
+  }
+
   .formWrapper {
     width: 100%;
   }
@@ -164,7 +169,7 @@
     padding: 1rem;
     border-radius: 0.865rem;
     border: 1px solid var(--section-borders);
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     background-color: transparent;
     color: var(--site-main-text);
   }
@@ -173,5 +178,25 @@
     position: absolute;
     top: 0.85rem;
     right: 0.85rem;
+  }
+
+  .header {
+    font-size: 1.5rem;
+  }
+
+  .subheader {
+    font-size: 1rem;
+  }
+
+  .emailField {
+    font-size: 0.95rem;
+  }
+
+  .inquiryField {
+    font-size: 0.95rem;
+  }
+
+  .wordcount {
+    font-size: 0.95rem;
   }
 }

@@ -243,6 +243,14 @@ const ContactForm: React.FC = (props) => {
                     {button.label}
                   </option>
                 ))}
+                <option
+                  value={"default"}
+                  defaultValue={"default"}
+                  selected
+                  disabled
+                >
+                  Select an option
+                </option>
               </select>
             </article>
 
@@ -274,7 +282,13 @@ const ContactForm: React.FC = (props) => {
                     )
                   }
                 />
-                <div className={styles.toolbar}>
+                <article className={styles.toolbar}>
+                  <span>
+                    <p
+                      className={styles.wordcount}
+                    >{`${inquiryTextCount}/${maxCharCount}`}</p>
+                  </span>
+
                   <button
                     className={`${
                       isButtonDisabled()
@@ -285,12 +299,7 @@ const ContactForm: React.FC = (props) => {
                   >
                     {text.contactFormButton["en"]}
                   </button>
-                  <span>
-                    <p
-                      className={styles.wordcount}
-                    >{`${inquiryTextCount}/${maxCharCount}`}</p>
-                  </span>
-                </div>
+                </article>
               </form>
             </section>
           </article>
