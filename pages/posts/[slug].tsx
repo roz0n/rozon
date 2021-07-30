@@ -5,6 +5,7 @@ import { useEffect, useContext } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { getPostBySlug } from "../../lib/ghost";
+import { DateTime } from "luxon";
 import hljs from "highlight.js/lib/core";
 import swift from "highlight.js/lib/languages/swift";
 import CommentsIcon from "../../components/Icons/CommentsIcon";
@@ -12,6 +13,7 @@ import CommentsIcon from "../../components/Icons/CommentsIcon";
 import FeatureSectionEmptyState from "../../components/FeatureSection/FeatureSectionEmptyState";
 import { ChatAlt2Icon } from "@heroicons/react/outline";
 import BarSkeletonLoader from "../../components/SkeletonLoaders/BarSkeletonLoader";
+import ContentLayout from "../../components/Layouts/ContentLayout";
 
 hljs.registerLanguage("swift", swift);
 
@@ -59,70 +61,88 @@ const PostSkeletonLoader = () => {
 const Post: React.FC<{ post: GhostPost }> = (props) => {
   const router = useRouter();
   const { post } = props;
+  // TODO: We'll need this later
   // const theme = useContext(ThemeContext);
 
+  // Highlight.js
   useEffect(() => {
     hljs.highlightAll();
   }, [post]);
 
+  // Helpers
+  function formatDate(timestamp: string): string {
+    const date = DateTime.fromISO(timestamp);
+    const month = date.toLocaleString(DateTime.DATETIME_FULL);
+
+    return `${month}`;
+  }
+
   if (router.isFallback) {
-    return <PostSkeletonLoader />;
+    return (
+      <ContentLayout>
+        <PostSkeletonLoader />
+      </ContentLayout>
+    );
   } else {
     return (
       <>
-        <header className={styles.header}>
+        {/* <header className={styles.header}>
           <Link href="/">
             <a className={styles.headerLink}>&#8592;&nbsp;&nbsp; All Posts</a>
           </Link>
-        </header>
-        <div className={styles.postContainer}>
-          <div className={styles.categoryContainer}>
-            <p>Development</p>
+        </header> */}
+        <ContentLayout>
+          <div className={styles.postContainer}>
+            <div className={styles.categoryContainer}>
+              <p>Development</p>
+            </div>
+
+            <article className={styles.titleContainer}>
+              <h1 className={styles.title}>{post?.title}</h1>
+
+              <section className={styles.postInfoContainer}>
+                <div className={styles.byLineContainer}>
+                  {/* <p className={styles.byLine}>By Arnold Rozon</p> */}
+                  <p className={styles.byLine}>
+                    {formatDate(post?.published_at)}
+                  </p>
+                </div>
+
+                {/* <div className={styles.postControlsContainer}>
+                  <Link href="/" passHref>
+                    <span className={styles.commentsCountContainer}>
+                      <CommentsIcon height={36} width={36} />
+                      <small className={styles.commentsCountLabel}>6</small>
+                    </span>
+                  </Link>
+                </div> */}
+              </section>
+
+              <section>
+                <h2 className={styles.subtitle}>{post?.custom_excerpt}</h2>
+              </section>
+            </article>
+
+            <figure className={styles.postDisplayImageContainer}>
+              {/* <Image alt="This blog post's display image" /> */}
+              {/* <figcaption>Fig.1 - Trulli, Puglia, Italy.</figcaption> */}
+            </figure>
+            {/* <figcaption className={styles.postDisplayImageCaption}>
+              Fig.1 - Trulli, Puglia, Italy.
+            </figcaption> */}
+
+            <section
+              className={styles.postBody}
+              dangerouslySetInnerHTML={{ __html: post.html }}
+            ></section>
+
+            <section className={styles.commentsContainer}>
+              <FeatureSectionEmptyState label="Comments are currently disabled">
+                <ChatAlt2Icon height={24} width={24} />
+              </FeatureSectionEmptyState>
+            </section>
           </div>
-
-          <article className={styles.titleContainer}>
-            <h1 className={styles.title}>{post?.title}</h1>
-
-            <section className={styles.postInfoContainer}>
-              <div className={styles.byLineContainer}>
-                <p className={styles.byLine}>By Arnold Rozon</p>
-                <p className={styles.byLine}>July 26, 2021</p>
-              </div>
-
-              <div className={styles.postControlsContainer}>
-                <Link href="/" passHref>
-                  <span className={styles.commentsCountContainer}>
-                    <CommentsIcon height={36} width={36} />
-                    <small className={styles.commentsCountLabel}>6</small>
-                  </span>
-                </Link>
-              </div>
-            </section>
-
-            <section>
-              <h2 className={styles.subtitle}>{post?.custom_excerpt}</h2>
-            </section>
-          </article>
-
-          <figure className={styles.postDisplayImageContainer}>
-            {/* <Image alt="This blog post's display image" /> */}
-            {/* <figcaption>Fig.1 - Trulli, Puglia, Italy.</figcaption> */}
-          </figure>
-          <figcaption className={styles.postDisplayImageCaption}>
-            Fig.1 - Trulli, Puglia, Italy.
-          </figcaption>
-
-          <section
-            className={styles.postBody}
-            dangerouslySetInnerHTML={{ __html: post.html }}
-          ></section>
-
-          <section className={styles.commentsContainer}>
-            <FeatureSectionEmptyState label="Comments are currently disabled">
-              <ChatAlt2Icon height={24} width={24} />
-            </FeatureSectionEmptyState>
-          </section>
-        </div>
+        </ContentLayout>
       </>
     );
   }
