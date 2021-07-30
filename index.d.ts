@@ -19,6 +19,10 @@ export type Post = {
  * Component specific
  */
 
+type ContentLayoutProps = {
+  direction?: "column" | "row";
+};
+
 export type FeatureSectionProps = {
   title: string;
 };

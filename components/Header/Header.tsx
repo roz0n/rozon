@@ -3,6 +3,7 @@ import Link from "next/link";
 import { HeaderProps } from "../..";
 import { HeaderNavigationItem } from "../..";
 import { DARK } from "../../pages/_app";
+import ContentLayout from "../Layouts/ContentLayout";
 import HeaderButton from "./HeaderButton";
 import GithubIcon from "../Icons/GithubIcon";
 import DribbbleIcon from "../Icons/DribbbleIcon";
@@ -59,39 +60,44 @@ const Header: React.FC<HeaderProps> = ({
   return (
     <article className={styles.container}>
       <header className={styles.header}>
-        <div className={styles.logotypeContainer}>
-          <Link href="/" passHref>
-            <article
-              className={styles.logotypeImage}
-              aria-label="Arnold Rozon logotype"
-            >
-              &nbsp;
-            </article>
-          </Link>
-        </div>
+        <ContentLayout>
+          <div className={styles.logotypeContainer}>
+            <Link href="/" passHref>
+              <article
+                className={styles.logotypeImage}
+                aria-label="Arnold Rozon logotype"
+              >
+                &nbsp;
+              </article>
+            </Link>
+          </div>
 
-        <span className={styles.displayModeButtonContainer}>
-          <HeaderButton
-            alt={getDisplayModeItem(currentDisplayMode).alt}
-            onClick={handleDisplayModeToggle}
-          >
-            {getDisplayModeItem(currentDisplayMode).icon}
-          </HeaderButton>
-        </span>
-      </header>
-      <nav className={styles.navigation}>
-        {navigationItems.map((item) => {
-          return (
-            <span
-              key={`${item.alt}`}
-              className={styles.navigationButtonContainer}
+          <span className={styles.displayModeButtonContainer}>
+            <HeaderButton
+              alt={getDisplayModeItem(currentDisplayMode).alt}
+              onClick={handleDisplayModeToggle}
             >
-              <HeaderButton alt={item.alt} url={item.url}>
-                {item.icon}
-              </HeaderButton>
-            </span>
-          );
-        })}
+              {getDisplayModeItem(currentDisplayMode).icon}
+            </HeaderButton>
+          </span>
+        </ContentLayout>
+      </header>
+
+      <nav className={styles.navigation}>
+        <ContentLayout>
+          {navigationItems.map((item) => {
+            return (
+              <span
+                key={`${item.alt}`}
+                className={styles.navigationButtonContainer}
+              >
+                <HeaderButton alt={item.alt} url={item.url}>
+                  {item.icon}
+                </HeaderButton>
+              </span>
+            );
+          })}
+        </ContentLayout>
       </nav>
     </article>
   );

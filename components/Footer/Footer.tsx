@@ -1,6 +1,7 @@
 import styles from "../../styles/Footer/Footer.module.css";
 import { WeatherDataObject } from "../..";
 import { useEffect, useState } from "react";
+import FooterContentLayout from "../Layouts/FooterContentLayout";
 import SpotifyWidget from "../SpotifyWidget";
 import WeatherbitWidget from "../WeatherbitWidget";
 
@@ -71,23 +72,25 @@ const Footer: React.FC = (props) => {
 
   return (
     <footer className={styles.container}>
-      <span className={styles.gridContainer}>
-        <section className={styles.primaryWidgetContainer}>
-          <SpotifyWidget track={spotifyData} error={spotifyError} />
-        </section>
+      <FooterContentLayout>
+        <span className={styles.gridContainer}>
+          <section className={styles.primaryWidgetContainer}>
+            <SpotifyWidget track={spotifyData} error={spotifyError} />
+          </section>
 
-        <section className={styles.copyrightContainer}>
+          <section className={styles.copyrightContainer}>
+            <span>&copy; 2021</span>
+          </section>
+
+          <section className={styles.secondaryWidgetContainer}>
+            <WeatherbitWidget data={weatherData} error={weatherError} />
+          </section>
+        </span>
+
+        <section className={styles.mobileCopyrightContainer}>
           <span>&copy; 2021</span>
         </section>
-
-        <section className={styles.secondaryWidgetContainer}>
-          <WeatherbitWidget data={weatherData} error={weatherError} />
-        </section>
-      </span>
-
-      <section className={styles.mobileCopyrightContainer}>
-        <span>&copy; 2021</span>
-      </section>
+      </FooterContentLayout>
     </footer>
   );
 };

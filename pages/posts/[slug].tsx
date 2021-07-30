@@ -81,10 +81,7 @@ const Post: React.FC<{ post: GhostPost }> = (props) => {
           </div>
 
           <article className={styles.titleContainer}>
-            <h1 className={styles.title}>
-              Classifying Experimental Graphic Design Trends with Vision,
-              CoreML, AVKit, and JSDOM
-            </h1>
+            <h1 className={styles.title}>{post?.title}</h1>
 
             <section className={styles.postInfoContainer}>
               <div className={styles.byLineContainer}>
@@ -103,13 +100,7 @@ const Post: React.FC<{ post: GhostPost }> = (props) => {
             </section>
 
             <section>
-              <h2 className={styles.subtitle}>
-                Aliquam hendrerit maximus congue. Quisque convallis, felis ac
-                iaculis porta, ante ligula euismod sapien, et molestie arcu eros
-                at lacus. Nunc eget orci convallis felis fringilla gravida,
-                consequat pretium mi. Quisque convallis, felis ac iaculis porta,
-                ante ligula.
-              </h2>
+              <h2 className={styles.subtitle}>{post?.custom_excerpt}</h2>
             </section>
           </article>
 

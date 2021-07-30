@@ -87,10 +87,16 @@
   }
 
   .logotypeImage {
-    height: unset;
+    height: 1.75rem;
   }
 
   .logotypeImage {
     mask: url("/images/index/logotype-mobile.svg") 0 0 / contain no-repeat;
+  }
+}
+
+@media (max-width: 640px) {
+  .logotypeImage {
+    height: unset;
   }
 }
