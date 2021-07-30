@@ -244,4 +244,8 @@
     line-height: 2.35rem;
     padding-bottom: 0.5rem;
   }
+
+  .postBody pre {
+    font-size: 0.85rem;
+  }
 }

@@ -37,13 +37,6 @@ function MyApp({ Component, pageProps }) {
     router.events.on("routeChangeStart", routeChangeStart);
     router.events.on("routeChangeComplete", routeChangeComplete);
     router.events.on("routeChangeError", routeChangeComplete);
-    router.events.on("routeChangeComplete", () => {
-      window.scroll({
-        top: 0,
-        left: 0,
-        behavior: "smooth",
-      });
-    });
 
     return () => {
       router.events.off("routeChangeStart", routeChangeStart);
