@@ -18,7 +18,7 @@ const FeatureSectionProjectPost: React.FC<FeatureSectionProjectPostProps> = ({
 }) => {
   return (
     <Link href={formatProjectUrl(html)}>
-      <a>
+      <a target="_blank" rel="noopener noreferrer">
         <article className={styles.container}>
           <section className={styles.headerSectionContainer}>
             <article className={styles.headerContainer}>
