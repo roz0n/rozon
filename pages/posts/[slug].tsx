@@ -9,7 +9,7 @@ import { getPostBySlug } from "../../lib/ghost";
 import hljs from "highlight.js/lib/core";
 import swift from "highlight.js/lib/languages/swift";
 import { formatDateToLocale } from "../../utils/dateUtils";
-import CommentsIcon from "../../components/Icons/CommentsIcon";
+// import CommentsIcon from "../../components/Icons/CommentsIcon";
 // TODO: This could be its own component, e.g. not tied to `FeatureSection`
 import FeatureSectionEmptyState from "../../components/FeatureSection/FeatureSectionEmptyState";
 import { ChatAlt2Icon } from "@heroicons/react/outline";
