@@ -68,6 +68,7 @@ export type FeatureSectionBlogPostProps = {
   slug: string;
   title: string;
   excerpt: string;
+  date: string;
 };
 
 export type FeatureSectionButtonProps = {

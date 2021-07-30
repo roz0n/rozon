@@ -1,11 +1,12 @@
 import styles from "../../styles/FeatureSection/FeatureSectionBlogPost.module.css";
 import Link from "next/link";
 import { FeatureSectionBlogPostProps } from "../..";
+import { formatDateToLocale } from "../../utils/dateUtils";
 
 const FeatureSectionBlogPost: React.FC<FeatureSectionBlogPostProps> = (
   props
 ) => {
-  const { slug, title, excerpt } = props;
+  const { slug, title, excerpt, date } = props;
 
   return (
     <article className={styles.container}>
@@ -16,7 +17,7 @@ const FeatureSectionBlogPost: React.FC<FeatureSectionBlogPostProps> = (
               <h1 className={styles.title}>{title}</h1>
             </a>
           </Link>
-          <div className={styles.date}>{new Date().toDateString()}</div>
+          <div className={styles.date}>{formatDateToLocale(date)}</div>
         </span>
       </section>
 

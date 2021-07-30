@@ -94,6 +94,7 @@ const Home: React.FC<IndexPageProps> = ({
                   slug={post.slug}
                   title={post.title}
                   excerpt={post.custom_excerpt}
+                  date={post.published_at}
                 />
               ))}
               {/* <Link

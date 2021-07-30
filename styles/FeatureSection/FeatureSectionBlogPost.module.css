@@ -17,6 +17,8 @@
 .date {
   margin-bottom: 1rem;
   color: var(--site-main-text);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.95rem;
 }
 
 .excerpt {
