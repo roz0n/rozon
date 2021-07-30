@@ -102,12 +102,13 @@
 }
 
 .postDisplayImageContainer {
-  /* TODO: Remove height value, this should be sized to image */
-  height: 600px;
-  background-color: var(--site-item-hover);
   border-radius: 0.75rem;
   margin-top: 2rem;
   margin-bottom: 2rem;
+}
+
+.postDisplayImage {
+  border-radius: 0.75rem;
 }
 
 .postDisplayImageCaption {

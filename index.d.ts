@@ -142,4 +142,5 @@ export type GhostPost = {
   reading_time: string;
   published_at: string;
   html?: string;
+  feature_image?: string;
 };

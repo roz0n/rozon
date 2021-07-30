@@ -2,7 +2,8 @@ import styles from "../../styles/Pages/Post/Post.module.css";
 import { GhostPost } from "../../index";
 import { useEffect, useContext } from "react";
 // import { ThemeContext } from "../_app";
-import Link from "next/link";
+// import Link from "next/link";
+import Image from "next/image";
 import { useRouter } from "next/router";
 import { getPostBySlug } from "../../lib/ghost";
 import hljs from "highlight.js/lib/core";
@@ -41,7 +42,6 @@ const PostSkeletonLoader = () => {
     <div className={styles.skeletonContainer}>
       <BarSkeletonLoader height="1rem" width="6.25rem" />
       <BarSkeletonLoader height="6.25rem" width="100%" />
-      <BarSkeletonLoader height="1rem" width="7.813rem" />
       <BarSkeletonLoader height="1rem" width="7.813rem" />
       <BarSkeletonLoader height="4.688rem" width="100%" />
       <BarSkeletonLoader height="31.25rem" width="100%" />
@@ -116,7 +116,14 @@ const Post: React.FC<{ post: GhostPost }> = (props) => {
             </article>
 
             <figure className={styles.postDisplayImageContainer}>
-              {/* <Image alt="This blog post's display image" /> */}
+              <Image
+                alt="This blog post's display image"
+                src={post?.feature_image}
+                width={"1200px"}
+                height={"630px"}
+                quality={100}
+                className={styles.postDisplayImage}
+              />
               {/* <figcaption>Fig.1 - Trulli, Puglia, Italy.</figcaption> */}
             </figure>
             {/* <figcaption className={styles.postDisplayImageCaption}>
