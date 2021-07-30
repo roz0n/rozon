@@ -1,8 +1,6 @@
 .container {
   width: 100%;
   max-width: 75rem;
-  display: flex;
-  flex-direction: row;
   margin: 0px auto;
   padding: 0 2rem;
 }
