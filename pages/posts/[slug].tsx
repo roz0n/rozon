@@ -5,9 +5,9 @@ import { useEffect, useContext } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { getPostBySlug } from "../../lib/ghost";
-import { DateTime } from "luxon";
 import hljs from "highlight.js/lib/core";
 import swift from "highlight.js/lib/languages/swift";
+import { formatDateToLocale } from "../../utils/dateUtils";
 import CommentsIcon from "../../components/Icons/CommentsIcon";
 // TODO: This could be its own component, e.g. not tied to `FeatureSection`
 import FeatureSectionEmptyState from "../../components/FeatureSection/FeatureSectionEmptyState";
@@ -69,14 +69,6 @@ const Post: React.FC<{ post: GhostPost }> = (props) => {
     hljs.highlightAll();
   }, [post]);
 
-  // Helpers
-  function formatDate(timestamp: string): string {
-    const date = DateTime.fromISO(timestamp);
-    const month = date.toLocaleString(DateTime.DATETIME_FULL);
-
-    return `${month}`;
-  }
-
   if (router.isFallback) {
     return (
       <ContentLayout>
@@ -94,7 +86,7 @@ const Post: React.FC<{ post: GhostPost }> = (props) => {
         <ContentLayout>
           <div className={styles.postContainer}>
             <div className={styles.categoryContainer}>
-              <p>Development</p>
+              <p>Engineering</p>
             </div>
 
             <article className={styles.titleContainer}>
@@ -104,7 +96,7 @@ const Post: React.FC<{ post: GhostPost }> = (props) => {
                 <div className={styles.byLineContainer}>
                   {/* <p className={styles.byLine}>By Arnold Rozon</p> */}
                   <p className={styles.byLine}>
-                    {formatDate(post?.published_at)}
+                    {formatDateToLocale(post?.published_at)}
                   </p>
                 </div>
 
