@@ -20,7 +20,7 @@
   padding: 0;
   border: 1px solid var(--section-borders);
   background-color: transparent;
-  color: var(--site-main-text);
+  color: var(--theme-main-text);
   padding: 0.5rem 1.25rem;
   border-radius: 100px;
   font-weight: 500;
@@ -78,7 +78,7 @@
 
 .searchInputField {
   background-color: transparent;
-  color: var(--site-bg);
+  color: var(--theme-bg);
   padding: 0.75rem 1.25rem;
   border: 0;
   border: 1px solid var(--section-borders);
@@ -88,7 +88,7 @@
 }
 
 .searchInputField::placeholder {
-  color: var(--site-main-ph-text);
+  color: var(--theme-main-ph-text);
   font-family: "Inter", sans-serif;
 }
 
@@ -134,7 +134,7 @@
 
 .contentSubheader {
   font-size: 1rem;
-  color: var(--site-sub-text);
+  color: var(--theme-sub-text);
 }
 
 .resultsListContainer {
@@ -143,7 +143,7 @@
 }
 
 .resultsListHeader {
-  color: var(--site-sub-text);
+  color: var(--theme-sub-text);
   border-bottom: 1px solid var(--section-borders);
   font-size: 1rem;
   font-weight: 600;

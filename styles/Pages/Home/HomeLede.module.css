@@ -5,12 +5,12 @@
 }
 
 .header {
-  color: var(--site-main-text);
+  color: var(--theme-main-text);
   margin-bottom: 1rem;
 }
 
 .subheader {
-  color: var(--site-sub-text);
+  color: var(--theme-sub-text);
 }
 
 @media (max-width: 767.98px) {

@@ -11,12 +11,12 @@
 }
 
 .container:hover {
-  background-color: var(--site-item-hover);
+  background-color: var(--theme-item-hover);
   cursor: pointer;
 }
 
 .container svg {
-  fill: var(--site-main-text);
+  fill: var(--theme-main-text);
 }
 
 @media (max-width: 830px) {

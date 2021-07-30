@@ -16,8 +16,8 @@
 }
 
 .container:hover .countContainer {
-  color: var(--site-chip-bg-hover);
-  background-color: var(--site-chip-text-hover);
+  color: var(--theme-chip-bg-hover);
+  background-color: var(--theme-chip-text-hover);
 }
 
 .container:hover .nameContainer {

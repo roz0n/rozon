@@ -23,8 +23,8 @@ body {
   padding: 0;
   margin: 0;
   font-family: "Inter", sans-serif;
-  background-color: var(--site-bg);
-  color: var(--site-main-text);
+  background-color: var(--theme-bg);
+  color: var(--theme-main-text);
   margin: 0 auto;
   height: 100%;
 }
@@ -62,9 +62,9 @@ img {
 
 input:-webkit-autofill {
   background-color: transparent !important;
-  box-shadow: 0 0 0 50px var(--site-bg) inset;
-  -webkit-box-shadow: 0 0 0 50px var(--site-bg) inset;
-  -webkit-text-fill-color: var(--site-main-text);
+  box-shadow: 0 0 0 50px var(--theme-bg) inset;
+  -webkit-box-shadow: 0 0 0 50px var(--theme-bg) inset;
+  -webkit-text-fill-color: var(--theme-main-text);
   border-top-right-radius: 1.5rem;
   border-top-left-radius: 1.5rem;
   border-bottom: 1px solid var(--section-borders);

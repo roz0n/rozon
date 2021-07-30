@@ -1,7 +1,7 @@
 .button {
   border: 1px solid var(--section-borders);
   background-color: transparent;
-  color: var(--site-main-text);
+  color: var(--theme-main-text);
   padding: 0.75rem 1.5rem;
   border-radius: 100px;
   margin: 0.5rem;
@@ -21,7 +21,7 @@
 }
 
 .button:hover {
-  background-color: var(--site-item-hover);
+  background-color: var(--theme-item-hover);
 }
 
 .selectedButton {

@@ -8,7 +8,7 @@
 .title {
   font-size: 0.75rem;
   font-weight: 600;
-  color: var(--site-sub-text);
+  color: var(--theme-sub-text);
   text-align: right;
   margin-bottom: 0.75rem;
 }
@@ -35,7 +35,7 @@
   justify-content: flex-end;
   font-size: 0.75rem;
   font-weight: 500;
-  color: var(--site-main-text);
+  color: var(--theme-main-text);
 }
 
 @media (max-width: 767.98px) {

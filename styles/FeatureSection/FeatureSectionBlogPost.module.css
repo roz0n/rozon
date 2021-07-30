@@ -6,7 +6,7 @@
   font-size: 1.5rem;
   font-weight: 500;
   margin-bottom: 1rem;
-  color: var(--site-main-text);
+  color: var(--theme-main-text);
 }
 
 .title:hover {
@@ -16,13 +16,13 @@
 
 .date {
   margin-bottom: 1rem;
-  color: var(--site-main-text);
+  color: var(--theme-main-text);
 }
 
 .excerpt {
   font-size: 1rem;
   line-height: 1.55rem;
-  color: var(--site-sub-text);
+  color: var(--theme-sub-text);
   margin-right: 4rem;
 }
 

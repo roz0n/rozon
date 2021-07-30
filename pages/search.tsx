@@ -155,7 +155,7 @@ const Search: React.FC<SearchPageProps> = ({
               <AdjustmentsIcon
                 width={20}
                 height={20}
-                fill={"var(--site-main-text"}
+                fill={"var(--theme-main-text"}
               />
             </span>
             <button
@@ -185,7 +185,7 @@ const Search: React.FC<SearchPageProps> = ({
               <SearchIcon
                 width={18}
                 height={18}
-                stroke={"var(--site-main-text"}
+                stroke={"var(--theme-main-text"}
               />
             </span>
             <input
@@ -201,7 +201,7 @@ const Search: React.FC<SearchPageProps> = ({
               className={styles.clearIconWrapper}
               onClick={handleClearButton}
             >
-              <XIcon width={18} height={18} fill={"var(--site-main-text"} />
+              <XIcon width={18} height={18} fill={"var(--theme-main-text"} />
             </span>
           </article>
         </header>
