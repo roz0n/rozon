@@ -2,7 +2,6 @@
   color: var(--theme-main-text);
   padding: 1.5rem 0;
   border-top: 1px solid var(--section-borders);
-  background-color: var(--theme-footer-bg);
 }
 
 .gridContainer {
