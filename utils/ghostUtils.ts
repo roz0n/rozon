@@ -1,5 +1,5 @@
 import VeximojiIcon from "../public/images/projects/veximoji-app-icon.svg";
-import TrendeyeIcon from "../public/images/projects/trendeye-app-icon.svg";
+import TrendeyeIcon from "../public/images/projects/trendeye-app-icon.png";
 import { PROJECTS, POSTS } from "./constants";
 
 export function formatProjectUrl(ghostString: string) {
