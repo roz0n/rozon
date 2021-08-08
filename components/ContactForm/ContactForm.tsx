@@ -214,7 +214,7 @@ const ContactForm: React.FC = (props) => {
             <h3 className={styles.header}>{text.contactFormHeader["en"]}</h3>
             <small className={styles.subheader}>
               Select the nature of your inquiry below. I&#39;ll do my best to
-              respond soon <i>(-ish)</i>.
+              respond soon.
             </small>
           </article>
 
@@ -307,7 +307,7 @@ const ContactForm: React.FC = (props) => {
           <article className={styles.headerContainer}>
             <h3 className={styles.header}>I&#39;ve received your inquiry!</h3>
             <small className={styles.subheader}>
-              As promised, I&#39;ll get back to you soon <i>(-ish)</i>.
+              As promised, I&#39;ll get back to you soon.
             </small>
           </article>
           <ContactFormButton label={"Close"} onClick={handleReset} />

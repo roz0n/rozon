@@ -10,6 +10,7 @@ const Footer: React.FC = (props) => {
   const [spotifyData, setSpotifyData] = useState(null);
   const [spotifyError, setSpotifyError] = useState(false);
   const [weatherError, setWeatherError] = useState(false);
+  const [isExplicit, setIsExplicit] = useState(false);
 
   // Fetch Weatherbit Data
   useEffect(() => {
@@ -54,6 +55,10 @@ const Footer: React.FC = (props) => {
           const previewUrl = lastPlayedTrack.track.preview_url || null;
           const artworkUrl = lastPlayedTrack.track.album.images[0].url;
 
+          if (lastPlayedTrack.track.explicit) {
+            setIsExplicit(lastPlayedTrack.track.explicit);
+          }
+
           return setSpotifyData({
             name,
             artist,
@@ -75,7 +80,11 @@ const Footer: React.FC = (props) => {
       <FooterContentLayout>
         <span className={styles.gridContainer}>
           <section className={styles.primaryWidgetContainer}>
-            <SpotifyWidget track={spotifyData} error={spotifyError} />
+            <SpotifyWidget
+              track={spotifyData}
+              error={spotifyError}
+              explicit={isExplicit}
+            />
           </section>
 
           <section className={styles.copyrightContainer}>

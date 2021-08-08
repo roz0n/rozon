@@ -95,6 +95,7 @@ export type WeatherbitWidgetProps = {
 
 export type SpotifyWidgetProps = {
   track?: SpotifyTrack;
+  explicit?: boolean;
   error?: boolean;
 };
 

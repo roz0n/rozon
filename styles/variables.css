@@ -14,6 +14,7 @@
   /* --theme-bg: #0a0a0c; */
   --theme-main-text: #efefef;
   --theme-sub-text: #98a3b3;
+  --theme-text-shadow: #00000080;
   --theme-main-ph-text: #626973;
   --theme-item-hover: #21262d;
   --theme-item-hover-alpha: #21262d75;
@@ -33,6 +34,8 @@
 
   /* Code */
   --code-snippet-bg: #21262d45;
+  --code-tag-bg: #efefef;
+  --code-tag-text: #0b0c0e;
 }
 
 [data-display="light"] {
@@ -40,6 +43,7 @@
   --theme-bg: #efefef;
   --theme-main-text: #353535;
   --theme-sub-text: #54535f;
+  --theme-text-shadow: #2323231f;
   --theme-main-ph-text: #626973;
   --theme-item-hover: #c4cddb55;
   --theme-item-hover-alpha: #c4cddb75;
@@ -58,5 +62,8 @@
   --theme-rule-hover: #d5d5d5;
 
   /* Code */
-  --code-snippet-bg: #c4cddb45;
+  /* --code-snippet-bg: #c4cddb45; */
+  --code-snippet-bg: #191919;
+  --code-tag-bg: #191919;
+  --code-tag-text: #efefef;
 }

@@ -28,6 +28,9 @@
 }
 
 .header {
+  font-size: 1.5rem;
+  font-family: "Panchang-Bold";
+  text-transform: uppercase;
   margin-bottom: 1rem;
 }
 

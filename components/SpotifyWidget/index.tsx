@@ -5,6 +5,7 @@ import Image from "next/image";
 import PlayIcon from "../Icons/PlayIcon";
 import PauseIcon from "../Icons/PauseIcon";
 import SpotifyIcon from "../Icons/SpotifyIcon";
+import ExplicitIcon from "../Icons/ExplicitIcon";
 import AnimatedEqualizerIcon from "../../public/images/index/animated-equalizer.gif";
 import {
   UserIcon,
@@ -12,7 +13,11 @@ import {
   PhotographIcon,
 } from "@heroicons/react/solid";
 
-const SpotifyWidget: React.FC<SpotifyWidgetProps> = ({ track, error }) => {
+const SpotifyWidget: React.FC<SpotifyWidgetProps> = ({
+  track,
+  explicit,
+  error,
+}) => {
   const [previewTrack, setPreviewTrack] = useState(null);
   const [previewTrackState, setPreviewTrackState] = useState<boolean>(false);
 
@@ -94,6 +99,11 @@ const SpotifyWidget: React.FC<SpotifyWidgetProps> = ({ track, error }) => {
                 <MusicNoteIcon height={12} width={12} />
               </span>
               <p className={styles.trackInfoText}>{track.name}</p>
+              {explicit && (
+                <span className={styles.trackExplicitIcon}>
+                  <ExplicitIcon height={12} width={12} />
+                </span>
+              )}
             </article>
           )}
           {track.artist && (
