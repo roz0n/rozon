@@ -8,6 +8,9 @@
 .headerContainer {
   display: grid;
   grid-template-rows: 1rem auto;
+  font-family: "Panchang-Bold";
+  text-transform: uppercase;
+  margin-bottom: 0.25rem;
 }
 
 .headerContainer img {
