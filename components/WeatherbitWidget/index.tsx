@@ -11,7 +11,11 @@ const WeatherbitWidget: React.FC<WeatherbitWidgetProps> = ({ data, error }) => {
 
       <section className={styles.tempContainer}>
         <article className={styles.tempWrapper}>
-          <i className={`wi ${convertWeatherbitIcon(data[0].weather.code)}`} />
+          <span className={styles.tempIconContainer}>
+            <i
+              className={`wi ${convertWeatherbitIcon(data[0].weather.code)}`}
+            />
+          </span>
           <p>&nbsp;{Math.round(+data[0].temp)}&deg;</p>
         </article>
 
