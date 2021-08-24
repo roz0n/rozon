@@ -87,12 +87,9 @@ const Home: React.FC<IndexPageProps> = ({
                   date={post.published_at}
                 />
               ))}
-              <Link
-                href={{ pathname: "/all", query: { type: POSTS } }}
-                passHref
-              >
+              <Link href="posts" passHref>
                 <span>
-                  <FeatureSectionButton label={"View All"}>
+                  <FeatureSectionButton label={"View all posts"}>
                     <AnnotationIcon height={20} width={20} />
                   </FeatureSectionButton>
                 </span>

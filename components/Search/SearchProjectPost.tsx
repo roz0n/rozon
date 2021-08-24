@@ -21,7 +21,7 @@ const SearchProjectPost: React.FC<FeatureSectionProjectPostProps> = (props) => {
           </div>
 
           <div className={styles.titleContainer}>
-            <Link href={"/posts/[slug]"} as={`/posts/${slug}`}>
+            <Link href={"/post/[slug]"} as={`/post/${slug}`}>
               <a>
                 <h3 className={styles.title}>{title}</h3>
               </a>

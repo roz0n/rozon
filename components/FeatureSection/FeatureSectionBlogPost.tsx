@@ -12,7 +12,7 @@ const FeatureSectionBlogPost: React.FC<FeatureSectionBlogPostProps> = (
     <article className={styles.container}>
       <section>
         <span>
-          <Link href={"/posts/[slug]"} as={`/posts/${slug}`}>
+          <Link href={"/post/[slug]"} as={`/post/${slug}`}>
             <a>
               <h1 className={styles.title}>{title}</h1>
             </a>

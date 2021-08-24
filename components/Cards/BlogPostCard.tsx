@@ -1,17 +1,24 @@
 import styles from "../../styles/Cards/BlogPostCard.module.css";
-import Image from "next/image";
+import { formatDateToLocale } from "../../utils/dateUtils";
+import Link from "next/dist/client/link";
 
-const BlogPostCard = ({ title, description, image }) => {
+const BlogPostCard = ({ slug, title, excerpt, date, image }) => {
   return (
     <article className={styles.container}>
-      <div className={styles.imageContainer}>
-        <Image src={image} width={300} height={157.5} />
-      </div>
+      <figure
+        className={styles.imageContainer}
+        style={{ backgroundImage: `url(${image})` }}
+      ></figure>
 
-      <div>
-        <h1>{title}</h1>
-        <p>{description}</p>
-      </div>
+      <section>
+        <Link href={"/post/[slug]"} as={`/post/${slug}`}>
+          <a>
+            <h1 className={styles.title}>{title}</h1>
+          </a>
+        </Link>
+        <p className={styles.date}>{formatDateToLocale(date)}</p>
+        <p className={styles.excerpt}>{excerpt}</p>
+      </section>
     </article>
   );
 };
