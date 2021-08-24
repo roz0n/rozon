@@ -65,16 +65,6 @@ const Home: React.FC<IndexPageProps> = ({
                 />
               ))}
             </div>
-            {/* <Link
-              href={{ pathname: "/search", query: { type: PROJECTS } }}
-              passHref
-            >
-              <span>
-                <FeatureSectionButton label={"View Projects"}>
-                  <DesktopComputerIcon height={20} width={20} />
-                </FeatureSectionButton>
-              </span>
-            </Link> */}
           </>
         ) : (
           <FeatureSectionEmptyState
@@ -97,16 +87,16 @@ const Home: React.FC<IndexPageProps> = ({
                   date={post.published_at}
                 />
               ))}
-              {/* <Link
-                href={{ pathname: "/search", query: { type: POSTS } }}
+              <Link
+                href={{ pathname: "/all", query: { type: POSTS } }}
                 passHref
               >
                 <span>
-                  <FeatureSectionButton label={"View Posts"}>
+                  <FeatureSectionButton label={"View All"}>
                     <AnnotationIcon height={20} width={20} />
                   </FeatureSectionButton>
                 </span>
-              </Link> */}
+              </Link>
             </>
           ) : (
             <FeatureSectionEmptyState

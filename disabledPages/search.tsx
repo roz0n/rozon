@@ -1,5 +1,5 @@
 import styles from "../styles/Pages/Search/Search.module.css";
-import { SearchPageProps } from "../";
+import { SearchPageProps } from "..";
 import { getPostsByPrimaryTag, getAllTags } from "../lib/ghost";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";

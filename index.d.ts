@@ -131,6 +131,15 @@ export type SearchPageProps = {
   tagsError?: boolean;
 };
 
+// Posts
+
+export type AllPageProps = {
+  projects?: PostsOrPages;
+  posts?: PostsOrPages;
+  projectsError?: boolean;
+  postsError?: boolean;
+};
+
 /**
  * Backend
  */

@@ -10,7 +10,7 @@ import "../public/fonts/inter/css/inter.css";
 import "../public/fonts/weathericons/weather-icons.min.css";
 import "../public/fonts/ibm-plex-mono/css/ibm-plex-mono.css";
 // Deps
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import NProgress from "nprogress";
 import Head from "next/head";
