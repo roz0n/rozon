@@ -1,7 +1,7 @@
 .container {
-  color: var(--theme-main-text);
+  color: var(--main-text);
   padding: 1.5rem 0;
-  border-top: 1px solid var(--section-borders);
+  border-top: 1px solid var(--borders);
 }
 
 .gridContainer {
@@ -46,7 +46,7 @@
   .gridContainer {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    border-top: 1px solid var(--section-borders);
+    border-top: 1px solid var(--borders);
     padding: 0;
     width: 100%;
   }
@@ -57,7 +57,7 @@
     width: 100%;
     height: 100%;
     padding: 1.5rem 0;
-    border-bottom: 1px solid var(--section-borders);
+    border-bottom: 1px solid var(--borders);
   }
 
   .primaryWidgetContainer {

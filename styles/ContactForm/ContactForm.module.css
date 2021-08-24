@@ -5,7 +5,7 @@
   padding: 7.5rem;
   font-family: "Inter", sans-serif;
   font-size: 1.5rem;
-  border-top: 1px solid var(--section-borders);
+  border-top: 1px solid var(--borders);
 }
 
 .secondaryMessageContainer {
@@ -35,7 +35,7 @@
 }
 
 .subheader {
-  color: var(--theme-sub-text);
+  color: var(--sub-text);
   font-size: 1rem;
   padding-right: 1rem;
   padding-left: 1rem;
@@ -43,7 +43,7 @@
 
 .formContainer {
   width: 100%;
-  border: 1px solid var(--section-borders);
+  border: 1px solid var(--borders);
   border-radius: 1.75rem;
 }
 
@@ -69,8 +69,8 @@
   padding: 1.5rem;
   font-size: 1rem;
   outline: none;
-  color: var(--theme-main-text);
-  border-bottom: 1px solid var(--section-borders);
+  color: var(--main-text);
+  border-bottom: 1px solid var(--borders);
 }
 
 .inquiryField {
@@ -80,11 +80,11 @@
   padding: 1.5rem;
   font-size: 1rem;
   outline: none;
-  color: var(--theme-main-text);
+  color: var(--main-text);
   resize: none;
   font-family: "Inter", sans-serif;
   line-height: 1.5rem;
-  border-bottom: 1px solid var(--section-borders);
+  border-bottom: 1px solid var(--borders);
   min-height: 148px;
 }
 
@@ -98,10 +98,10 @@
 
 .submitButtonInactive {
   background-color: transparent;
-  border: 1px solid var(--section-borders);
+  border: 1px solid var(--borders);
   padding: 1rem 1.5rem;
   border-radius: 0.875rem;
-  color: var(--theme-main-text);
+  color: var(--main-text);
   font-weight: 500;
   font-size: 1rem;
   cursor: not-allowed;
@@ -111,10 +111,10 @@
 
 .submitButtonActive {
   background-color: transparent;
-  border: 1px solid var(--section-borders);
+  border: 1px solid var(--borders);
   padding: 1rem 1.5rem;
   border-radius: 0.875rem;
-  color: var(--theme-main-text);
+  color: var(--main-text);
   font-weight: 500;
   font-size: 1rem;
   opacity: 1;
@@ -130,7 +130,7 @@
 
 .emailField::placeholder,
 .inquiryField::placeholder {
-  color: var(--theme-main-ph-text);
+  color: var(--placeholder-text);
 }
 
 @media (max-width: 970px) and (max-width: 767.98px) {
@@ -178,10 +178,10 @@
     font-size: 0.95rem;
     padding: 1rem;
     border-radius: 0.865rem;
-    border: 1px solid var(--section-borders);
+    border: 1px solid var(--borders);
     margin-bottom: 1.5rem;
     background-color: transparent;
-    color: var(--theme-main-text);
+    color: var(--main-text);
     font-family: "Inter", sans-serif;
   }
 

@@ -1,23 +1,23 @@
 .container {
   padding: 1.25rem;
-  border: 1px solid var(--section-borders);
+  border: 1px solid var(--borders);
   border-radius: 0.865rem;
   min-height: 225px;
 }
 
 .container:hover {
-  background-color: var(--theme-item-hover-alpha);
+  background-color: var(--item-hover-alpha);
   cursor: pointer;
 }
 
 .container:hover .headerSectionContainer {
-  border-color: var(--section-borders);
-  color: var(--theme-main-text);
+  border-color: var(--borders);
+  color: var(--main-text);
 }
 
 .container:hover .tagChip {
-  background-color: var(--theme-chip-bg-hover);
-  color: var(--theme-chip-text-hover);
+  background-color: var(--chip-background-hover);
+  color: var(--chip-text-hover);
 }
 
 .title {
@@ -30,14 +30,14 @@
 .excerpt {
   font-size: 1rem;
   line-height: 1.55rem;
-  color: var(--theme-sub-text);
+  color: var(--sub-text);
 }
 
 .headerSectionContainer {
   margin-bottom: 1.25rem;
-  border-bottom: 1px solid var(--section-borders);
+  border-bottom: 1px solid var(--borders);
   padding-bottom: 1.5rem;
-  color: var(--theme-main-text);
+  color: var(--main-text);
 }
 
 .headerContainer {
@@ -67,8 +67,8 @@
   margin: 0;
   margin-right: 0.5rem;
   list-style-type: none;
-  background-color: var(--theme-chip-bg);
-  color: var(--theme-main-text);
+  background-color: var(--chip-background);
+  color: var(--main-text);
   padding: 0.25rem 0.65rem;
   border-radius: 6.25rem;
   font-family: "Inter", sans-serif;
