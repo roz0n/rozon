@@ -37,6 +37,7 @@
   justify-content: space-around;
   font-size: 1.15rem;
   margin-right: 0.25rem;
+  color: var(--theme-sub-text);
 }
 
 .cityContainer {
