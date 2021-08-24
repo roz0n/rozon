@@ -1,5 +1,5 @@
 .headerContainer {
-  border-bottom: 1px solid var(--section-borders);
+  border-bottom: 1px solid var(--borders);
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
@@ -18,9 +18,9 @@
   align-items: center;
   margin: 0;
   padding: 0;
-  border: 1px solid var(--section-borders);
+  border: 1px solid var(--borders);
   background-color: transparent;
-  color: var(--theme-main-text);
+  color: var(--main-text);
   padding: 0.5rem 1.25rem;
   border-radius: 100px;
   font-weight: 500;
@@ -35,7 +35,7 @@
 }
 
 .filterItemButtonSelected {
-  background-color: var(--section-borders);
+  background-color: var(--borders);
   box-sizing: border-box;
 }
 
@@ -78,17 +78,17 @@
 
 .searchInputField {
   background-color: transparent;
-  color: var(--theme-bg);
+  color: var(--background);
   padding: 0.75rem 1.25rem;
   border: 0;
-  border: 1px solid var(--section-borders);
+  border: 1px solid var(--borders);
   border-radius: 0.75rem;
   width: 100%;
   font-size: 1rem;
 }
 
 .searchInputField::placeholder {
-  color: var(--theme-main-ph-text);
+  color: var(--placeholder-text);
   font-family: "Inter", sans-serif;
 }
 
@@ -101,7 +101,7 @@
 
 .sidebarContainer {
   min-width: 14rem;
-  border-right: 1px solid var(--section-borders);
+  border-right: 1px solid var(--borders);
 }
 
 .sidebarTitle {
@@ -134,7 +134,7 @@
 
 .contentSubheader {
   font-size: 1rem;
-  color: var(--theme-sub-text);
+  color: var(--sub-text);
 }
 
 .resultsListContainer {
@@ -143,8 +143,8 @@
 }
 
 .resultsListHeader {
-  color: var(--theme-sub-text);
-  border-bottom: 1px solid var(--section-borders);
+  color: var(--sub-text);
+  border-bottom: 1px solid var(--borders);
   font-size: 1rem;
   font-weight: 600;
   padding-bottom: 0.75rem;

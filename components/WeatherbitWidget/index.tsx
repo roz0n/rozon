@@ -21,7 +21,7 @@ const WeatherbitWidget: React.FC<WeatherbitWidgetProps> = ({ data, error }) => {
 
         <article className={styles.cityContainer}>
           <p>
-            in {data[0].city_name}, {data[0].state_code}
+            in {data[0].city_name}, {data[0].state_code}, {data[0].country_code}
           </p>
         </article>
       </section>

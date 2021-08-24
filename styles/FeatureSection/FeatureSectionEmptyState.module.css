@@ -2,7 +2,7 @@
   padding: 3rem 1rem;
   margin-bottom: 1rem;
   text-align: center;
-  color: var(--theme-sub-text);
+  color: var(--sub-text);
   user-select: none;
   opacity: 0.5;
 }

@@ -17,5 +17,5 @@
 .subheader {
   font-size: 1rem;
   margin-bottom: 2rem;
-  color: var(--theme-sub-text);
+  color: var(--sub-text);
 }

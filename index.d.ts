@@ -83,6 +83,7 @@ export type WeatherDataObject = {
   temp: string;
   city_name: string;
   state_code: string;
+  country_code: string;
   weather: {
     code: number;
   };

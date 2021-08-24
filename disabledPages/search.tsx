@@ -155,7 +155,7 @@ const Search: React.FC<SearchPageProps> = ({
               <AdjustmentsIcon
                 width={20}
                 height={20}
-                fill={"var(--theme-main-text"}
+                fill={"var(--main-text"}
               />
             </span>
             <button
@@ -182,11 +182,7 @@ const Search: React.FC<SearchPageProps> = ({
 
           <article className={styles.searchContainer}>
             <span className={styles.searchIconWrapper}>
-              <SearchIcon
-                width={18}
-                height={18}
-                stroke={"var(--theme-main-text"}
-              />
+              <SearchIcon width={18} height={18} stroke={"var(--main-text"} />
             </span>
             <input
               className={styles.searchInputField}
@@ -201,7 +197,7 @@ const Search: React.FC<SearchPageProps> = ({
               className={styles.clearIconWrapper}
               onClick={handleClearButton}
             >
-              <XIcon width={18} height={18} fill={"var(--theme-main-text"} />
+              <XIcon width={18} height={18} fill={"var(--main-text"} />
             </span>
           </article>
         </header>

@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   font-weight: 600;
-  border-bottom: 1px solid var(--section-borders);
+  border-bottom: 1px solid var(--borders);
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
@@ -30,7 +30,7 @@
   font-size: 1rem;
   font-weight: 500;
   margin-bottom: 1rem;
-  color: var(--theme-sub-text);
+  color: var(--sub-text);
 }
 
 /* .titleContainer {
@@ -79,7 +79,7 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  fill: var(--theme-main-text);
+  fill: var(--main-text);
 }
 
 .postControlsContainer svg:hover {
@@ -98,7 +98,7 @@
   font-size: 1.25rem;
   line-height: 2rem;
   font-weight: 400;
-  color: var(--theme-sub-text);
+  color: var(--sub-text);
 }
 
 .postDisplayImageContainer {
@@ -113,8 +113,8 @@
 
 .postDisplayImageCaption {
   margin-bottom: 1.5rem;
-  color: var(--theme-sub-text);
-  border-bottom: 1px solid var(--section-borders);
+  color: var(--sub-text);
+  border-bottom: 1px solid var(--borders);
   padding-bottom: 1rem;
 }
 
@@ -132,7 +132,7 @@
 }
 
 .postBody pre {
-  background-color: var(--code-snippet-bg);
+  background-color: var(--code-snippet-background);
   /* border-top-right-radius: 0.375rem;
   border-top-left-radius: 0.375rem; */
   border-radius: 0.375rem;
@@ -152,7 +152,7 @@
   margin-top: 2rem;
   margin-bottom: 2rem;
   padding-left: 2rem;
-  color: var(--theme-sub-text);
+  color: var(--sub-text);
 }
 
 /* .postBody span[data-code-snippet] {
@@ -168,8 +168,8 @@
 }
 
 .postBody p[data-code-filename] {
-  border-top: 1px solid var(--theme-bg);
-  background-color: var(--theme-item-hover);
+  border-top: 1px solid var(--background);
+  background-color: var(--item-hover);
   border-bottom-right-radius: 0.375rem;
   border-bottom-left-radius: 0.375rem;
   padding-top: 0.5rem;
@@ -182,7 +182,7 @@
 }
 
 .postBody p > code {
-  background-color: var(--code-tag-bg);
+  background-color: var(--code-tag-background);
   color: var(--code-tag-text);
   padding: 0 0.25rem;
   border-radius: 0.25rem;
@@ -191,7 +191,7 @@
 .postBody :is(h1, h2, h3, h4, h5, h6) {
   font-weight: 500;
   margin: 1rem 0;
-  border-bottom: 1px solid var(--section-borders);
+  border-bottom: 1px solid var(--borders);
   padding-bottom: 1rem;
 }
 
@@ -222,7 +222,7 @@
 .commentsContainer {
   margin-top: 2rem;
   margin-bottom: 4rem;
-  border: 1px solid var(--section-borders);
+  border: 1px solid var(--borders);
   border-radius: 0.375rem;
 }
 

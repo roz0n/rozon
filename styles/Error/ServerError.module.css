@@ -22,5 +22,5 @@
 
 .subheader {
   font-size: 1.25rem;
-  color: var(--theme-sub-text);
+  color: var(--sub-text);
 }

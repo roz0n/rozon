@@ -32,7 +32,7 @@
   padding-left: 0.35rem;
   font-size: 0.75rem;
   font-weight: 600;
-  color: var(--theme-main-text);
+  color: var(--main-text);
 }
 
 .trackInfoContainer {
@@ -113,11 +113,11 @@
   min-height: 1rem;
   min-width: 1rem;
   margin-right: 0.5rem;
-  color: var(--theme-sub-text);
+  color: var(--sub-text);
 }
 
 .trackInfoText svg {
-  fill: var(--theme-sub-text);
+  fill: var(--sub-text);
 }
 
 .trackExplicitIcon {
@@ -129,5 +129,5 @@
 .trackExplicitIcon > svg {
   min-width: 12px;
   min-height: 12px;
-  fill: var(--theme-main-text);
+  fill: var(--main-text);
 }

@@ -16,8 +16,8 @@
 }
 
 .container:hover .countContainer {
-  color: var(--theme-chip-bg-hover);
-  background-color: var(--theme-chip-text-hover);
+  color: var(--chip-background-hover);
+  background-color: var(--chip-text-hover);
 }
 
 .container:hover .nameContainer {
@@ -30,7 +30,7 @@
 }
 
 .countContainer {
-  background-color: var(--section-borders);
+  background-color: var(--borders);
   border-radius: 6.25rem;
   padding: 0.25rem 1rem;
   align-self: flex-end;

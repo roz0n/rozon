@@ -8,7 +8,7 @@
 .title {
   font-size: 0.75rem;
   font-weight: 600;
-  color: var(--theme-sub-text);
+  color: var(--sub-text);
   text-align: right;
   margin-bottom: 0.75rem;
 }
@@ -37,6 +37,7 @@
   justify-content: space-around;
   font-size: 1.15rem;
   margin-right: 0.25rem;
+  color: var(--sub-text);
 }
 
 .cityContainer {
@@ -45,7 +46,7 @@
   justify-content: flex-end;
   font-size: 0.75rem;
   font-weight: 500;
-  color: var(--theme-main-text);
+  color: var(--main-text);
 }
 
 @media (max-width: 767.98px) {
