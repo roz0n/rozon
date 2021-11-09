@@ -74,7 +74,7 @@ const Home: React.FC<IndexPageProps> = ({
           </FeatureSectionEmptyState>
         )}
       </FeatureSection>
-      {!hidePosts && (
+      {/* {!hidePosts && (
         <FeatureSection title={text.secondaryFeatureSectionHeader["en"]}>
           {posts.length > 0 && !postsError ? (
             <>
@@ -103,7 +103,7 @@ const Home: React.FC<IndexPageProps> = ({
             </FeatureSectionEmptyState>
           )}
         </FeatureSection>
-      )}
+      )} */}
       <ContactForm />
     </main>
   );
