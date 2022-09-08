@@ -28,11 +28,11 @@ const navigationItems: HeaderNavigationItem[] = [
     alt: "A link to my LinkedIn page",
     url: "https://www.linkedin.com/in/rozon",
   },
-  {
-    icon: <TwitterIcon height={46} width={46} />,
-    alt: "A link to my Twitter account",
-    url: "https://www.twitter.com/roz0n",
-  },
+//   {
+//     icon: <TwitterIcon height={46} width={46} />,
+//     alt: "A link to my Twitter account",
+//     url: "https://www.twitter.com/roz0n",
+//   },
 ];
 
 const darkDisplayModeNavigationItem: HeaderNavigationItem = {
